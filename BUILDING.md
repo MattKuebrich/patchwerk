@@ -71,7 +71,7 @@ cd /tmp/patchwerk-site && python3 -m http.server 8000      # open http://localho
   factory patch instead of user patch 1 (patches survive reinstalling the firmware).
 - **It crashes at start twice:** the FM-1 starts in fm1-base's SAFE MODE (no sound, the updater works): install
   a fixed build, or the stock firmware, from there.
-- **The web page:** `./build.sh` (or `python3 web/build_page.py`) writes `patchwerk.fwsc` beside the page (web/build/ and the project folder) and the page fetches it, checking its SHA-256. Put the page and `patchwerk.fwsc` in the same folder when you host them; opened straight from disk, the page asks you to choose the file.
+- **The web page:** `./build.sh` (or `python3 web/build_page.py`) writes `patchwerk-vX.Y.Z.fwsc` (its version in the name) beside the page (web/build/ and the project folder) and the page fetches it, checking its SHA-256. Put the page and `patchwerk.fwsc` in the same folder when you host them; opened straight from disk, the page asks you to choose the file.
 - **Back to M-VAVE's firmware:** the installer page's last section writes it back.
 - **It won't start at all:** felucca-bsp's rescue puts the stock firmware back through the chip's own update mode:
 

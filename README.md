@@ -25,7 +25,7 @@ Connect a real FM-1 over USB (desktop Chrome or Edge) and the page and the unit 
 
 Open the [page](https://mattkuebrich.github.io/patchwerk/) in desktop Chrome or Edge, connect the FM-1 with a USB data cable, back up
 your projects and samples, and press **Install**. The same page puts M-VAVE's own firmware back. You can also download
-`patchwerk.fwsc` from the [Releases](https://github.com/MattKuebrich/patchwerk/releases) and choose it on the page.
+the `patchwerk-v….fwsc` file from the [Releases](https://github.com/MattKuebrich/patchwerk/releases) and choose it on the page.
 
 Unofficial: not made or endorsed by M-VAVE. Installing firmware is at your own risk; BUILDING.md has the rescue steps.
 
@@ -47,4 +47,5 @@ the [cheatsheet](https://mattkuebrich.github.io/patchwerk/cheatsheet.html) has t
 PATCHWERK is GPL-3.0-only (`LICENSE`). It is built on [fm1-base](https://github.com/charlesvestal/fm1-base) and
 [felucca-bsp](https://github.com/hugelton/felucca-bsp) (`base/`), whose files stay MPL-2.0 file by file (`base/LICENSING.md`). The CZ module
 is a port of Melodee's CZ engine (GPL-3.0, Kerem Kilic) and MAME's uPD933 model (BSD-3-Clause, Devin Acker). The FM-DX module is a
-port of ymfm's OPZ (YM2414) model and tables (BSD-3-Clause, Aaron Giles; `assets/dx/LICENSE-ymfm.txt`).
+port of ymfm's OPZ (YM2414) model and tables (BSD-3-Clause, Aaron Giles; `assets/dx/LICENSE-ymfm.txt`). The FM drums in sample
+bank C are from "hizmi - Hybrid Sample Pack 01".

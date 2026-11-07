@@ -464,7 +464,7 @@ footer { padding-block: 40px 40px; color: var(--faint); font-size: 12.5px; }
 <div class="wrap"><div class="inner">
   <div class="top">
     <div class="mark"><img src="__MARK_PNG__" width="__MARK_W__" height="__MARK_H__" alt="" aria-hidden="true">PATCHWERK <small style="color:var(--faint);font-weight:500;margin-left:6px">__PW_VERSION__</small></div>
-    <nav><a href="#play">Play</a><a href="#hardware">How it works</a><a href="#patcher">Patch bay</a><a href="#modules">Modules</a><a href="#samples">Samples</a><a href="#colors">Colors</a><a href="#backup">Backup</a><a href="#install">Install</a><a href="cheatsheet.html" target="_blank" rel="noopener">Cheatsheet</a></nav>
+    <nav><a href="#play">Play</a><a href="#hardware">How it works</a><a href="#patcher">Patch bay</a><a href="#modules">Modules</a><a href="#samples">Samples</a><a href="#colors">Colors</a><a href="#backup">Backup</a><a href="#install">Install</a><a href="cheatsheet.html" target="_blank" rel="noopener">Cheatsheet</a><a href="https://github.com/MattKuebrich/patchwerk" target="_blank" rel="noopener">Source</a></nav>
   </div>
   <div class="hero">
     <div>
@@ -571,10 +571,10 @@ footer { padding-block: 40px 40px; color: var(--faint); font-size: 12.5px; }
 <div class="wrap section" id="samples"><div class="inner">
   <h2>Sample banks</h2>
   <p class="lede">Four banks of eight sounds, A through D, shared by SAMPLER, GRANULAR and DRUM RACK.</p>
-  <p class="lede">Click a slot to load a sound, or drag and drop up to eight audio files onto a bank. <b>Trim</b> removes silence, and <b>Compress</b> reduces file size. <b>Factory</b> loads the 16 included sounds into two banks.</p>
+  <p class="lede">Click a slot to load a sound, or drag and drop up to eight audio files onto a bank. <b>Trim</b> removes silence, and <b>Compress</b> reduces file size. <b>Presets</b> load the included banks: A is an 808 kit, B a 909 kit, C FM drums and D a mix of odd sounds. Drum banks run kick, snare, clap, closed hat, open hat, tom, cowbell, crash, so pads 1&ndash;8 of a DRUM RACK line up.</p>
   <p class="lede">When connected to an FM-1, <b>Send</b> saves samples to its flash memory. You can also record directly on the FM-1 using AUDIO IN and SAMPLER.</p>
   <div id="bank-free" class="storage">Emulator bank</div>
-  <div class="bank-bar"><button class="tbtn" id="bank-factory" title="Copy the 16 factory sounds into A and B">Factory to A+B</button><button class="tbtn" id="bank-factory2" title="Copy the 16 factory sounds into C and D">Factory to C+D</button><button class="tbtn" id="bank-sendall" disabled title="Write every sound here into the FM-1's flash">Send all to the FM-1</button><button class="tbtn" id="bank-read" disabled>Read the FM-1's bank</button><button class="tbtn" id="bank-erase-snd" disabled title="Erase the sounds (A-D) on the FM-1. The CZ and FM-DX banks stay.">Erase sounds on the FM-1</button><button class="tbtn" id="bank-prune" disabled title="Remove the sounds on this page that are not on the FM-1 (they exist nowhere else)">Remove sounds not on the FM-1</button><button class="tbtn" id="bank-erase" disabled title="Erase every sound, CZ bank and FM-DX bank on the FM-1">Erase everything on the FM-1</button></div>
+  <div class="bank-bar"><button class="tbtn" id="bank-factory" title="Load the 808 kit into A and the 909 kit into B (replaces what is there)">808 + 909 to A+B</button><button class="tbtn" id="bank-factory2" title="Load the FM drums into C and the random sounds into D (replaces what is there)">FM + Random to C+D</button><button class="tbtn" id="bank-sendall" disabled title="Write every sound here into the FM-1's flash">Send all to the FM-1</button><button class="tbtn" id="bank-read" disabled>Read the FM-1's bank</button><button class="tbtn" id="bank-erase-snd" disabled title="Erase the sounds (A-D) on the FM-1. The CZ and FM-DX banks stay.">Erase sounds on the FM-1</button><button class="tbtn" id="bank-prune" disabled title="Remove the sounds on this page that are not on the FM-1 (they exist nowhere else)">Remove sounds not on the FM-1</button><button class="tbtn" id="bank-erase" disabled title="Erase every sound, CZ bank and FM-DX bank on the FM-1">Erase everything on the FM-1</button></div>
   <div class="banks">
     <div class="bankcol" id="bankcol1"><h3>A <small id="bank-sum1"></small><span class="sp"></span><button class="tbtn mini" data-clearbank="0" title="Clear the eight slots of A on this page">Clear bank</button><button class="tbtn mini" data-rmbank="0" hidden title="Remove the sounds of A from the FM-1">Remove from FM-1</button></h3><div class="bank" id="bank"></div></div>
     <div class="bankcol" id="bankcol2"><h3>B <small id="bank-sum2"></small><span class="sp"></span><button class="tbtn mini" data-clearbank="1" title="Clear the eight slots of B on this page">Clear bank</button><button class="tbtn mini" data-rmbank="1" hidden title="Remove the sounds of B from the FM-1">Remove from FM-1</button></h3><div class="bank" id="bank2"></div></div>
@@ -694,7 +694,7 @@ footer { padding-block: 40px 40px; color: var(--faint); font-size: 12.5px; }
       <label for="fw-file">Firmware file</label>
       <input type="file" id="fw-file" accept=".fwsc">
     </div>
-    <div class="flash-row"><span id="fw-what" class="small"></span><a class="tbtn" id="fw-dl" href="patchwerk.fwsc" download="patchwerk-__PW_VERSION__.fwsc">Download firmware __PW_VERSION__</a><button class="tbtn" type="button" id="fw-other" hidden>Use another file</button></div>
+    <div class="flash-row"><span id="fw-what" class="small"></span><a class="tbtn" id="fw-dl" href="patchwerk-__PW_VERSION__.fwsc" download="patchwerk-__PW_VERSION__.fwsc">Download firmware __PW_VERSION__</a><button class="tbtn" type="button" id="fw-other" hidden>Use another file</button></div>
     <div class="flash-row">
       <button class="btn power" type="button" id="fw-go" disabled>Install on FM-1</button>
       <progress id="fw-bar" max="100" value="0" aria-label="Install progress"></progress><span class="flash-pct" id="fw-pct" aria-hidden="true">0%</span>
@@ -732,7 +732,7 @@ cd /tmp/patchwerk-site &amp;&amp; python3 -m http.server 8000</pre></div></li>
   </details>
 </div></div>
 
-<div class="wrap"><div class="inner"><footer>PATCHWERK is GPL-3.0, built on fm1-base and felucca-bsp, from Felucca by Leo Kuroshita (Hügelton Instruments). Unofficial: M-VAVE and FM-1 are names of their owner, and this project is not affiliated with or endorsed by them.</footer></div></div>
+<div class="wrap"><div class="inner"><footer>PATCHWERK is GPL-3.0 (<a href="https://github.com/MattKuebrich/patchwerk" target="_blank" rel="noopener">source on GitHub</a>), built on fm1-base and felucca-bsp, from Felucca by Leo Kuroshita (Hügelton Instruments). The FM drums in sample bank C are from &ldquo;hizmi &ndash; Hybrid Sample Pack 01&rdquo;. Unofficial: M-VAVE and FM-1 are names of their owner, and this project is not affiliated with or endorsed by them.</footer></div></div>
 
 <script>
 /* One MIDI access (with SysEx) for the whole page (a global: the install's script and the emulator's both use it): the install, the update-mode test and the
@@ -1852,7 +1852,7 @@ function bankSave(i) {
       ...(s.zdev && s.z ? { z: b64.enc(s.z.bytes), zf: s.z.frames } : {}) }));
   } catch (e) { if (s) toast('Kept for this visit only: the browser\'s storage is full'); }
 }
-/* the factory sounds (tools/import_bank.py, from assets/samples): 1-13 drums, 14-16 VIBES, SOFT, FUTURE: the page's factory sounds; tools/gen_internal.mjs can build some into the firmware's INTERNAL bank (none for now) */
+/* the preset banks (tools/import_bank.py, from assets/samples): 1-8 A (808), 9-16 B (909), 17-24 C (FM drums), 25-32 D (random), each drum bank kick, snare, clap, closed hat, open hat, tom, cowbell, crash; tools/gen_internal.mjs can build some into the firmware's INTERNAL bank (none for now) */
 const FACTORY_BANK = /*__FACTORY_BANK__*/[];
 const VIS_IMAGES = /*__VIS_IMAGES__*/{};   /* each module's page on the FM-1's screen (web/vis, drawn by the firmware: tests/gen_vis.mjs) */
 function bankFactorySound(i) { const f = FACTORY_BANK[i]; if (!f) return null; const u = b64.dec(f.d); return { name: f.name, rate: f.rate, data: new Int16Array(u.buffer, 0, u.length >> 1), trim: false, comp: true }; }   /* (already shaped: not trimmed again) */
@@ -1870,16 +1870,16 @@ for (let i = 0; i < 40; i++) {
     if (j) { BANK.slots[i] = bankFromJson(j, i); bankInto(M, i, BANK.slots[i]); }
   } catch (e) { /* a damaged entry: left out */ }
 }
-/* before this version the 16 factory sounds were seeded into the bank (now A); they are no longer seeded, so a bank that is only them is cleared once */
+/* before 1.0 the 16 old factory sounds were seeded into the bank (now A); they are no longer seeded, so a bank that is only them is cleared once */
 if (!store.get('patchwerk-bank-internal')) {
   if (BANK.slots.slice(0, 16).every((s, i) => s && FACTORY_BANK[i] && s.name === FACTORY_BANK[i].name)) for (let i = 0; i < 16; i++) { BANK.slots[i] = null; bankInto(M, i, null); bankSave(i); }
   store.set('patchwerk-bank-internal', '1');
 }
 function bankFactory(base) {
-  const btn = base ? $('bank-factory2') : $('bank-factory'), pair = base ? 'C and D' : 'A and B';
-  if (!confirmBtn(btn, `Click again: replaces all 16 in ${pair}`)) return;
-  for (let k = 0; k < 16; k++) { const i = base + k; BANK.slots[i] = bankFactorySound(k); bankPush(i); bankSave(i); }
-  bankRender(); toast(`The 16 factory sounds are in ${pair}`);
+  const btn = base ? $('bank-factory2') : $('bank-factory'), pair = base ? 'C and D' : 'A and B', what = base ? 'The FM drums are in C and the random sounds in D' : 'The 808 kit is in A and the 909 kit in B';
+  if (!confirmBtn(btn, `Click again: replaces all 16 sounds in ${pair}`)) return;
+  for (let k = 0; k < 16; k++) { const i = base + k; BANK.slots[i] = bankFactorySound(k + (base ? 16 : 0)); bankPush(i); bankSave(i); }
+  bankRender(); toast(what);
 }
 /* what is on the FM-1, by kind: the sounds (A-D), the CZ banks, the FM-DX banks */
 const KIND_SLOTS = { 1: SOUND_SLOTS, 2: [16, 17, 18, 19], 3: [20, 21, 22, 23] };

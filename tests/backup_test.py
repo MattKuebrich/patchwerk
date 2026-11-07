@@ -32,7 +32,7 @@ async def main():
         await pg.click('#bank-factory'); await pg.click('#bank-factory'); await pg.wait_for_timeout(300)
         names16 = await pg.evaluate("[...document.querySelectorAll('#bank .bslot header span')].map((e) => e.textContent)")
         names8b = await pg.evaluate("[...document.querySelectorAll('#bank2 .bslot header span')].map((e) => e.textContent)")
-        check(names16[0] == 'BD' and names16[7] == 'TOM M' and names8b[0] == 'TOM H' and names8b[7] == 'FUTURE', f'Factory to A+B fills A and B ({names16[0]}, {names16[7]}, {names8b[0]}, {names8b[7]})')
+        check(names16[0] == '808 KICK' and names16[7] == '808 RIM' and names8b[0] == '909 KICK' and names8b[7] == '909 CYMBAL', f'808 + 909 to A+B fills A and B ({names16[0]}, {names16[7]}, {names8b[0]}, {names8b[7]})')
         await pg.evaluate("localStorage.removeItem('patchwerk-bank-internal')")
         await pg.reload(); await pg.wait_for_timeout(1500)
         names16 = await pg.evaluate("[...document.querySelectorAll('#bank .bslot header span')].map((e) => e.textContent)")
@@ -113,7 +113,7 @@ async def main():
         await pg.click('#bank-factory2'); await pg.click('#bank-factory2'); await pg.wait_for_timeout(400)
         nc = await pg.evaluate("[...document.querySelectorAll('#bank3 .bslot header span')].map((e) => e.textContent)")
         nd = await pg.evaluate("[...document.querySelectorAll('#bank4 .bslot header span')].map((e) => e.textContent)")
-        check(nc[0] == 'BD' and nd[7] == 'FUTURE', f'Factory to C+D ({nc[0]}, {nd[7]})')
+        check(nc[0] == 'FM KICK' and nc[7] == 'FM CRASH' and nd[0] == 'BOOM BRK' and nd[7] == 'VOICE OH', f'FM + Random to C+D ({nc[0]}, {nc[7]}, {nd[0]}, {nd[7]})')
         # Clear bank: one bank's eight slots, after a second click
         await pg.click('[data-clearbank="1"]'); await pg.wait_for_timeout(200)
         mid = await pg.evaluate("[...document.querySelectorAll('#bank2 .bslot header span')].filter((e) => e.textContent !== 'empty').length")

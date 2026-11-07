@@ -1,6 +1,6 @@
 #!/bin/bash
 # Double-click on a Mac: builds the firmware and the page, commits, pushes to GitHub (MattKuebrich/patchwerk), turns on
-# GitHub Pages the first time, and makes the release (tag, notes from CHANGELOG.txt, patchwerk.fwsc attached).
+# GitHub Pages the first time, and makes the release (tag, notes from CHANGELOG.txt, patchwerk-vX.Y.Z.fwsc attached).
 # First time: brew install gh, then gh auth login. Run it from the folder that holds this file.
 # To try it without changing anything on GitHub: ./publish.command --dry
 OWNER=MattKuebrich; REPO=patchwerk
@@ -31,8 +31,10 @@ bash ./build.sh || fail "the firmware build failed (see above)."
 [ -f app/build/patchwerk.fwsc ] || fail "app/build/patchwerk.fwsc was not made."
 echo "== Building the page (index.html) with that firmware beside it"
 NOPAUSE=1 bash ./build_web.command || fail "the page build failed (see above)."
-[ -f index.html ] && [ -f patchwerk.fwsc ] || fail "index.html or patchwerk.fwsc was not made."
-cmp -s app/build/patchwerk.fwsc patchwerk.fwsc || fail "patchwerk.fwsc beside the page is not the firmware just built."
+fw="patchwerk-v$ver.fwsc"
+[ -f index.html ] && [ -f "$fw" ] || fail "index.html or $fw was not made."
+cmp -s app/build/patchwerk.fwsc "$fw" || fail "$fw beside the page is not the firmware just built."
+[ -n "$DRY" ] || ls patchwerk*.fwsc | grep -vx "$fw" | while read -r old; do rm -f "$old"; done   # (one firmware in the repo: the page's)
 
 echo "== Git"
 newrepo=
@@ -60,7 +62,7 @@ fi
 echo "== Release v$ver"
 run git tag "v$ver" || fail "could not tag v$ver."
 run git push origin "v$ver" || fail "could not push the tag."
-run gh release create "v$ver" patchwerk.fwsc --repo "$OWNER/$REPO" --title "PATCHWERK $ver" --notes-file "$notes" || fail "could not make the release (the tag is pushed: make it on github.com, Releases)."
+run gh release create "v$ver" "$fw" --repo "$OWNER/$REPO" --title "PATCHWERK $ver" --notes-file "$notes" || fail "could not make the release (the tag is pushed: make it on github.com, Releases)."
 rm -f "$notes"
 echo
 echo "Done."

@@ -780,6 +780,11 @@ int app_expect(const char *what, int *got)
             for (unsigned l = 0; l < 4; l++) { unsigned a, b; n += pws.mod[i].used == 1 && pw_mseq_lock_of(&pws.mod[i], l, &a, &b); }
         *got = n;
     }
+    else if (!strncmp(what, "progress", 8)) {   /* "progress50": the transfer screen at 50% (for a shot) */
+        strcpy(bank_what, "B3 KICK");
+        pw_ui_progress("RECEIVING", bank_what, (unsigned)atoi(what + 8));
+        *got = 1;
+    }
     else if (!strcmp(what, "bankfree"))      /* the largest free gap in the bank's flash, in bytes */
         *got = (int)pw_bank_free();
     else if (!strcmp(what, "smp0")) {        /* A-1's loudest frame among 256 from frame 1000 (a compressed sound is decoded to read it) */

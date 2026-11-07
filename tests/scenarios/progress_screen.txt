@@ -1,0 +1,8 @@
+# the screen shown while a sound arrives over USB: the splash's five cables patched in as the transfer goes (shots only: it looks, it does not test)
+wait 2500
+expect progress0 1
+shot progress_0.png
+expect progress45 1
+shot progress_45.png
+expect progress100 1
+shot progress_100.png

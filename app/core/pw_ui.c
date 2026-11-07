@@ -965,7 +965,7 @@ int pw_ui_example_lines_xs(unsigned type) { const char *t = type < PW_T_COUNT ? 
 int pw_ui_example_lines(unsigned type) { const char *t = type < PW_T_COUNT ? pw_example_text(type) : 0; return t ? wrap_lines(t, F_S, ADD_HELP_W) : 0; }
 
 /* ------------------------------------------------------------------ pages */
-static void draw_boot(uint32_t el)   /* el: ms since power-on (the splash screen draws it finished) */
+static void draw_cables(uint32_t el)   /* the five cables of the splash, drawn in as far as el ms (1190 is all of them); the progress screen uses them as its bar */
 {
     const uint16_t c[5] = {cat_color[PW_C_SOURCE], cat_color[PW_C_FX], cat_color[PW_C_FILTER], cat_color[PW_C_MOD], C_AMBER};   /* (the chosen palette's: its first four groups and its accent) */
     static const uint8_t to[5] = {3, 4, 0, 1, 2};      /* which right-hand jack each left-hand jack is patched to */
@@ -989,21 +989,24 @@ static void draw_boot(uint32_t el)   /* el: ms since power-on (the splash screen
             int x = (side ? XB : XA) - 6, y = Y0 + (side ? to[i] : i) * DY - 6;
             fill(x + 2, y + 2, 8, 8, c[i]);
         }
+}
+static void draw_boot(uint32_t el)   /* el: ms since power-on (the splash screen draws it finished) */
+{
+    draw_cables(el);
     text_center(W / 2, 132, "PATCHWERK", F_L, C_WHITE);
     text_center(W / 2, 172, "a modular synth for the FM-1", F_S, C_DIM);
     text_center(W / 2, 192, PW_VERSION, F_S, C_AMBER);
 }
-/* a long job (a sample arriving over USB): its screen, sent at once */
+/* a long job (a sample arriving over USB): its screen, sent at once. The splash's five cables are the bar: they are patched in from left to right as it goes. */
 void pw_ui_progress(const char *what, const char *detail, unsigned percent)
 {
     n_prims = n_text = 0;
     fill(0, 0, W, H, C_BG);
-    text_center(W / 2, 70, what, F_M, C_TEXT);
-    if (detail) text_center(W / 2, 98, detail, F_S, C_DIM);
-    rfill(20, 130, 200, 16, C_PANEL2);
-    rfill(20, 130, clampi((int)(percent * 2u), 4, 200), 16, cat_color[PW_C_SOURCE]);
+    draw_cables((uint32_t)clampi((int)percent, 0, 100) * 1190u / 100u);
+    text_center(W / 2, 128, what, F_M, C_WHITE);
+    if (detail) text_center(W / 2, 156, detail, F_M, C_TEXT);
     char b[8]; char *o = s_int(b, (int)percent); s_cpy(o, "%");
-    text_center(W / 2, 160, b, F_S, C_DIM);
+    text_center(W / 2, 190, b, F_S, C_DIM);
     present();
     band_valid = 0;                /* the page is drawn whole again afterwards */
 }

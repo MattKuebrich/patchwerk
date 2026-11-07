@@ -42,16 +42,19 @@ html = html.replace('/*__VIS_IMAGES__*/{}', json.dumps(vis))
 for f in sorted((here/'shots').glob('*.png')) if (here/'shots').is_dir() else []:   # the FM-1's screens in the page's guide (renders of the firmware's own screen)
     html = html.replace('__SHOT_' + f.stem + '__', 'data:image/png;base64,' + base64.b64encode(f.read_bytes()).decode())
 fw = [f for f in (here.parent/'app/build').glob('patchwerk*.fwsc')] if (here.parent/'app/build').is_dir() else []
-if fw:   # the firmware you last built is its own file beside the page (patchwerk.fwsc); the page fetches it and checks its SHA-256
+if fw:   # the firmware you last built is its own file beside the page, named with its version (patchwerk-v1.0.1.fwsc); the page fetches it and checks its SHA-256
     import hashlib, shutil
     fw.sort(key=lambda f: f.stat().st_mtime)
     data = fw[-1].read_bytes()
-    meta = json.dumps({'pkg': 'patchwerk.fwsc', 'sha256': hashlib.sha256(data).hexdigest(), 'version': ver})
+    pkg_name = 'patchwerk-' + ver + '.fwsc'
+    meta = json.dumps({'pkg': pkg_name, 'sha256': hashlib.sha256(data).hexdigest(), 'version': ver})
     html = html.replace("'/*__FWSC__*/'", "'" + meta + "'")
     (here/'build').mkdir(exist_ok=True)
     for d in (here/'build', here.parent):   # next to the build files and next to emulator.html
-        (d/'patchwerk.fwsc').write_bytes(data)
-        (d/'patchwerk.fwsc.js').write_text('window.PW_FWSC_B64="' + base64.b64encode(data).decode() + '";\n')   # (the same firmware as a script: a page opened from a folder cannot fetch a file, but it can load a script)
+        for old in list(d.glob('patchwerk*.fwsc')) + list(d.glob('patchwerk*.fwsc.js')):   # (an older version's file, or the one before names had versions: one firmware beside the page)
+            old.unlink()
+        (d/pkg_name).write_bytes(data)
+        (d/(pkg_name + '.js')).write_text('window.PW_FWSC_B64="' + base64.b64encode(data).decode() + '";\n')   # (the same firmware as a script: a page opened from a folder cannot fetch a file, but it can load a script)
     print('firmware beside the page:', fw[-1].name, len(data), 'bytes')
 html = html.replace('/*__ENGINE_JS__*/', factory).replace('__WASM_B64__', w)
 
