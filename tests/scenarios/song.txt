@@ -1,0 +1,57 @@
+# SONG (LFO): clips on a bar grid (the cursor steps over a whole clip in one click). SNAP lane: bars 1-4 play snapshot 1, bars 5-8 snapshot 3.
+# ALGO down: an automation lane for the knob last turned (chosen from the list), points edited with K1 / K2.
+wait 2500
+expect page 1
+tap EDIT
+wait 200
+turn K1 3 150
+wait 100
+tap LFO
+wait 100
+expect page 11
+tap SEL
+wait 100
+turn SELECT 1 150
+wait 100
+tap SEL
+wait 100
+turn K2 2 150
+wait 100
+shot song_snap.png
+turn ALGO 1
+wait 100
+shot song_newlane.png
+tap SEL
+wait 100
+shot song_pick.png
+tap SEL
+wait 100
+turn SELECT 8 150
+wait 100
+turn K1 20 60
+turn K2 1 150
+turn SELECT 8 150
+turn K1 -10 60
+wait 100
+shot song_lane.png
+tap LFO
+wait 100
+expect page 2
+tap PLAY
+wait 500
+expect var 0
+wait 8500
+expect var 2
+wait 8000
+expect var 0
+tap PLAY
+wait 200
+tap LFO
+wait 100
+turn ALGO -1 150
+turn K4 2 150
+tap PLAY
+wait 5200
+shot song_play.png
+tap PLAY
+wait 200

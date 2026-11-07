@@ -1,0 +1,14 @@
+# SONG: REC armed is a blinking red dot (header and under SNAP), and the cursor steps over a clip in one click
+wait 2500
+tap LFO
+wait 200
+tap SEL
+wait 200
+turn SELECT 1
+wait 100
+expect page 11
+tap REC
+wait 100
+shot song_rec_dot.png
+wait 350
+shot song_rec_dot2.png

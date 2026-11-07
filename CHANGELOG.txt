@@ -1,0 +1,735 @@
+v1.0.0
+  - README.md is now short (what it is, try it, install, use, build, credits; the old long text, without its stale intro, is docs/REFERENCE.md).
+    fmhub.json, submission/SUBMISSION.md and BUILDING.md are brought up to date (85 modules, the GitHub and Pages links, publish.command).
+  - The first release. Everything from the release candidates (rc1-rc208) is in it; the web page, the unit's help and the README describe it.
+  - Help on the unit: the headings are a size up and light grey (the highlight color stays on the key names).
+  - The release: tools/release.sh takes a version (tools/release.sh 1.0.1) as well as an rc number; the page build also writes index.html (what
+    GitHub Pages serves; emulator.html is not committed, it is the same page). RELEASING.md has the steps for GitHub (the repo, Pages, the release, a new version), and publish.command (double-click on a Mac, needs
+    the GitHub CLI: brew install gh, gh auth login) does them: builds, commits, pushes, turns on Pages, tags and makes the release.
+
+v1.0.0-rc207
+  - The page starts on BERLIN SEQ (it was BASIC VOICE) when it has no patch of its own saved in the browser; the unit's own first-start patch is unchanged.
+  - Help on the unit: one size (every row and paragraph in the same text, the KEYS notes too, wrapped), and two colors on the page: the
+    highlight (headings and key names) and white (everything they explain). The KEYS plates' tiny names are white.
+
+v1.0.0-rc206
+  - Page: the install no longer says "A dark screen is normal" while writing and restarting (the unit shows its update screen now); the step that said it shows UPDATING "or stays dark" says only UPDATING.
+
+v1.0.0-rc205
+  - Docs: the README, the cheatsheet and the page say a button pressed again turns to its next page (FX, ENV, SEQ, EDIT, SAVE; ARP and
+    LFO go back). The cheatsheet's Screens table is rewritten (ARP, LFO, ENV, SEQ, EDIT, FX, PRESETS, SAVE; the old GLO-tap HELP and
+    PRESETS-row lines are gone) and its snapshot rows say GLO + key saves, SEL + key recalls on the patch screen.
+
+v1.0.0-rc204
+  - Help on the unit: the KEYS diagram's notes say a button pressed again turns to its next page and that SAVE opens the save page and
+    then the menu; HOW IT WORKS has a paragraph on repeated presses (FX, ENV, SEQ, EDIT, SAVE; ARP and LFO go back). Long rows (FX, ARP+KNOB, SAVE) were cut off after six lines: rows may now run to sixteen.
+
+v1.0.0-rc203
+  - Page: the sections run Play, How it works, Patch bay, Modules, Sample banks, Screen colors, Backup, Install (Modules moved up from
+    before Install), and the top links follow that order (Backup added).
+
+v1.0.0-rc202
+  - SAVE is the menu's button. SAVE from any screen opens the SAVE page; SAVE again goes to SETTINGS, then HELP, then PATCHES (the
+    list), then the SAVE page; ALGORITHM turns the same four. The PRESETS knob still opens the list. The header shows the four tabs.
+  - The SAVE page: the eight slots, the name (K2/K3) and the tempo (K1) as on the list, KIND (K4): PATCH or GROUP. SEL stores
+    (an occupied slot asks "SEL AGAIN: OVERWRITE", except the patch's own slot). Stored as a GROUP, the patch is flagged (the top bit of
+    its tempo field: older firmware still loads it as a patch) and the list marks it GROUP.
+  - A GROUP slot in the list: SEL inserts it into the open patch as one group box, at a free place, wired, with its knobs and
+    cables (OUTPUT left out; snapshots, song and performance knobs are not carried), like the ready-made groups; one undo takes it away.
+    Loading a patch is unchanged. Help, the cheatsheet, the README and the page's Save and load caption say so.
+
+v1.0.0-rc201
+  - Snapshots, one rule: GLO + key SAVES the playing snapshot into that key on every screen (it used to recall off PERFORM). On
+    PERFORM a key recalls (SEL held: 9-16). On the patch screen SEL + key recalls snapshots 1-8; SEL there now acts when it is let
+    go (a SEL tap works as before), so a SEL used for a snapshot grabs no cable. Other screens have no SEL + key recall.
+  - Page: Connect is now Patch (it holds the CPU/battery hold); "HOME leaves" and the MOD SEQ sentence are out of the captions;
+    the matrix caption no longer claims groups travel between patches (ready-made groups are in the patch list; a group you
+    make stays in its patch). Help rows for KEY and GLO+KEY updated.
+
+v1.0.0-rc200
+  - Saving a snapshot (GLO + key on PERFORM) says "SAVED TO SNAPSHOT n", not "COPIED TO".
+  - GLO + SAVE (knob edits: all snapshots or this one): the answer shows at once in the strip, over GLO's own hints.
+  - Page, How it works: eight screens (add, connect, shape, sequence, perform, song, matrix, save and load) with a line each, in
+    place of the four notes; groups are mentioned with the matrix.
+
+v1.0.0-rc199
+  - Help on the unit, one story: HOW IT WORKS (three short paragraphs), PATCHING, SHAPING, SEQUENCING, PERFORM, WITH GLO (every
+    GLO combination in one place; the duplicated GLO+SEQ row is gone) and GENERAL. Rows brought up to date (HOME tap and hold,
+    ENV cycling, FX pages, ARP/LFO again = back). The garbled ABOUT text is replaced.
+  - Page: "Getting Started with Patching" is now "How it works": a short lede, the four screens (add, connect, shape, play), and four
+    one-line notes (knobs, sequencing, snapshots, undo).
+
+v1.0.0-rc198
+  - Pages cycle on a repeated press. ENV: PERFORM, then MUTES, then MUTATE, then PERFORM (it used to go back; HOME leaves).
+    FX on the add list: the panel's next page (what it is, example patch, visual). EDIT on a module page already stepped through
+    its faces. On the patch screen HOME, tapped, steps the selected module's knob pages (a group: its members').
+  - CPU and battery: hold HOME on the patch screen for as long as REC takes to delete (0.7 s); the top bar shows them while it is
+    held. Holding GLO no longer does (GLO is only a modifier now). Help and the cheatsheet say so.
+  - Screen colors: tighter spacing, the preview scrolls with the page, and the saving row is one line (Name, Save here, the saved
+    ones, Send to FM-1, Read, Remove).
+
+v1.0.0-rc197
+  - Screen colors: the fourth grey is labeled "Lines" (the longer name wrapped).
+
+v1.0.0-rc196
+  - The palette has four greys in the firmware (black, panels, raised, lines), not sixteen fields that were set to the same values:
+    18 colors in all (four greys, seven text and signal colors, seven module groups). Every stock palette renders exactly as before
+    (156 screens and palettes compared against rc194: no difference). The USER palette travels as 18 colors (link command 11 / 12);
+    the firmware still reads the old 33-color command and a settings backup saved with the old USER palette, and converts them.
+    A page older than this one cannot send a USER palette to this firmware, nor this page to an older firmware.
+  - Screen colors on the web page: no dropdown, the editor is open. A preview that stays beside the swatches, Start from / Reset /
+    Match the unit's panel on one row, then Greys (four), Text and signals, Module groups, then the saved and USER palettes in one
+    card; the code and the panel-look sliders are two small disclosures. Palettes saved in this browser with the old 33 colors are
+    converted when read; nothing changes on the page until you edit a color.
+
+v1.0.0-rc195
+  - Palette editor: each of the four greys is one color. Picking it sets every place on the screen that uses that grey to exactly
+    that color (it used to shift them by the same amount, to keep small differences an older saved palette might have), and the
+    heading says so.
+
+v1.0.0-rc194
+  - Screen header: the title, the patch name, S1, the tempo and the REC/GLO/MET marks all end on the same row (the small texts sat one
+    pixel under the title's baseline); the play light and the two meters share one band centered on the title (they sat a pixel
+    high), and their right margin is the title's left margin (6 px, it was 4).
+  - Web page: one column. The title, buttons, "You're using the emulator" note, the FM-1, its key help, the guide and the patch bay
+    now share the same left and right edges (they were at three different left edges, some centered and some left).
+
+v1.0.0-rc193
+  - Web page: Link FM-1 is a button the size of Install on an FM-1, on the same row, with its status after it in one line (cut with
+    an ellipsis when long; the full text is its tooltip), so linking changes nothing on the page. The "A MIDI device is plugged in"
+    note is a quiet line with an accent bar and a text link ("Link it now") instead of a box with a big button.
+  - Getting Started: the last step's text is shorter.
+
+v1.0.0-rc192
+  - Web page, top: the title, the text and the buttons are one column now (the title used to be re-wrapped by the width of the
+    buttons beside it when the FM-1 was linked); the link controls keep their own row.
+  - Getting Started with Patching: the four screens are now lifted the way the page's own screen is (same darks, colors and purple as
+    the screen above), show a VCF being wired in between a VCO and a VCA, the VCF's filter-curve page, and the Perform page; the last
+    step's text covers PERFORM, MUTES, MUTATE and SONG.
+
+v1.0.0-rc191
+  - Flash: rc190's way of shrinking the UI file (a clang pragma) was ignored by JieLi's compiler (image stayed 565224 B, 97.2 %).
+    Now fm1.toml has an "oz" list (base/tools/build.py builds those files at -Oz, as "os" does at -Os) and pw_ui.c is on it.
+    In a stand-in build for another chip that took its code from 307 KB to 259 KB; the real figure is the Mac build's "image N B"
+    line. The audio runs in its own interrupt so the screens are not time-critical; not timed on the device.
+
+v1.0.0-rc190
+  - Static RAM: the USB audio-in ring (8 KB), the engine's mixing scratch (5 KB) and the diagnostics text (2.3 KB) moved into the
+    pool (it had 51 KB spare), about 15 KB of static RAM freed. The audio DMA buffer and the flash driver's buffer stay in RAM.
+  - The diagnostics file now also holds the DIAGNOSTICS screen's numbers: flash, static RAM, pool and module memory (bytes used
+    / bytes of room), modules, cables, free sample flash, CPU and battery.
+  - Web page: with the FM-1 linked the top of the page no longer squeezes the title (the status text wraps under the buttons);
+    Getting Started with Patching shows four screens from the firmware; Web patch bay text is shorter; the install help is
+    reworded, V16 is no longer named on the page, and "If something goes wrong" lists the four recovery cases.
+
+v1.0.0-rc189
+  - VOCODER's example now plays a drum beat (kick, snare, hat) through the vocoder onto a saw chord, so the effect is easy to hear:
+    the chord thumps with the kick and sizzles with the hat; MIX down to compare. A host test checks the level follows the beat.
+  - Install page: "Back to M-VAVE's firmware" accepts V15 or V16 (checked by SHA-256). When the FM-1 refuses a package before writing
+    anything (M-VAVE's V16 over a unit with V15's boot code, for one), the page says so instead of "stopped answering", and that the FM-1's
+    screen number -5 means the boot code differs. The progress bar never goes backwards (the loader reads the file out of order, so the
+    address it asks for can fall back; the bar was following it).
+  - Install section redone: three steps, one card, "If something goes wrong" shortened to three cases; the beta update-mode test is gone.
+    A hidden diagnostics card in Backup (open the page with #diagnostics or ?diag, or click the PATCHWERK name five times).
+  - Page order: Getting Started with Patching now sits above a new "Web patch bay" section that says what the patcher is for (easier
+    than the small screen, syncs with a linked FM-1, works without one) and its quick moves.
+
+v1.0.0-rc188
+  - New module: VOCODER (FX; 85 modules now). Twelve bands from 120 Hz to 6 kHz: MOD (a voice, drums, a sample) shapes CARRIER band by band.
+    With nothing on MOD each band follows its neighbour (Spectra's odd/even spectrum transfer), so one sound shapes itself. Six knobs:
+    RELEASE, SHIFT (move the modulator's bands: formant shift), FOCUS (band width), BRIGHT (tilt to the highs), GAIN, MIX. Its page shows the
+    twelve modulator levels. An example patch (a drum shapes a saw), a help line, a host test and README text come with it. Not measured on the
+    unit: DIAGNOSTICS' CPU page will say what it costs (12 bands, two filters each).
+
+v1.0.0-rc187
+  - Flash: 18 more control-rate modules are built for size inside the -O2 file, as 25 already were (XFADE, SNAPSHOT, ATTENUVERTER, LOGIC,
+    COMPARE, SHIFT REG, SEQ SWITCH, QUANTIZER, LISTENER, ENV FOLLOWER, MUTATE, SCOPE, CV RECORDER, PARAM MOD, PROBABILITY, MIDI IN, MIDI OUT,
+    GATE DELAY). The stand-in build (RISC-V, not the FM-1's chip) shrinks the module code by about 1.8 KB; the real saving is on the
+    build's "image N B" line. Nothing else changes. If DIAGNOSTICS' CPU page shows any of them costing noticeably more than before, tell me which.
+
+v1.0.0-rc186
+  - SONG: the old group lanes are removed from the firmware. They could no longer be made on the unit (only SNAP and the automation
+    lanes can), so their drawing, the engine step that bypassed a group outside its clips and the clip grey went. The saved format is
+    unchanged (old patches load; a clip an old patch had on a group lane is dropped). README's SONG line no longer mentions them.
+  - Web palette editor: four greys (black, panels, raised, lines and edges); the unused group-clip grey is gone.
+
+v1.0.0-rc185
+  - Web palette editor: the "Mid" and "Light (jack rims)" greys are gone from it. No screen draws them (checked in the firmware), so
+    changing them did nothing. The grey that remains at the end is "Group clips (SONG)", the only place the clip grey shows.
+    Five greys: black, panels, raised, lines and edges, group clips.
+
+v1.0.0-rc184
+  - The twelve palettes use six greys instead of nineteen: the wells, strips and jacks share the ground's black, the panels and
+    plates one grey, the raised surfaces another, the lines and edges one, the clip and mid greys one, and the jack rims their
+    own. Same look at a glance, with fewer steps to tune. (The palette editor on the web page already edits the six.)
+
+v1.0.0-rc183
+  - Snapshots: the notice for GLO + a lower key (recall a snapshot from any page, or copy to one on PERFORM) now shows over GLO's
+    hints like the tempo does; before, GLO's own strip covered it and nothing seemed to happen. The web patch bay: Option/Alt + 1-8
+    recalls a snapshot, with Shift copies the one playing into it, and both say so in a toast (Shift-click said nothing before).
+  - Web palette editor: six greys instead of 19 + "build from three". Each moves its whole family and keeps the small steps between
+    the shades; the colors are all shown when "Edit the colors" opens (no second dropdown).
+  - Help text for AUDIO IN and OUTPUT brought up to date (USB sound card, 3.5 mm jack is MIDI only, recording it into a SAMPLER).
+
+v1.0.0-rc182
+  - Web page: the diagnostics card is gone; the palette editor is its own "Screen colors" section below the sample banks, with a
+    short explanation, the controls behind "Edit the colors", the greys/text/group colors in a second dropdown and "how the page
+    shows the screen" under Advanced; Link FM-1 sits in the top area next to "Install on an FM-1"; the four level boxes are gone.
+  - Web patch bay: Cmd/Ctrl + drag from an output jack picks up the cable already on it (drop it on another input, or off a jack to unplug).
+  - cheatsheet.html: GLO + REC delete+wire, add-list keys, MIDI CLOCK OUT, PROGRAM CHANGE, metronome strip, a web patch bay table,
+    the signal levels as a paragraph, a link back to the main page, and its highlight color now matches the page theme.
+
+v1.0.0-rc181
+  - The GLO strip is back to one shape per combo ("GLO + REC  Delete+wire"): on the patch screen Delete+wire and Group, then Grab
+    and Copy/Paste (one slot for both). The rc180 "GLO once, then bare keys" layout is gone.
+  - GLO + PRESETS (the metronome) now answers over GLO's hints on every turn, METRONOME ON or METRONOME OFF, as the tempo does.
+  - NANO: the module colors, green, red and the blue are more saturated (about a quarter more, a little brighter) so they stand out on the panel.
+
+v1.0.0-rc180
+  - Six shortcuts in the strip while GLO is held (the patch screen): "GLO +" is drawn once at the start of each row and the keys
+    follow, so three fit a row. Delete+wire (GLO + REC held), Group, Grab; Copy, Paste and the metronome (GLO + PRESETS), which had
+    no shortcut hint before. Undo (GLO + OCT-) gave up its place there; its notices still say so. The same on every page whose
+    GLO keys are all GLO combos (module page: Bypass, Delete+wire, ...; SCOPE, MATRIX, PERFORM, MUTES, SONG).
+
+v1.0.0-rc179
+  - BURST has a SYNC knob (page 2): the middle gap between hits as a note value of the tempo (the SPEED jack still bends it).
+  - GLO + hold REC on a module deletes it and wires its cables through (what fed it to what it fed), whatever AUTO-REPATCH says;
+    REC held alone still follows AUTO-REPATCH. The shortcut is in the strip while GLO is held (patch screen and module page,
+    "Delete+wire"), and tapping it says what to do. On a group box GLO + REC still ungroups.
+  - The add list's strip: ENV (add it unconnected) is on the first row now, where it was cut off before; the knobs are one hint,
+    "K1-4: List, Category, Favs, Recents"; GLO + SEL (replace) shows while GLO is held.
+  - NANO's accent yellow is lighter. The PALETTE row in SETTINGS shows eight color chips (the seven module colors and the accent), four before.
+  - New settings: MIDI CLOCK OUT (clock, start and stop over USB) and PROGRAM CHANGE (SNAPSHOT, or PATCH: 0-7 = U1-U8, 8-57 = factory).
+  - The Backup file carries the settings (palette, USER palette, favorites, every setting): back up and restore from the FM-1 or the
+    emulator (link commands 14 and 15). Older backup files restore as before.
+  - New test: tests/midi_set_test.mjs (clock out, program change, settings get and put).
+
+v1.0.0-rc178
+  - The palette editor now works while the FM-1 is linked. Linked, the page shows the unit's screen, which the editor could not
+    change; the editor's preview now takes the unit's screen and swaps its colors for the custom palette, so edits show at once.
+  - USER shows up in the emulator's Settings > PALETTE too: "Send to FM-1 as USER" sets the emulator's USER palette (linked or
+    not), and the page recognizes a unit that is on USER. "Remove USER" clears both. (The unit gets USER only after a send, and only
+    with this firmware on it.)
+  - "colour" is now "color" everywhere (page, help text, comments, docs). Palette codes saved with the old "colours" key still load.
+
+v1.0.0-rc177
+  A USER palette that needs no build: the palette editor's "Send to FM-1 as USER" (the FM-1 linked) sends the 33 colors (corrected for the panel, as the C row is) over the link's bank command (11 put, 12 get, 13 remove). The unit keeps them in its settings object (the blob grows from 20 to 88 bytes; an older firmware reads its first 20, an older saved blob loads as before), makes USER the palette in use, and lists USER after the others in Settings > PALETTE (it is not listed until one is sent). "Read USER from FM-1" brings it back into the editor and "Remove USER" deletes it (the unit returns to RISO if USER was in use). Saved by a fixed number (15) like the other palettes. Host-tested (tests/user_pal_test.mjs: set, read back, in use, kept across a restart, removed); the unit's storage and the link command are not tried on a device.
+v1.0.0-rc176
+  Palettes: DEFAULT, CMYK and MIDCENTURY are removed (12 left: HARVEST, MONO, RISO, BONE, GRAPHITE, SOFT, CIRCUIT, MULBERRY, NANO, HAZE, MID, BALANCE); docs/REMOVED-PALETTES.txt keeps their rows and the steps to bring one back. The settings now save a palette by a fixed number of its own (pal_id), so a saved choice keeps meaning the same palette whatever is removed: a unit that had one of the three shows RISO, the default. The web page's lists follow. Host tests only; not tried on a device.
+v1.0.0-rc175
+  NANO and MID: the ground (bg) is true black now (it was the screen's first step above black, which the panel shows as a grey), so the modules stand out from it. DIAGNOSTICS' screen test: the darks row shows the screen's own first 16 steps (red and blue in 32 levels, green in 64: each a grey of its own) instead of values 0 to 30, which fell on the same few steps. Host renders only; not tried on a device.
+v1.0.0-rc174
+  Palette editor: one checkbox instead of three. "Show the screens as the unit's panel does" (on by default) makes both the emulator screen and the preview look as the unit will (darks lifted, colors turned down) and corrects the picked colors for it, so nothing is applied twice; off shows the colors exactly as typed, uncorrected. Tried in headless Chromium here; not on a device.
+v1.0.0-rc173
+  Three palettes from the palette editor (15 in all; the others keep their numbers): HAZE (a violet ground, magenta and cyan), MID (a warm brown-black ground, cream and orange) and BALANCE (neutral greys, pink and yellow). They are the editor's corrected-for-the-panel values, as given. Host renders only; not tried on a device.
+v1.0.0-rc172
+  Palette editor, "Match the unit" (on by default): a picked color is corrected for the unit's panel (the opposite of the page's look of it: darks, color 0.62, violets), so the C row gives the unit values that show as the colors you picked; the emulated screens and the preview show how the unit will look. Saved palettes keep the picked colors; the correction follows the look sliders. Colors already as vivid as they get cannot be more so: they come out as near as they can. Off: the old exact view and uncorrected code. Tried in headless Chromium here; not on a device.
+v1.0.0-rc171
+  The page's look of the screen: violets keep their color. Purple to blue (now 1.00 to start) also holds the violets' saturation near full (0.98) while the Color slider (0.62) still turns every other hue down, as the unit's panel shows them. The editor's wording is "color". Tried in headless Chromium here; not on a device.
+v1.0.0-rc170
+  The newer FM-1s (sold from late 2026, M-VAVE logo on the front) carry a different flash chip, JEDEC id 0xB36014 beside the earlier units' 0x856014 (found by the ChoralRoot project: its 0.29.1 release notes). PATCHWERK accepted only the first, so on a newer unit it ran without the flash: nothing saved and no update taken. Both are accepted now (base/bsp/chip/fm1_flash_id.h, used by the boot check, the hardware test and, as a pair of ids, the rescue tool; host-tested). Same generic SPI NOR commands as before. Not tried on a unit with the new chip (nor on any device from here).
+v1.0.0-rc169
+  The page's look of the screen: the Red and Blue sliders are gone (they moved every colour); a Purple-to-blue slider (0.70 to start, ?purple= in the address) turns only the violets toward blue, as the unit's panel shows them, and leaves greys and the other hues alone. Tried in headless Chromium here; not on a device.
+v1.0.0-rc168
+  The page's look of the screen: Colour now starts at 0.62 (as tuned against the unit), and Red and Blue sliders scale those channels (?red= and ?blue= in the address), for hues the unit's panel shifts (purple looks blue on it). Tried in headless Chromium here; not on a device.
+v1.0.0-rc167
+  The page's look of the screen: new defaults gamma 0.62 and up-to 255 (tuned against the unit), and a Colour slider (0.85 to start) in the palette editor that turns the screen's colours down toward grey, since the unit's panel is a little less saturated than a computer screen. ?sat= sets it from the address. Tried in headless Chromium here; not on a device.
+v1.0.0-rc166
+  Matching the web screen to the unit's backlit panel: (1) DIAGNOSTICS has a third page, the screen test (SETTINGS > DIAGNOSTICS, then ALGORITHM): a 16-step grey ramp, a finer ramp of the darks, and the palette's colours as plain swatches; the web emulator shows the same page. (2) The palette editor has two sliders for the page's lift of the darks (gamma and the level it fades out at), kept in this browser, with a Default button; the address ?lift= and ?top= still override. Rendered on the host here; not seen on a device.
+v1.0.0-rc165
+  Palette editor: a checkbox lifts the darks in the preview too (off by default: the preview shows colours as typed). Tried in headless Chromium here; not on a device.
+v1.0.0-rc164
+  NANO replaced by the palette made in the editor: neutral greys (#080808 ground up to #ffffff), accent orange #ce4919, and a seven-colour group set (violet, green, magenta, blue, teal, pink, olive). Host tests only; not tried on a device.
+v1.0.0-rc163
+  Palette editor: the emulator screen at the top shows a custom palette exactly as typed too (it was still lifted, so a near-black ground looked grey there). A checkbox in the editor turns the page's lift of the darks off or on for the stock palettes. Tried in headless Chromium here; not on a device.
+v1.0.0-rc162
+  Palette editor: the preview is exact now. It shows the colours as typed (a ground of #050505 comes out near-black), with no lift and without DARKS or BRIGHTNESS applied to a custom palette; only the main emulator screen keeps the page's lift. Tried in headless Chromium here; not on a device.
+v1.0.0-rc161
+  A palette editor on the web page (under the emulator, "Palette editor"): start from any palette, change any of its 33 colours with a picker or a hex, or give three greys and have the other 19 ground colours follow, and watch the screen change live (a copy of the screen sits beside the controls). Save palettes in the browser, copy or load one as code, or copy the C row to build it into the firmware (the unit itself cannot load a custom palette). In the firmware only the wasm build has the hook (pw_ui_custom, used while the unit's palette setting is unchanged). NANO's module groups follow the DAW reference: mod violet, seq green. Tried in headless Chromium here; not on a device.
+v1.0.0-rc160
+  Palettes trimmed to 12: INK, NAVY, OXBLOOD, PETROL, PLUM, MIDNIGHT, OLIVE and BLUEPRINT are gone (saved settings that pointed at one fall back to the default). MULBERRY's ground is now near-black, MIDCENTURY's yellow is #dfd278, CIRCUIT's white is whiter, and a new NANO palette (greys with orange, teal, magenta, green, olive and violet) is added. Host renders only; not tried on device.
+v1.0.0-rc159
+  Nine new palettes (19 in all; the first ten, DEFAULT and RISO among them, are untouched and keep their numbers): MULBERRY (from Mulberry, Dusty Rose, Wisteria, Indigo, Steel Blue, Petrol, Sage, Wasabi, Charcoal and Porcelain: the greys are steps from Charcoal up to Porcelain), seven with a coloured dark ground in place of the grey, each from an existing palette (INK = RISO on indigo, NAVY = CMYK, OXBLOOD = HARVEST, PETROL = MIDCENTURY, PLUM = SOFT, MIDNIGHT = CIRCUIT on midnight green, OLIVE = GRAPHITE; the INK row still takes the brand colours from brand/brand.json), and BLUEPRINT, a saturated blue ground with chalk-white, cyan, yellow, coral, mint and lilac. Rendered through the real firmware on the host; not tried on the unit. The greys of each palette are still written out one by one in core/pw_ui.c; making a palette from about 14 colours with the shades worked out is not done yet.
+v1.0.0-rc158
+  The brand colours in one place: brand/brand.json (name, accent, the seven group colours, ok / warn / bad, the mark's five cables and their order). `sh tools/gen_brand.sh` turns it into code (the release runs it, the tests check it): the FM-1's default palette (the RISO row is made of it; its name is the file's), the update-mode screen and the update screen, the site's mark and tab icon, and the page's colours (accent, ok, warning, error, group colours, cables). To try other brand colours: edit the json, run the script, build. (The page's cable colours past the mark's five, and the greys, are not in it.) Palettes: BONE is now the "cards" variant (modules light on a darker bone ground, strong edges, darker group colours), and two new ones, SOFT (tomato, marigold, citron, seafoam, pool blue, iris, bubblegum, raspberry on black) and CIRCUIT (crimson, neon rose, lilac, cobalt, ice blue, teal, acid green, ice white; greys leaning to deep navy): 10 palettes in all. Host-rendered only; not tried on the unit.
+v1.0.0-rc157
+  RISO all through: the site's mark (the header logo and the tab icon) and the page's patch cables are RISO's colours (the mark's five: source, effects, filter, modulation and the tan accent, in the power-on screen's order); the page's warning and error colours are RISO's orange and red and its "ok" green is RISO's green; the FM-1's update-mode screen (the loader's) has RISO's cables and tan name, and the update screen the running firmware shows (unity.c ota_show) has the tan in place of amber. The loader and that screen cannot read the palette setting, so they are RISO whatever the unit is set to. Host-rendered / checked in a headless browser only; the loader and the update screen are not compiled for the device and not tried on one.
+v1.0.0-rc156
+  The page's highlight is RISO's tan wherever it was orange or amber: the Power and Install buttons, progress and storage bars, the rules over the install and dialogs, the sample banks' headings, the group cards, the link outline and the glow on lit buttons, and the dot on the module list (a new --accent in the page's colours, also in place of the yellow-green utility colour on the emulator notice, link bar, focus rings, drop targets and toast; the module/cable colours are still the categories'). The warning colour for a nearly-full storage stays orange. Page only; checked by looking for the old colours in the page, not in a real browser.
+v1.0.0-rc155
+  RISO is the default palette (for a unit with no saved settings, after Reset, and for the page's emulator; DEFAULT is still the first in the list and a unit that has a palette saved keeps it). The page matches: its module/cable colours (the category colours of the patch bay and cables) and its accent (was amber) are RISO's. CMYK: the yellow is softer (eed834). MIDCENTURY: the green of the modulation group is lighter (4ca466) so its names and labels read on the dark green panels (the add-module list; the same colour is used everywhere the group's colour is). Host-rendered only; not tried on the unit or the page in a real browser.
+v1.0.0-rc154
+  CMYK now uses the colours of the overlapping circles: cyan 00aef0, magenta ed008e, yellow fdf104, green 03a702 (cyan and yellow), a lighter blue for the dark blue where cyan and magenta cross (it is too dark to see on black as it is), red ed1c24 for magenta and yellow. GRAPHITE: the accent is a soft terracotta (de9870) instead of the hot orange, and its greys are now neutral (they had a blue tint). The power-on cables take the chosen palette's colours (its source, effects, filter and modulation groups and its accent), so DEFAULT looks as it did and the others look like themselves. Host-rendered; not tried on the unit.
+v1.0.0-rc153
+  Install in a background tab: the install paused when the tab was not in front because a browser holds timers to one a second there, and the page waited 10 ms between each of the loader's ~1240 reads (so about 20 minutes). That wait now passes messages back and forth instead of using a timer while the tab is hidden (fm1ota.js pace()), and during an install the page also keeps the screen awake and holds a silent sound (keepAwake in page.html; each part is tried on its own, so a browser without one still installs), which asks the browser not to slow the tab. The protocol, the order and the checks are unchanged; the longer waits (the 2-3 s for the unit to restart) are left as they are. Not tried in a browser or on the unit: please install once with the tab behind another.
+  Removed the dot grid from the patch view (rc152). Holding GLO (or latched) shows the CPU and the battery over the header, which hid the tempo while KNOB 1 turned it: now, while the tempo is being turned (and for 1.5 s after), the normal bar with the tempo shows. The help's "Amber: with GLO held." says "Coloured text: with GLO held."; the page's step-editor hints no longer name colours (ratchet, chance, velocity, accent). COBALT is replaced by CMYK (cyan, magenta, yellow, green, red, a violet, on black; yellow accent), and a new palette GRAPHITE (greys on black with one bold orange accent, 8 palettes in all). A saved choice of 2 or more is as before; a saved COBALT is now CMYK. Host-rendered; not tried on the unit.
+v1.0.0-rc152
+  MIDCENTURY: the ground is now true black and its greys are the DEFAULT palette's (they were a little lighter, so NORMAL still looked grey); the brown and the other colours are as they were. RISO: more vivid (orange ff8020, blue 1482ff, pink ff40aa, green 00d678, yellow e0ee28, violet 8260ff, red ff3838; the tan accent is as it was). The patch view has a faint grid of dots under the canvas, one every 16 px, fixed to the patch so it moves with the view (a dot is one more shape on the screen: the busiest factory patch went from 482 to about 650 of the 800 the screen allows; boxes and cables are drawn over it). The "GLO+ALGO" hints in the module's page (Info / Connections / Demo / Back) say "EDIT": pressing EDIT again in a module's page already turned through those faces, so there is nothing new to learn and GLO+ALGO still works too. Host-rendered only (screens, the dots, the colours); not tried on the unit.
+v1.0.0-rc151
+  Install said "MIDI access was not allowed" with the permission given: rc149/150 put the shared MIDI request inside the emulator's script, where the install's script (a separate script of the page) cannot see it, so the install failed with a name error that it reported as a refusal. The shared request is now a global at the top of the page. Checked here by loading the built page in a headless browser with a stand-in for MIDI (both scripts reach it and the page asks once); not tried with a unit.
+v1.0.0-rc150
+  MIDI permission, properly: rc149 shared one access between the install, the update-mode test and the link, but the page's own start-up (the "MIDI: n inputs" line) and the port watcher still made their own requests without SysEx, so a page opened as a file (where the browser asks for every request) asked more than once and the install could then be refused. Now every part of the page uses the one access, asked for once with SysEx the first time anything needs MIDI (the page's start-up does, so the one question comes when the page opens), and kept for the life of the page; if it is refused, the next press asks again. Not tried in a browser here (I cannot answer the browser's question), so it is the first thing to try.
+v1.0.0-rc149
+  The page's panel lift defaults to your values (gamma 0.45, up to 140) and now leaves saturated colours alone (only greys are lifted), so a palette's own colours show as given. DARKS is renamed so the default is not called DEEP: LIGHT (was NORMAL), NORMAL (was DEEP, the default), DEEP (was DEEPER); the saved setting is unchanged. Palette colours are now rounded to the nearest the screen can show (the unit's screen has 32 levels of red and blue and 64 of green) instead of cut down, so a hex colour from a palette comes out as near to exact as possible: colours are up to 7 levels brighter than before, by an average of about 3 (a hex number cannot be shown exactly: 5785e7 is shown as 5a86e6). The page asks the browser for MIDI with SysEx once and shares it (the install, the update-mode test and the link used to ask separately, so the browser asked again at Link). Not tried with a unit connected or in a browser here.
+v1.0.0-rc148
+  The page's panel lift: your tuning (gamma 0.45) kept, and the lift now reaches higher (PANEL_TOP 120 instead of 64, fading out smoothly) so the lighter greys (the jacks) are lifted too, not only the darks. Both numbers can also be set in the page's address to tune by eye without a rebuild: ...?lift=0.45&top=120 (lower lift = brighter; higher top = reaches further up the greys). Not tried with a unit connected.
+v1.0.0-rc147
+  The page's panel lift (rc146) is stronger and neutral: the dark module panels were still nearly black on the page where the unit shows them as clear grey boxes. Now the same amount is added to all three channels (a dark that only just reached the green channel was tinted green), by a gamma of 0.5 on the pixel's average, fading out at 64 of 255 (PANEL_LIFT and PANEL_TOP in page.html drawLCD). Black stays black. Compared by eye against a photo of the unit; still a guess to tune. Not tried with a unit connected.
+v1.0.0-rc146
+  The page (emulator and the link to a unit) now looks like the unit's screen. The unit's small panel lifts dark greys (which is what the "darks" setting is for), so its dark module panels stand out from the black; the page's screen does not, and the same colours nearly vanished (and the page had its own lighter greys for DEFAULT, and ignored the darks setting). Now: the firmware's DEFAULT palette is the same everywhere (the unit's greys, darks DEEP), the linked page shows the unit's colours as sent (no recolouring any more, so palette, darks and brightness are all the unit's), and the page lifts the darks the way a panel does (PANEL_LIFT in page.html drawLCD: a gamma of 0.62 under 96 of 255, fading out above). The 0.62 is a guess to be tuned against the unit: if the page's dark panels are still fainter or brighter than the unit's, that one number moves. The emulator's DEFAULT therefore looks different from before (darker greys, lifted). Not tried with a unit connected.
+v1.0.0-rc145
+  The page's link to a unit now shows the unit's palette, not the page's default one: it works out which palette the unit is set to from the colours on its screen (it did already) but then swapped every colour for the DEFAULT palette's, so a unit on RISO looked like DEFAULT (SEQ1 purple on the page, blue on the unit). Now each colour is swapped for the same palette's colour in the page's own, lighter greys, and at the unit's brightness (the page used to undo the brightness, so that setting did nothing there). Page only; checked by reading the code and the release tests, not with a unit connected. The unit's own panel still shows colours a little differently from a computer screen (it is a small IPS panel with its own gamma), which no setting here changes.
+v1.0.0-rc144
+  GOUACHE is now MIDCENTURY, with a near-black ground (was a warm charcoal) and more vivid colours (the screen looked washed out): blue 4076fa, orange f4562c, yellow fff028, pink ffb0c2, green 307046, red ee3e1e, brown line 68462c. The loader's install screen: when a cable is drawn out, where another cable crossed it is no longer left black (the cables still there are put back). Host-rendered; not tried on the unit.
+v1.0.0-rc143
+  A new palette, MIDCENTURY (the seventh, after BONE; saved choices are unchanged): a warm charcoal ground with brown lines, yellow accent (faef54), and blue, orange, pink, green, white, yellow and red for the module groups (5785e7, e95c3b, f5bfc6, 406349, ffffff, faef54, e34c28). The OK/status green is a lighter 60A070 so it reads on the dark ground; 406349 itself is only the mod modules. Rendered through the real firmware on the host. Also the loader's install screen, as the power-on screen: no dim cables behind, just the five patch cables drawn in from left to right one after another (each plug as its cable starts, the far plug as it arrives, the same S, colours and lag as the power-on screen), then drawn out the same way, again and again while the install runs, with "PATCHWERK" in white under them, "UPDATING" in amber, "DO NOT UNPLUG OR POWER OFF" and the percent (or "CHECKING THE FILE" while the loader checks the package). Drawn on the host from the real header; not compiled for the device and not tried on one (up to about 35 small screen writes in a 60 ms step while it draws; if an install ever stalls, rc136 has the plain "UPDATING" screen).
+v1.0.0-rc142
+  Works with M-UPGRADE 3.11.0318, which only accepts a device identity of a name, an underscore and one to three digits ("FM-1_7001608" was refused). PATCHWERK's own identity is "FM-1_606" plus six digits, so a plain identity request is now answered with the short "FM-1_606" (name, underscore, three digits). The installers' own request (the identity query with a one-byte body of 1, as the PERF-1 installer sends) is answered with the whole identity as before, and fm1ota.js and both fm1_install.py ask it after the first answer so the version still shows and "is this PATCHWERK?" still works; an older firmware's long answer is taken as it is. The page's own link only reads the start of the identity, so it is unchanged. The loader's "ota-FM-1_015" was already short. New tests: tests/ota_ident_test.c (the real ota.c), tests/ident_test.mjs, tests/ident_py_test.py. Host-tested only: not tried against M-UPGRADE 3.11 or on the unit; I could only read a truncated summary of the PERF-1 commit, so its other changes are not copied.
+v1.0.0-rc141
+  The loader's install screen, as a flow of cables: "PATCHWERK / UPDATING / DO NOT UNPLUG OR POWER OFF" in smaller type, under it the power-on screen's five patch cables (a smooth S from a column of jacks to another, the module colours), dim, with a bright run of colour flowing along each from left to right again and again, and under them "CHECKING THE FILE" while the loader checks the whole package (the first half of an install, which has no sectors) and then the percent of the write. The flow is stepped from the loader's own poll loop every 60 ms (a few small screen writes per cable; ldr_poll now calls ldr_screen_tick), the percent from the per-sector hook as before. Replaces rc137's bar and the unreleased blocks. The screen is only drawn while an install runs; the idle message is unchanged. Drawn on the host from the real header (dim cables, flow frames, percent); not compiled for the device and not tried on one: one more thing running from the poll loop while the USB is served, so if an install ever stalls, rc136 has the plain "UPDATING" screen. 
+v1.0.0-rc140
+  The loader's progress, patchier: smaller type ("PATCHWERK / UPDATING / DO NOT UNPLUG OR POWER OFF / 62%") and, instead of a tidy grid of blocks, patches of colour (the module colours, each in three strengths: full, softer, dim; four widths and three heights) that fall and settle on whatever is below, like a collage, one for every 0.4 % of the write (260 in all, three falling steps each; a patch that would not fit is skipped). The stack's heights are kept per 4 px (60 bytes). Replaces rc139's grid (never delivered). Drawn on the host from the real header; not compiled for the device and not tried on one. If an install misbehaves, rc137 has a plain bar and rc136 none.
+v1.0.0-rc139
+  BETA, the loader's progress is now falling blocks, not a bar: while an install runs, small coloured blocks (the module colours of the screens) fall and stack up in 24 columns by 9 rows, one for every 0.5 % of the write, with the percent written above them ("UPDATING / DO NOT UNPLUG / OR POWER OFF / 62%"). Each block falls in three steps (about 650 small screen writes over a whole install, the watchdog fed at each; the percent is rewritten when it changes). Replaces rc137's bar (ls_bar). New: ls_win/ls_box/ls_drop in base/bsp/loader/ldr_screen.h. Drawn on the host from the real header (stack at 0, 20, 62 and 100 %); not compiled for the device and not tried on one. If an install misbehaves with it, rc137 has the bar and rc136 has no progress.
+v1.0.0-rc138
+  The installer page's progress bar now follows what the loader really does. The update loader reads the whole package twice (it checks all of it, then writes it), and the page counted both passes as one run to 100 %, so the page said 100 % while the FM-1's own bar was still at the start of its write. Now the page's bar runs 0-8 % while the running FM-1 looks at the file, 8-50 % while the loader checks it ("The FM-1 is checking the file… N%"), and 50-100 % while it writes ("Writing… N%": the same number as the FM-1's bar). The bar and its percent are set in the same step (before, the percent was read from the bar every 250 ms, and the bar's fill had a 0.25 s transition that restarts at every request). Pass detection: the page counts a new pass when the loader's read address falls back near the start after reaching the end (fm1ota.js serve() passes the pass number and the address on). Not tried on a device; the fill drawing was tried in a headless browser (it did move there).
+v1.0.0-rc137
+  BETA, a progress bar on the update loader's screen: while an install runs, under "DO NOT UNPLUG OR POWER OFF", a bar (outlined, amber fill) and its percent ("62%") move as each 4 KB sector is done; it redraws every 2 %, so it adds a few hundred milliseconds in all. New: ldr_screen_progress()/ls_bar() in base/bsp/loader/ldr_screen.h (the font gains %), called from the loader's progress hook (loader.c ldr_progress, which still feeds the watchdog before and after). The bar is drawn in the middle of an install, in the recovery path, and was only rendered on the host (the layout, from the real header); not compiled for the device and not tried on one. If an install misbehaves with it, rc136 is the version without the bar.
+v1.0.0-rc136
+  (1) The update loader now shows its screen on a normal install too: when the installer starts, the screen comes up ("PATCHWERK / UPDATING / DO NOT UNPLUG OR POWER OFF") instead of staying black until it is done (before, only an install in update mode, after 6 s of waiting, had it). The screen's start-up takes about half a second and happens after the handshake, before the data is read; if an install ever fails to start because of it, press Install again and tell me. NEW CODE IN THE RECOVERY PATH, not compiled here and not tried on a device: this is the one to test first (a normal install, then the --badcrc-test rehearsal). (2) Palettes: RISO's accent is a light tan (it was close to amber); BONE's module colours, green, red and blue are much darker so they read on the light ground.
+v1.0.0-rc135
+  Palettes: SHELL is gone; BONE is new, the first light palette (a warm off-white ground a little toward white, near-black ink, poppy-red accent, the module colours deepened to read on paper); RISO's accent is a tan gold instead of peach. The list is now DEFAULT, COBALT, HARVEST, MONO, RISO, BONE. A saved SHELL (the last number) shows BONE. New for tests: pw_ui_set_palette() and the web export pw_web_set_palette(), and tests/pal_shots.mjs, which saves a screenshot of the screens in each palette (tests/lcd/pal_*.png). Not tried on a device; the light palette is the one to look at on the unit's panel.
+v1.0.0-rc134
+  Back to amber: PATCHWERK's own colour is amber again (the web page and the update loader as before rc132). Palettes cut to six: DEFAULT (the amber look: the FM-1's own NIGHT-style deep darks on the device, the browser's lighter greys on the page), COBALT (blue accent, orange and cyan), HARVEST (cream accent, wheat, fern and cherry), MONO (unchanged), RISO (blue, emerald, lime and pink, peach accent) and SHELL (mustard accent, poppy and classic red, ocean, moss green). NIGHT, ORIGINAL, MIDCENTURY, OCEAN/ARCADE, FOREST and SUNSET are gone. A saved palette of the old list now shows whichever of the new ones has that number (a saved NIGHT stays DEFAULT; MONO keeps its number). The category colours of the new palettes were chosen to stay apart on the small screen; the grounds and greys are the same black and grey as DEFAULT's NIGHT look (no tint). Not tried on a device. Web page: the installer recovery section keeps the rc132 text on the Mac RP2040 route.
+v1.0.0-rc132
+  PATCHWERK's own colour is now mint (#2fe6b8), not amber: the hint plates, selections and "S1"-style marks on the FM-1 (NIGHT and ORIGINAL palettes), the web page's buttons, bank headers and progress bars, and the update loader's screen. The seven module-category colours are unchanged. Palettes: MIDCENTURY is new (new categories, cherry red, powder-blue accent; the ground is as before), OCEAN is now ARCADE (violet-black ground, neon categories, hot-pink accent), FOREST is removed (it was a tint). A saved setting of FOREST now shows SUNSET and a saved SUNSET falls back to the default; set it again in SETTINGS. SUNSET and MONO keep their own accents. Device-tested earlier on a real unit (rc131 and before): the cut-off install (cable pulled mid-write) was caught by the start-up check, the unit showed the UPDATE MODE message after a few seconds, and Install finished it; the Mac route with a XIAO RP2040 and the community Transporter script also recovered a unit. Web page: the installer recovery section now has the Mac RP2040 route. The colours themselves are a recolour here and not seen on the FM-1: the palettes and the loader's colour (RGB565 swapped) are new code and not tried on a device.
+v1.0.0-rc131
+  The update loader's messages, as mocked up: "PATCHWERK / UPDATE MODE / AN UPDATE STOPPED BEFORE IT FINISHED. YOUR PATCHES AND SOUNDS ARE SAFE. / TO FINISH IT: 1 PLUG IN USB 2 OPEN INSTALLER 3 PRESS INSTALL" while it waits (after 6 s with no install running), and "PATCHWERK / UPDATING / DO NOT UNPLUG OR POWER OFF" while one runs. The loader's font is now the full 5x7 set (space . - : ! 0-9 A-Z), about 200 bytes more. Same hooks as rc130. Not compiled for the device here and not tried on one.
+v1.0.0-rc130
+  BETA, the update loader now has a screen. An FM-1 sent back to the loader after a cut-off install (or waiting in it for any reason) was completely black and looked dead. After 6 seconds in the loader with no install running it now shows "UPDATE MODE / OPEN THE INSTALLER PAGE AND PRESS INSTALL. / NOTHING IS LOST.", and "UPDATING / DO NOT UNPLUG" while an install runs (and the first message again if the host goes away). A normal install, which starts well before 6 s, stays dark as before. New: base/bsp/loader/ldr_screen.h (its own small panel init, a 5x7 font of the letters used, a 10 KB RAM line buffer, bounded waits, watchdog fed between steps). The loader is the recovery path, so a bug in this would stall it: it is only reached from the idle loop and has not run on a device or been compiled here (the host build checks only its layout; the loader build runs on your Mac). Try it with the --badcrc-test rehearsal (rc129) from the rc130 package: install it, Enter update mode with the same file, power-cycle: after ~6 s the message appears. Web page, installer recovery section: what a dark screen after an interrupted install means (press Install again), and links to FM-1 Switch, the X0X manual's Mac rescue script and the RP2040 guide. Not tried on a device.
+v1.0.0-rc129
+  Test tool for the start-up check: ./build.sh --badcrc-test makes patchwerk-badcrc-TEST.fwsc, a working app whose header CRC16 is wrong on purpose (everything the loader checks is valid, so it installs). Procedure: install it (it runs normally; the diagnostics show IMAGECHECK 0); on the installer page press "Enter update mode" and power-cycle the FM-1; the start-up check should see the record and the bad CRC and reset into the loader ("What did it start?" says loader); then install a normal build. FOR TESTING ONLY: never release it. A normal build is unchanged (its build still fails if the header CRC16 does not match). Firmware unchanged from rc128. The new option has not run here (it needs the SDK); the header test runs in the suite. Not tried on a device.
+v1.0.0-rc128
+  Two build checks for the start-up (interrupted-install) check. (1) The build fails if crt0 + .text.early (the check) end past the first 4 KB sector: a cut-off install must find the check whole. (2) After the package is made, the build reads the app area back the way the CPU does and runs the same test the firmware runs (app.bin entry present, its own CRC16, offset and size, the image CRC16 against the header): a packaging change that would make a good image fail the check, and send a good unit to the loader, stops the build. New: tests/ota_header_test.py; base/tools/fm1pkg_make.py boot_check_errors(); linker symbol _early_end. Behaviour of the firmware is otherwise unchanged from rc127. The device-side parts of these checks have not run here (no toolchain); your build is their first run.
+v1.0.0-rc127
+  Fix: rc126 failed the build checks (register and volatile access outside the BSP). The early boot check moved into base/bsp/chip/ota_early.h; main_fm1.c only calls it. Same behaviour. Not tried on a device.
+v1.0.0-rc126
+  Fix: rc125 did not build (fm1_ota_early was used in fm1_main before its declaration). Same boot check and diagnostics as rc125. Not tried on a device.
+v1.0.0-rc125
+  BETA, interrupted-install recovery. At the very start of boot the firmware now checks, only when an update record is still in flash (a booting app erases it, so ordinary boots skip this), that the app matches the CRC16 in its own header. If it does not (an install that was cut off after the first sectors were written), it starts the loader that install staged, through the RAM record the updater itself uses, and the install can be finished with Install. The check runs from the first sector of the image (before .data is copied), acts at most once per power-on, and does nothing when the header is not the expected layout. New: base/bsp/chip/ota_check.h, tests/ota_check_test.c (the real header entries read off a unit). The diagnostics BOOTPROBE gains "IMAGECHECK 1/0/N EARLY ..." (the check's verdict on the running app, live). NOT TRIED ON A DEVICE: the start-up path (flash window, reset into the loader) is new code on the boot path.
+v1.0.0-rc124
+  Diagnostics report: BOOTPROBE also dumps the 0x120 bytes before the app image in flash (the package header), to see whether it changes from build to build. Read only. Not tried on a device.
+v1.0.0-rc123
+  Web page: the Diagnostics card (Backup tab, "Save FM-1 diagnostics") was hidden; it is shown again, since the boot probe is read through it. Not tried on a device.
+v1.0.0-rc122
+  Fix: rc121 failed the build's address check (a literal XIP address in app.c). The boot probe now starts at the image's own start symbol. Same diagnostics and update-mode test as rc121. Not tried on a device.
+v1.0.0-rc121
+  BETA, diagnostics for the interrupted-update protection. Nothing here writes or erases flash. (1) DIAGNOSTICS report (the page's Save) now ends with a BOOTPROBE block: the first 32 bytes of the app image in flash and a CRC32 per 4 KB of its first 40 sectors, read through XIP. Saved from two builds it shows whether the start of the image stays identical from build to build (a boot stub needs that). (2) Web installer, in the "interrupted" section: "Enter update mode" runs only step 1 of an install (the FM-1 verifies the package and restarts into its update loader; no sector is touched), then "What did it start?" reports, after a power-off/on with no cable pulling, whether the FM-1 came back in the loader (the chip's boot code honours the flash record) or in its app. Press Install afterwards to finish from update mode. Not tried on a device.
+v1.0.0-rc120
+  Web page, installer: a "If an install was interrupted or the FM-1 will not start" section: charge to half and keep the cable plugged in before installing; a soft brick (black screen, "FM-1 not found", the unit shows as the USB disk WL82 UBOOT1.00) is recovered over USB with the community MvaveFM1Unbricker; a unit with no USB device at all (an update that stopped partway) needs the RP2040 Transporter, with its guide linked.
+v1.0.0-rc119
+  SEQUENCER: velocity 0 means the step is off. It does not play, shows as an outline, and the VELOCITY cell says OFF; KNOB 4 up from 0 turns the step back on, and SEL on a step at 0 turns it on at 78%. (A saved patch with a step at 0% velocity now stays silent there.)
+  AUDITION on a module's page now works on a source that is cabled out (a SAMPLER, DRUM RACK or synth wired to the output, or driven by a sequencer): the key strikes it and its sound goes on through its cables. Only when a KEYS module feeds the source (directly or through other modules) do the keys still play the patch, and the strip says so (Play patch).
+  Web page, sample banks: the single "Erase the FM-1's bank" is three buttons plus one: Erase sounds on the FM-1 (A-D only), Erase CZ banks, Erase FM-DX banks (each under its own section) and Erase everything; each asks again with what it will remove ("erases 14 sounds, 2 CZ banks"). A sound that is not on the FM-1 has a grey waveform (the "not on FM-1" text stays). "Remove N sounds not on the FM-1" clears from the page the sounds the unit does not have. Send all clears the FM-1's sounds in one command and reads its list once at the end instead of after each sound, and says how long it took. The firmware has a new bank command for it (erase sounds / CZ / FM-DX); an older firmware gets the slow way.
+v1.0.0-rc118
+  Edit page of the SEQUENCER and MOD SEQ: the preview is half size and "Press [SEQ] to edit steps" sits under it with SEQ on its plate (as in the strip). MOD SEQ's preview uses the lanes' own colours (amber, blue, pink, green) and a green playing step, as on its steps page.
+v1.0.0-rc117
+  SEQUENCER: a step's velocity is how solid its purple pitch bar is (the separate velocity bar is gone) and the VELOCITY cell is purple.
+  ADD MODULE: KNOB 1 scrolls the list like SELECT.
+  Edit page of the SEQUENCER: the picture is the step page, smaller (tiles, the pitch bars, outlines for steps that are off, ties and glides, the playhead). SEQUENCER, MOD SEQ, CHORD STEPS, GRAVITY and PIANO ROLL say "Press SEQ to edit steps" under the picture, and the strip says SEQ (SEL still opens the steps).
+  The web page's module pictures are redrawn by every release (WAVESET and MUTATE had none there: they were last drawn before those modules existed).
+v1.0.0-rc116
+  The tracker view is gone (SEQUENCER and MOD SEQ are tiles only again; the SETTINGS row and GLO + SEQ toggle are removed). On the SEQUENCER the pitch is one bar rising from the bottom of the tile, filled when the step plays and an outline when it is off (the separate gate bar at the bottom is gone); ties and glides join the tops of the bars.
+  ADD MODULE: KNOB 1's A-Z jump is gone again. KNOB 2, 3 and 4 say in the strip what they landed on (CATEGORY: FILTER, FAVORITE 2 OF 3: VCF, RECENT 1 OF 6: LFO).
+  MUTATE module: SEL on its Edit page opens the MUTATE page (the strip says "SEL: Mutate page").
+v1.0.0-rc115
+  SEQUENCER and MOD SEQ steps can be shown as a TRACKER: two columns, steps 1-8 on the left and 9-16 on the right, one row per step (number, note, pitch bar with the gate, TIE/GLD/xN tag, velocity). Pick it in SETTINGS (SEQUENCER VIEW: TILES or TRACKER, kept over restarts) or on the steps page with GLO + SEQ. Tiles stay the default.
+  Edit page and step page are linked: on the Edit page of SEQUENCER, MOD SEQ, CHORD STEPS, GRAVITY and PIANO ROLL the strip says "SEL: Edit steps" and SEL opens the step page; the step page's strip says "EDIT: Knobs" and EDIT comes back to the module's knobs. The page is called STEPS everywhere.
+v1.0.0-rc114
+  SEQUENCER: KNOB 2 on a step goes x1-x4 (ratchets), then TIE, then GLIDE, for 303-style acid lines. A TIE step does not retrigger: the gate of the step before runs on into it (a held note, or legato). A GLIDE step does the same and the pitch slides into it (60 ms, or SLIDE if longer). The tile says TIE / GLD and its gate bar joins the step before. MUTATE rolls and nudges also turn steps into ties and glides; GLO + REC clears them. Old patches load unchanged (the flags live in unused bits of each step's feature byte).
+  WAVESET: five more modes, SCRAMBLE (now and then an older group), AVERAGE (the mean of the last one to four groups), TELESCOPE (each group squeezed to a half to a quarter: an octave or two up), INTERP (the group before slides into the newest) and FRACTAL (copies at double and quadruple speed laid over it).
+  VISUALIZATIONS for the two new modules: WAVESET draws the waveform it makes with a tick at each cycle's end and the cycles shaded in groups (what the mode did to them); MUTATE draws a tile for each module it can change (white edge: the last mutation changed it, fading; LOCK: locked), the AMOUNT, the DENSITY and what came last. Every new module from now on gets one that shows what it is doing.
+  Undo, redo, copy and paste (GLO + a key) now show their words in the strip (UNDONE, REDONE...) even though GLO's own shortcuts are showing.
+  ADD MODULE: A-Z is back, on KNOB 1 (SELECT still scrolls); the strip reads K1 A-Z, K2 Category, K3 * (favorites), K4 R (recents). The R mark is a little larger.
+  Not tried on the device.
+
+v1.0.0-rc113
+  NEW: WAVESET (REPEAT, REVERSE, OMIT, DIVIDE, FREEZE on the waveform's cycles; AMOUNT CV, FREEZE gate) and MUTATE (a trigger into NUDGE or ROLL shakes the patch; AMOUNT CV).
+  NEW: PERFORM's third page, MUTATE: FX nudges, REC rolls, KNOB 1 amount, KNOB 2 density, SEL locks a module. Sequencer steps are mutated too. GLO + OCT- undoes it in one step.
+  Patch format 13: the module locks are saved (older patches load unlocked). 84 modules.
+  Not tried on the device.
+
+v1.0.0-rc112
+  ADD MODULE: the knobs are Category (K2), Favorites (K3) and Recents (K4): the A-Z jump is gone (the list is by category, not alphabetical, so it did not help). K3 steps round the favorites (*), K4 round the last six added (R); each says so when it is empty. The strip says Category, Favs, Recents. Cheatsheet and README updated. The amber bar over the selected tab is back, with the tab names (and the tempo and other header words) a pixel lower so they sit clear of it. ENV FOLLOWER's example: the dry bass drum is louder (MIX level 0.45).
+  Not tried on the device.
+
+v1.0.0-rc111
+  The amber bar over the selected tab is gone (the lifted tab is enough). ENV FOLLOWER's example now really sweeps the filter: the drum's output is about +-4 V, so the old settings (GAIN 4, a drum ringing 0.4 s) kept the follower at its 5 V ceiling and the filter never moved. Now 3 hits, a short drum decay (0.12 s), GAIN 1.3 and RELEASE 0.12, the filter starting nearly shut (70 Hz, resonant) with the drum mixed in quietly: the ENV swings about 4 octaves on every hit (measured on the host). The follower itself was fine.
+  Not tried on the device.
+
+v1.0.0-rc110
+  LISTS, second pass: SETTINGS rows use the patch list's spacing and have no grey bar behind the unselected ones (only the selected row is lifted). ADD MODULE gives the names a little more room, and a name that still does not fit drops to the small face before it is cut (ATTENUVERTER, ENV FOLLOWER); the scrollbar is a little thinner. The tab names sit one pixel lower in their tabs, level with the tempo and the other words of the header. ENV FOLLOWER's example is new: a drum beat opens a filter on a held saw (a rhythmic wah).
+  Not tried on the device.
+
+v1.0.0-rc109
+  LISTS LOOK ALIKE: the patch list, ADD MODULE and SETTINGS share one row style: a color bar on the left (patch kind, module category, or settings group: behavior, looks, engine, system), the name in white, the selected row on a grey bar (no amber marker), a scrollbar on each. The patch list's F1/U1 tag moved to the right edge. In ADD MODULE the recents mark is a small pixel R the size of the favorite star. The tabs (PATCHES / SETTINGS / HELP, PERFORM / MUTES) are one size bigger.
+  Not tried on the device: the layout is checked on the host screenshots only.
+
+v1.0.0-rc108
+  SAVING with DUAL CORE on restarted the FM-1 (a real unit: SAVE the second time, then a stall and a restart; fine with DUAL CORE off). Before any write to the flash (a patch, the settings, a backup restore, the sample bank) the offload is switched off and given 30 ms to bring every module back to the first core, and it is switched on again 1.5 s after the last write. DUAL CORE is OFF in the settings of a new or reset unit (it is experimental: the same two-core start is reported unsteady on some units by other fm1 projects); a unit that has it saved as ON keeps it.
+  Not tried on the device: the guard around flash writes is the first thing to check (DUAL CORE ON, SAVE twice).
+
+v1.0.0-rc107
+  POWER-ON: HOME held starts a blank patch (an OUTPUT alone, like "Start empty") instead of the first factory patch, still without the second core and without touching U1. Without HOME, a start that loads U1 says "STARTED WITH U1: <name>"; if U1 holds a patch that will not load it says "U1 WOULD NOT LOAD: FACTORY PATCH" (before, it fell back to BASIC VOICE without a word). (A saved copy of an edited factory patch keeps the factory name, so U1 can look like the factory patch: the notice tells them apart.)
+
+v1.0.0-rc106
+  ADD MODULE: the strip says K2 Categ., K3 A-Z, K4 Favs/Recents (the longer words did not fit). Cheatsheet and README: SEL on a group's box with a cable in hand opens the group; HOME at power-on is a safe start (a factory patch instead of U1, no second core; nothing is deleted). The help page and the notice say so too ("safe start", not "skip the saved patch").
+
+v1.0.0-rc105
+  GROUPS: a cable in hand goes into a group and out of it. With a cable in hand, a group's box is always a stop (SELECT lands on it); GLO + FX or SEL there opens the group with the cable, plug it into any jack inside and the box has that jack when you leave. A cable grabbed inside a group (SEL) comes out with HOME: the box shows its jack (a new input or output of the group once plugged), and SELECT takes it to where it goes. The module the cable comes from shows dimmed inside the group. The strip says "Open group" with GLO held on a group's jack ("Leave group" inside one); with a cable in hand it says what GLO + FX and HOME do.
+  ADD MODULE: "favorite" everywhere (REC makes the module a favorite: a star; "Favorite" / "Unfavorite" in the strip, K4 Favorites; the notices say favorite, not pin). The last six you added show an R beside their name, like the star for favorites.
+  Tests: scenarios group_carry and group_carry_out; the host checks "gview" and "carrying".
+
+v1.0.0-rc104
+  Web page: the CZ banks and the FM-DX banks sit side by side, each as a 2 x 2 grid (one below the other on a narrow screen).
+
+v1.0.0-rc103
+  Web page: the four sample banks A-D have a colour each (orange, blue, pink, green) and a box of their own with more room between them. The module pictures (and the module dialog) show the whole title strip and no half-cut captions (tests/vis_png.py crops from y 18 to 176; all 82 are drawn again). Backup: "Include the sample banks" (the download has all four banks and the CZ and FM-DX banks; the restore box says so too). New wording for the intro, Sample banks, CZ banks, FM-DX banks, Getting Started with Patching, modules and Backup. The diagnostics box is hidden for now.
+
+v1.0.0-rc102
+  SETTINGS: rows are spaced out (19 px) and the list scrolls with the cursor, with a bar at the right; the description stays under it.
+  ADD MODULE: pins were not kept after a restart (the settings were only written on leaving SETTINGS): they are written when you leave the list. The strip has a second row: K2 Category, K3 A-Z, K4 Favs; REC (Pin / Unpin) is in the first row. The quick-add keys are called OP1-OP4 (GLO + OP1-OP4), not black keys.
+
+v1.0.0-rc101
+  Web page: "Patching on the device" is four short steps (add a module, make a cable, turn the knobs, play and save) and a link to the cheatsheet for every control; the long control tables are gone from the page.
+
+v1.0.0-rc100
+  Web page, cheatsheet, README: module count is 82 (the page's intro counts them from the firmware like the module list does), 50 factory patches. The page's HOME row no longer describes the old quick-add list or "GLO + ALGORITHM" for knob pages (ALGORITHM turns them); the FX row and the cheatsheet name the ADD list's pins, letter jump and quick-add keys.
+
+v1.0.0-rc99
+  COMPARE and SHIFT REG have pictures (the module page and the ADD list's visual page). COMPARE: A and the line it has to pass (B + THRESH, the HYST dots round it; WINDOW: B +- THRESH) as a strip chart, and the gate it makes in a bar under it. SHIFT REG: the register as boxes, newest left, each holding its value as a bar (scaled to the biggest), the ones past LENGTH dark, NOW / -1 / -2 / -3 / END marked and an arrow back from the end while FEEDBK is up.
+  ATTENUVERTER's picture shows CURVE and RECT in its lines.
+
+v1.0.0-rc98
+  Flash: the platform's own screens (boot, update, crash, calibration) are written in PATCHWERK's faces (APP_SYS_TEXT; core/pw_ui.c's pw_sys_text), so fm1-base's three fonts (FONT_M, FONT_B, FONT_S: 29 KB in the symbol list) are no longer linked. Untested on the device; remove APP_SYS_TEXT from app/app.h to go back. tools/symsize.py lists the biggest symbols in the ELF.
+
+v1.0.0-rc97
+  ADD MODULE: REC pins a module (a star, eight at most, kept with the settings); KNOB 4 steps round the pinned and the last six added; KNOB 3 jumps by first letter; on the patch screen GLO + a black key adds pinned module 1-4 where the cursor is. The list order is unchanged.
+  New modules: COMPARE (A against B + THRESH: A>B, A<B, WINDOW, CROSS; HYST, PULSE; GATE, INV, A-B) and SHIFT REG (a CV shift register: LENGTH, FEEDBK, MUTATE, MIX; NOW, -1, -2, -3, END, MIX outputs, CLOCK and RESET). Both in the ADD list (COMPARE after LOGIC, SHIFT REG after PARAM MOD); four scenario counts moved.
+  PARAM MOD's example patch moves a knob that has no jack: an LFO sweeping FM-2's RATIO under a sequence.
+  The web page says flashing takes about a minute and a half.
+
+v1.0.0-rc96
+  PARAM MOD steps the modules it moves in pieces of sixteen samples (2.7 kHz) instead of once a block, for oscillators, LFO, noise, wavetable, FM-2, filters, VCA, folder, distortion, ring, comb, vowel, EQ, LPG, delay, comp, envelope, function, attenuverter and swirl; the others keep the block's mean. It also runs before the modules it moves (it was a block behind), and re-orders when its MODULE changes.
+  LOGIC: three new outputs, MIN and MAX of A and B and ABS of A (voltages, not gates).
+  ATTENUVERTER: CURVE (bends the signal: convex or concave, 0 is straight) and RECT (off, half: the negative half cut, full: flipped up), both sides alike. Old patches are unchanged.
+
+v1.0.0-rc95
+  New module: PARAM MOD. Four channels, each a voltage (CV 1-4) that moves any knob of any module: MODULE (steps through the modules there are), PARAM (that module's knobs, named), DEPTH (of the knob's range, either way) and SMOOTH. Once a block, no audio rate; the knob keeps its own value (the offset is added just before the module runs and taken off after); 16 at once. A deleted target lets go; saved patches keep their targets when modules are renumbered. Its example patch: an LFO sweeping the filter.
+  ADD MODULE: PARAM MOD sits after CV RECORDER; five scenario counts moved with it.
+
+v1.0.0-rc94
+  FM4 becomes FM-2: two operators (a modulator into a carrier) in eight knobs on two pages. TONE: PRESET, RATIO, INDEX, FBK; ENVELOPE: AMP, MOD (each one of the twelve shapes: pluck, bell, pad...), TIME, TUNE. Lighter on the CPU and the flash; FM-DX is the deep one. Old FM4 patches load with their operators 1 and 2 (their variations are dropped); FM BELLS, FM E.PIANO, FM BASS, LO-FI KEYS, FROZEN BELLS are re-voiced.
+
+v1.0.0-rc93
+  Five factory patches go (50 now): BREAKBEAT, LPG BONGOS, SONG BEATS, CZ KEYS, BEAT FIT (about 2 KB of flash).
+  SLICE JAM: the slicer's SENS is 95%, so it finds more slices in the loop.
+  SNAP DICE is a different patch from BERLIN SEQ: a bright square-wave arpeggio through a band-pass with a quarter-note echo (it was the same line and sound); its four snapshots are re-voiced to fit.
+  MOTION BASS: the recorded filter motion is far more obvious (a long rise from shut to wide open each bar, a drop, a flutter; less smoothing, higher resonance, the envelope no longer opens the filter).
+  The CV RECORDER's demo (ADD > its example) is now MOTION BASS.
+
+v1.0.0-rc92
+  Pool (RAM) cut by about 28 KB: the output buffers are 72 (were 96: the busiest factory or random patch uses 50; 24 modules of 3 outputs is 72), and the WAVETABLE module builds its four tables (16 KB) into its own pool memory when it is added (they were built at power-on for all). One copy serves all its voices. Without room for them it is silent, with the red marker.
+  A key combination is one shape with "+" between the keys (GLO + FX, GLO + (dial) K1): a plate, or with round ends and a dial before the knob when a knob is in it.
+
+v1.0.0-rc91
+  Knob keys in the shortcuts (ALGO, SELECT, K1, K2, KNOB) carry a little dial before the name, so they read as knobs to turn; buttons stay plain plates.
+  The ALGO switcher is gone from the PERFORM / MUTES and PATCHES / SETTINGS / HELP headers (the lit tab shows where you are; the strip says ALGO). The knob pages and the add list keep "ALGO 2/6".
+
+v1.0.0-rc90
+  ALGORITHM turns through the pages: PATCHES, SETTINGS, HELP (and back the other way). The SYSTEM menu is gone; the header shows all three names with the one you are on lit, and the ringed ALGO. The tempo stays up there; S1 and the other marks make way.
+  DIAGNOSTICS is a row of SETTINGS (SEL opens it; HOME goes back to the settings, ALGO turns its two pages). SETTINGS rows are 12 px apart to fit the new one.
+  GLO held (or tapped, where it latches): the header shows the CPU and the battery, as bars with their numbers, until you let go.
+  Tests: the help, settings, latch and diagnostics scenarios follow the new way round.
+
+v1.0.0-rc89
+  Page switcher: ALGO and the count are the same size (12 px) on one line, so they line up. The knob keys (ALGO, K1 ...) are the buttons' plate colours with round ends, not an amber outline (that looked jagged).
+  PERFORM / MUTES and PATCHES / SYSTEM show the same switcher ("ALGO 1/2") in place of the two filled page boxes; no filled page boxes are left anywhere. The header tabs are a little narrower to make room.
+
+v1.0.0-rc88
+  Page switcher: a ringed ALGO and "2/6" (the page number and how many), on the same baseline, in place of the row of page boxes. It always shows: a long jack name on the patch screen is cut short ("..") to leave room for it. The same on the module pages, the group box, the add list and the faces.
+  Knob keys in the shortcuts (ALGO, SELECT, K1, K2, KNOB) are an open ring, buttons stay filled plates: GLO+K1 is a plate then a ring.
+  Patch screen: selecting a jack no longer moves the module's knobs to a page (it had stayed in for some modules, FM4 among them); the knobs stay on the page you chose.
+  Room for patching: the header is 20 px (was 24), the jack-name line 17 (was 21), the knob cells 33 (was 37). The patch area is 11 px taller (126 to 137); no text got smaller but the knob names and values sit a pixel higher.
+
+v1.0.0-rc87
+  Fix: the FM-1 hung and restarted (no red screen) when a setting was changed with the second core busy (four reverbs): saving a setting (or a patch, a sample, the panel's
+  state, an update) erases and writes the flash, and the second core runs module code FROM the flash. It was only kept out of it by PATCHWERK's own lock, which the store's
+  writes never took. Now every flash erase and write (base/bsp/chip/fm1_flash.h, through app_flash_begin/end) first stops the render and waits for CPU1 to finish its last job.
+
+v1.0.0-rc86
+  The splash's PATCHWERK is smooth again: a large font holding only its nine letters (about 2.2 KB; the whole large font was 11 KB), in place of rc85's doubled medium font.
+
+v1.0.0-rc85
+  Flash: about 35 KB smaller, to stop the overflows (measured on the computer; the chip's figure will differ). (1) The large screen font is gone (11 KB, used by one line): the
+  splash's PATCHWERK is the medium font at twice the size. (2) Control-rate and editing code is built for size even inside the speed-built files (PW_COLD, clang's minsize):
+  the sequencers, clock, rack, macro, arpeggiator, keys, chords, load/save/add/remove, text formatting, FM SYNTH and DELAY (the reverb, MOD FX, sampler, envelopes, filters,
+  oscillators stay as fast as before: measured on the host, building those for size made the reverb three times slower).
+
+v1.0.0-rc84
+  Fix: rc83 was 864 bytes over in flash. DIAGNOSTICS > CPU is read-only now (the DUAL CORE setting starts the core and turns the offload on and off; SEL there did the same in
+  steps), the CPU1 start's debug readout and breadcrumbs are gone, the SYSTEM menu has no description lines, and the longer SETTINGS descriptions are shorter.
+
+v1.0.0-rc83
+  The two tabs are PATCHES | SYSTEM. SYSTEM is a small menu: HELP, SETTINGS, DIAGNOSTICS (SELECT picks, SEL opens, ALGO goes back to PATCHES; in SETTINGS ALGO returns to SYSTEM, HOME
+  leaves as before). The patch list now starts with NEW EMPTY PATCH, GENERATE PATCH, then the patches.
+
+v1.0.0-rc82
+  Header tabs: PERFORM | MUTES and PATCHES | SETTINGS are shown as two tabs in the top bar (the page you are on lifted and bright, the other dark), with the 1 / 2 page marks.
+  ALGORITHM switches between the two, as it did for PERFORM / MUTES; on the patch list it used to jump between the list's parts, which GLO + SELECT does (it already did).
+  The SETTINGS row is called DUAL CORE (was SECOND CORE). The offload's minimum module cost is 25 us (was 45): the open hat, rimshot and other small modules move too.
+
+v1.0.0-rc81
+  The second core is on by default. Your files: SONG DUB ENGINE 75% -> 38%, the reverb patch 34% -> 14% (ALL mode), copying 3-6 us a module, nothing late.
+  SETTINGS has a new row, SECOND CORE (ON / OFF, saved): at power-on the FM-1 starts CPU1 and the engine moves the heavy modules to it by itself (effects, filters, sources,
+  drums...). HOME held at power-on skips it for that start (the way out if a start ever hangs). Turning the row on starts the core right away; if it does not report in the
+  row reads "ON (NOT RUNNING)" and everything stays on one core. DIAGNOSTICS > CPU stays as the place to look and to step OFF/FX/ALL while testing.
+  Moved modules sound one block (2.9 ms) later; a module moving to CPU1 or back can click once.
+
+v1.0.0-rc80
+  Fix: rc79 was still 820 bytes over in flash. Gone: the OFFLOAD TEST setting (CPU1 only waiting), the CPU1 start's debug readout, the JOBS and WAIT/COPY lines on the CPU page
+  (the diagnostics file has WAIT and COPY), shorter texts. The diagnostics file gives each module's reason as a code: R0 offload off, R1 CPU1 failed, R2 on CPU1, R3 timed,
+  R4 stays (too many ports), R5 stays (cheap, or no room), R6 bypassed, R7 status not OK, R8 in the voice area, R9 audition, R10 category, R11 type not safe, R12 being timed.
+
+v1.0.0-rc79
+  Fix: rc78 did not link (the flash image was 2288 bytes over). The second core's old test job (8 biquads, run in RAM and in flash and compared bit for bit, the RAM/FLASH timing line)
+  is gone: it did its work (the cores agree, no cache fight) and the offload replaced it. The CPU page's JOBS line now counts the blocks CPU1 ran for the offload. The diagnostics
+  file's wording is shorter.
+
+v1.0.0-rc78
+  Diagnostics as a file instead of photos: the web page's Backup section has a Diagnostics card, "Save FM-1 diagnostics" (with the FM-1 linked). It saves a text file: ENGINE and
+  MODULES %, CPU1 state, jobs, the offload mode, WAIT and COPY, and every module with its share of the block, its own cost and why it is or is not on CPU1 (voice area, type, too
+  cheap...). Open DIAGNOSTICS > CPU by module for a few seconds first (that is what measures). New bank sub-command 9 (diagnostics text, in chunks).
+
+v1.0.0-rc77
+  Second core, cheaper hand-over. rc76's numbers showed the two cores do not fight over the flash cache (TEST = ALL) and the wait is ~0; what ate the gain was the main core copying
+  every module's blocks (80-200 us a block, at ~30 bytes/us with the library's memcpy). Now: word-copy loops, cables that are not plugged in are not copied (CPU1 gets silence), outputs
+  that are not patched are not copied back, and the decision is made when all modules are timed (costliest first, and only when the module costs more than its copying). Plugging in a
+  cable it has no buffer for hands the module back to the main core for a re-time.
+
+v1.0.0-rc76
+  Second core, why did ENGINE not fall (rc74: with 2 modules on CPU1, ENGINE stayed 75%, MODULES fell 59 to 54%)? Three changes to find out and to help:
+  CPU1 idles gently (a short pause between looks at the shared RAM; a core polling flat out can slow the other's memory), the page shows what the main core spends waiting for
+  CPU1 and copying blocks (WAIT, COPY), and a fourth OFFLOAD setting TEST moves the same modules but CPU1 only waits (their sound goes silent): if ENGINE falls there but not
+  in ALL, the two cores are fighting over the flash code cache; if it does not fall there either, it is the shared RAM. The old RAM/FLASH timing test only runs with OFFLOAD off.
+
+v1.0.0-rc75
+  Fix: rc74 failed the build's pool-headroom check (6272 B, 8192 needed): the offload's block buffers are 20, not 24 (10 KB).
+
+v1.0.0-rc74
+  Second core, automatic: DIAGNOSTICS > CPU, once CPU1 runs, SEL cycles OFFLOAD: off, FX (effects), ALL (effects, filters, sources). The engine times each module that is safe to
+  move (only its own memory: reverb, delay, drum synth, VCF, FM synth, ... 29 types; the sequencers, keys, sampler and anything in the voice area stay) for 8 blocks, and moves
+  the heavy ones (45 us or more a block) to core 1 while it has room (2 ms of work a block). Each moved module's sound arrives one block (2.9 ms) later, as in rc73. The page shows
+  how many modules are on CPU1 and what they take. A module is not moved back and forth while you play. Off at every start; if CPU1 does not answer, everything returns to core 0.
+  Modules pass blocks to CPU1 through a ring of jobs, in order; the lock for flash writes waits for all of them.
+
+v1.0.0-rc73
+  Second core, first real module: with CPU1 running (DIAGNOSTICS > CPU, SEL), SEL again sends the first REVERB (outside the voice area) to core 1. Its block is posted
+  at its turn and its result taken at its turn in the next block: one block (2.9 ms) later than on one core. The CPU page shows what it takes on CPU1. Off at every start.
+  If CPU1 does not answer in 6 ms the reverb goes back to core 0 for good (until a restart); the flash is never written while CPU1 is inside a block (the lock waits for it).
+  CPU1's stacks 4 KB each. Test: the engine's own logic (host test OFFLOAD: the same sound, one block later).
+
+v1.0.0-rc72
+  Second core test job: every other job runs the filter from flash (as the engine's own code is) instead of RAM, CPU1 times itself, and the CPU page shows RAM and FLASH
+  times for both cores. Tells how much CPU1 loses running flash code beside CPU0, before any real module moves there.
+
+v1.0.0-rc71
+  Fix: rc70 did not link (a call from flash to the RAM code is out of range); CPU0 calls the test job through a pointer now.
+
+v1.0.0-rc70
+  Second core, first real work: once CPU1 runs, the CPU page gives it a test job each time it is drawn (8 biquads over 128 frames, float, in RAM) and runs the same on
+  CPU0 as a check. JOBS, ERR (output bits that differ), LATE (no answer within 5 ms: the test stops), and the times each side took. Nothing else uses CPU1 yet.
+
+v1.0.0-rc69
+  Second core: the readout found DBG 00000400 (bit 10: CPU1's instruction-fetch limit). CPU1 begins in the chip's mask ROM, outside the PC limits the app sets at boot,
+  so it faulted before its first line (STG 0). The limits are now opened for the start and set again after it; CPU1 is held first.
+
+v1.0.0-rc68
+  Second core: when the start does not report in, the CPU page now shows what it read back (CORE_CON, entry word, CPU1's error word, DBG, SYS_DIV, and STG: how far
+  CPU1 got, 0 never reached its code, 1 started, 2 up). The start no longer switches the interrupts off while it waits (the sound was cut by that).
+
+v1.0.0-rc67
+  Fix: rc66 did not pass the build's register check (the second core's register code was in app.c); it is in cpu1/cpu1.h now, which the check leaves alone. Nothing else changed.
+
+v1.0.0-rc66
+  Second core start, reworked after Melodee's (keremimo/melodee, which ships two cores): CPU1's own interrupt bank is cleared, its stack window set, its entry
+  masks interrupts and sets the supervisor stack, a CPU1 that does not report in is held safely (bus-error traps masked), interrupts are off during the start.
+  Same test (DIAGNOSTICS, CPU page, SEL). Breadcrumbs C101..C104 stay.
+
+v1.0.0-rc65
+  CPU1 start test (DIAGNOSTICS, SEL) crashed on the unit in rc64. This build adds breadcrumbs around each step; if it crashes again, the last line of the red
+  crash screen ends in C101..C104 and shows how far it got. Please send a photo of that screen (all lines).
+
+v1.0.0-rc64
+  Fix: the CPU page used a 64-bit divide the FM-1's toolchain does not have (rc63 did not link); it is 32-bit now
+  (rc63's notes follow, they apply to rc64)
+  DIAGNOSTICS has a second page (ALGORITHM turns between them): what each module costs of the audio block (the seven costliest, with ENGINE and MODULES totals, measured over a second while the page is open), and CPU1. This is the base for deciding what a second core could take: a reverb, a delay, the three drum synths of SONG DUB
+  CPU1 (EXPERIMENTAL, never run on a device): SEL on that page starts the FM-1's second core, which only counts, and the page says CPU1 RUNNING, DID NOT REPORT IN or UP BUT NOT COUNTING. It starts only when asked, once a power-on. The audio engine does not use it yet. The build gets app/cpu1/entry.S (its entry and stacks; asm / vendored in fm1.toml, APP_CPU1 in app.h and base/device/unity.c). Without them (remove those lines) the build has no second-core code
+  tests/prof.c (host): the same per-module cost for any factory patch: tests/out/prof 43 (SONG DUB)
+
+v1.0.0-rc62
+  SAMPLER: RAM is the INTERNAL bank's first entry only; banks A-D list their eight sounds (SAMPLE 0 there plays sound 1). Arming REC switches the module to INTERNAL / RAM, so what you record is what plays
+  SAMPLER: the waveform follows a recording as it is made and shows the new sound at once (it used to keep the old picture until the page was left and entered again)
+  SAMPLER: a new one starts as 1SHOT (the break plays through, the envelope out of the way; the ADSR is still there for the other modes)
+  Update screen on the unit: PATCHWERK in amber, UPDATING, what is happening, a five-step bar, DO NOT UNPLUG (was UPDATE / PACKAGE / CHECK HEAD in grey)
+  Web page: the install bar is amber, and at 100% the status says a dark screen is normal
+
+v1.0.0-rc61
+  SAMPLER: on its module page REC arms (REC ARMED on the picture), the next REC records IN into the RAM (RECORDING; a second at most), the next REC or PLAY stops. Nothing patched into IN: nothing recorded, and it says so. Hold REC still deletes the module
+  SAMPLER: the RAM's recorded sound is stored with the patch (SAVE, or AUTOSAVE) and comes back when the patch is loaded: 4-bit ADPCM, about 22 KB, in two extra sample-bank slots per user patch (slots 40-55; the bank's directory now lists 56; an older build reads the directory as empty). The page's bank list is unchanged. A full bank says "STORED: THE RECORDED SOUND DID NOT FIT"; the patch is stored anyway. The emulator keeps no RAM sound with a patch
+  GLO + PRESETS (the metronome) is in the GLO hint strip on the patch, module, perform, live and song pages, and in the README, cheat sheet and web help
+  Web page: the install section has a "Before you start" dialog (keep the tab open, leave the FM-1 on, about 3 minutes, choose Allow for MIDI, a backup tick box) and a bigger progress bar; the wording about the Claude viewer is gone; the banners say to choose Allow when the browser asks to use MIDI devices
+  Tests: REC arm/record/stop and the one-second limit; the RAM sound's round trip through the bank (error under 0.2% of the signal)
+
+v1.0.0-rc60
+  DRUM RACK: the first kit is CUSTOM (was "-"). Each pad's SOUND lists the drawn sounds, banks A-D (A 1..D 8) and every kit's own pad sounds (Boom Kick ...), so hybrid kits can be made; the "I1.." entries are gone. Patch format 12 (older patches are renumbered on load)
+  Patch screen: AUTO COMPACT is a setting (SETTINGS), off by default; GLO+SEQ still compacts
+  REC on a jack with two or more cables unplugs one a press, the one patched first first
+  EDIT on a module opens its first parameter page, whatever jack it was on
+  PIANO ROLL: the add list's picture has fewer notes, zoomed in; the web page has a picture for it (tests/gen_vis.mjs adds notes with pw_web_roll_demo)
+  SAMPLER: an empty bank says what to do where it runs: on the unit "send a sound from the web page", in the emulator "drop a file on bank X below", INTERNAL "nothing built in"
+  Web page: the banner says one of three things: a calm "you're using the emulator" note (Hide), "a MIDI device is plugged in" with Link FM-1, or "the FM-1 did not answer" (probably M-VAVE's own firmware: install PATCHWERK)
+  Fix: a hint line with GLO held on the rack page could overflow its buffer (rc58, rc59); the buffers are larger
+
+v1.0.0-rc59
+  Metronome: GLO+PRESET (turn up: on, down: off), from every page but the patch list, HELP and SETTINGS; GLO+KNOB 2 (the roll's octave, fine edits) is back. The roll's view is GLO+SEQ on the roll page (AUTO, FOLD, ALL KEYS); GLO+KNOB 3 is the fine move again.
+  PIANO ROLL view: the keys in view run from two below the lowest note to two above the highest (the cursor beyond them extends it; an empty roll shows twelve around the cursor); AUTO folds (rows only for pitches that have a note, up to 20) when that is more than 17 keys; ALL KEYS shows up to 24 and scrolls with the cursor.
+  SAMPLER: a new one starts with a one-second drum break in its RAM (web/break_src.json, from Jungle.wav: 22.05 kHz mono, SEA, 9.8 KB in the firmware, decoded and doubled to 44.1 kHz when the module is added), replacing the synthesized loop. INTERNAL is empty again (tools/gen_internal.mjs, BUILT_IN []): with JUNGLE built in (27 KB) the firmware overflowed XIP by 6340 bytes. tools/gen_break.mjs makes app/core/pw_break.inc (tests/run_tests.sh checks it).
+  Tests: the starting break sounds; INTERNAL empty; the roll scenario follows the new keys (GLO+SEQ, GLO+PRESET).
+
+v1.0.0-rc58
+  Metronome: GLO+KNOB 2 (turn up: on, down: off) on the patch screen, the sequencer and roll pages and the performance pages; a click on every beat, higher on the bar's first, while the transport plays (mixed in before the master; not part of a patch, off at power on); MET in the top bar, white on the beat.
+  PIANO ROLL: pitch fix: a roll that began playing inside a note (a patch loaded while the transport ran, or play pressed with a note under the playhead) kept pitch 0, which is -5 V; a voice that has played nothing now sits at 0 V (C4), and a note edited under the playhead follows. Its steps ran one sixteenth late (the first sixteenth was step 1): step 0 now plays first, and the playhead, LIVE record and the metronome agree. C4 is 0 V on the roll and on the SEQUENCER (a test compares them). View: rows are at most two octaves of keys (a window that follows the cursor), or with FOLD only the pitches that have a note (and the cursor's), up to 20 rows that scroll; AUTO (the default) folds when the notes are in more than two octaves; GLO+KNOB 3 picks AUTO, FOLD, KEYS. In FOLD ALGORITHM steps from pitch to pitch with a note. GLO+ALGORITHM still jumps an octave; GLO+KNOB 2 (octave of a note's pitch) is the metronome now. PIANO ROLL is listed right after SEQUENCER in ADD MODULE.
+  Samples: INTERNAL 1 is JUNGLE (a drum break, web/internal_bank.json, built by tools/gen_internal.mjs: 22.05 kHz mono, SEA, about 27 KB). The code region was full when INTERNAL was emptied (rc54): if the firmware build says it overflowed, shorten JUNGLE in LIMIT (ms) or divide its rate in tools/gen_internal.mjs, or empty BUILT_IN.
+  Tests: roll and sequencer give the same voltage; the roll's first step; the metronome clicks on and is silent off; INTERNAL plays JUNGLE; the add list's order moved (two scenarios follow it).
+
+v1.0.0-rc57
+  PIANO ROLL: the keys in view follow the notes: from the octave of the lowest note up through the octave of the highest (cursor included), up to three octaves (more notes than that: a three-octave window that holds the cursor); an empty roll shows one octave. Rows get thinner with more octaves (the velocity line and the octave label drop out when they would not fit).
+
+v1.0.0-rc56
+  Patch screen: the compact view comes on by itself only for a big patch (more than ten boxes, groups counting as one, or twice the screen's height); GLO+SEQ sets AUTO, COMPACT or FULL.
+  PIANO ROLL: one octave in view (C to B; the page turns when the cursor crosses an octave); KNOB 2 changes the pitch of the note under the cursor (GLO: an octave), KNOB 4 its velocity (GLO+KNOB 4: the loop); its module page draws the loop as a small roll with the playhead; an example in the add list (a chord and a tune); factory patch 55, ROLL CHORDS (Am F C G chords with a lead, one cable, four voices).
+  Test scenarios: the patch list has one more factory patch (the user slots start one lower).
+
+v1.0.0-rc55
+  MOD SEQ: TRIG A-D outputs (a pulse each time a lane steps; with each lane's own LEN and DIV, rhythmic gates from the polymeter). The engine allows 9 outputs a module now. Patch screen: COMPACT view (boxes show only their tag, jacks are dots, no preset lines) that switches on by itself when the full-size patch does not fit the screen; GLO+SEQ steps AUTO, COMPACT, FULL.
+  PIANO ROLL (86 modules): notes on a grid of 16ths with chords. Outputs PITCH, GATE, VEL, TRIG: one cable carries up to four voices at once (the roll is in the voice area, as KEYS is; adding one sets the patch to four voices). Editor on the SEQ page: the keyboard down the left, 16 steps in view, SELECT moves along the grid (by SNAP: 1/16, 1/8, 1/4, BAR; fine: one step), ALGORITHM up and down the keys (GLO: octave), SEL puts or takes away a note, KNOB 1 its length, KNOB 2 velocity, KNOB 3 moves it, KNOB 4 the loop (1-4 bars); GLO+SEL copies the bar to the next, GLO+REC clears; REC records from the keys (STEP: keys played together are a chord; LIVE: onto the step the loop is at). 30 notes, 64 steps, snapshots keep the notes. A module's stored data is 128 bytes for the roll (56 for the rest): patch files, snapshots, undo and the live link carry the longer data (link protocol 7).
+  Patch screen: the compact view comes on when the patch has more than nine boxes or does not fit the screen's height.
+  Web page: a yellow banner above the emulator says "Not linked to an FM-1" with a Link FM-1 button until it is linked (and "A MIDI device is plugged in" when one appears); once the browser has been allowed MIDI with SysEx the page links by itself when it loads or an FM-1 is plugged in.
+
+v1.0.0-rc54
+  Tempo is back on the patch list (next to the patch name; K1) and no longer in SETTINGS; GLO+K1 on the patch screen still sets it.
+  A module you add opens on page 1 (a sampler added to an empty patch no longer opens on the filter page). On the add list, SELECT turned fast no longer jumps categories (KNOB 2 jumps).
+  Samples: the SAMPLER has a BANK knob (INTERNAL, A, B) before SAMPLE; its default stays RAM (SAMPLE 0). INTERNAL is reserved for sounds built into the firmware; none for now because the 34 KB did not fit the code region (XIP overflowed by 11.5 KB). core/pw_internal.inc and tools/gen_internal.mjs (BUILT_IN list) bring some back when there is room. A1 is the flash bank slots 0-15 (what used to be B1-B16), A2 is slots 24-39. The DRUM RACK pad sounds and the KIT list (I 1-8 ... B 9-16) and GRANULAR's SOURCE (to 48) show I, A and B. Patches made before that used the old bank slots now read them as A1.
+  Link: the bank directory has 40 entries; BANK_LIST answers 24 at a time (offset 24 for the rest); older firmware and older directories are still read.
+  Web page: two banks side by side (A, B); Trim and Compress boxes on each sound instead of Untouched; drop up to 16 files on a bank (name order, from sound 1) or on a slot (from there on); every sound's size is shown; what is on the FM-1 is always shown (the factory sounds are no longer pre-loaded: Factory to A / B copies them on demand); "Sending to the FM-1... %" shows only while sending; a sound sent no longer makes the earlier ones read "not on the FM-1"; the flash used out of the total is shown once linked.
+  Later in rc54: the banks are A and B (not A1 and A2); the DRUM RACK's KIT list ends with the INTERNAL kits (A 1-8, A 9-16, B 1-8, B 9-16, SAMPLES, SMPL PERC, I 1-8, I 9-16). Web page: every pad the same size, the buttons on one line, the storage line big (KB remaining, a bar, used of 208 KB), and a pad whose sound does not fit says so (No room: needs X KB, only Y free).
+  Final rc54: FOUR banks of 8 (A, B, C, D) match the DRUM RACK: SAMPLER BANK = INTERNAL, A-D, SAMPLE 1-8 (CV 0.625 V a sound); rack pads list I, A-D; KIT list ends with KIT 9-12 = bank A-D on all pads (a sample no longer reads as a kit; the I1 label bug is fixed); old sampler patches with SAMPLE 1-16 are moved to BANK/SAMPLE on load. Web page: four banks (Factory to A+B / C+D), a Clear bank button on each (asks twice), shorter sample text. FM-1 storage line shows 316 KB total.
+  Bank: 316 KB, not 208. The FM-1's platform header (base/include/plat.h) gives apps two more flash windows for big data, outside the store: 16 KB just above the app area (0x93000) and 92 KB above the update's staging (0xE5000), and the part is 1 MiB. Sounds go in the main window first and then these, so nothing already on the FM-1 moves. The update loader clears an update record it finds at bytes 0xF00..0xF07 of a sector there, so a sound that would put "AT" at 0xF06 is refused there (about 1 in 65,000 sectors; the page says to change Trim or Compress). BANK_LIST adds the room and the free total after its entries; the page shows the room an FM-1 reports (an older firmware: 208 KB). A sound must still fit in one window, so the largest free block is shown.
+  Code room: the platform's own screens (calibration, update, safe mode, crash) use the medium face (APP_BIG_FONT FONT_M), which the base template says saves about 20 KB of code. PATCHWERK's own screens are not affected.
+  Tests: INTERNAL, formatting, page order, rack labels and kits (host); the browser tests follow the two banks, Trim/Compress, multi-drop, A2 and the storage line.
+
+v1.0.0-rc53
+  Fix: a compressed sound longer than about 2.4 s at 44.1 kHz would not go onto the FM-1. The bank refused anything over 106,496 frames (the most a 16-bit sound can have in the room), counting frames instead of bytes, so a packed ~3 s sound was answered "bank full" at once; and the same limit would have dropped it from the bank list at the next start. The room is now counted in bytes for both kinds (about 470,000 frames of packed sound fit in all). The emulator never had the limit.
+  A packed sound's stored size is rounded up to whole 4-byte words (the flash is written in them); the page, the firmware and the tests agree.
+
+v1.0.0-rc52
+  Samples: trimmed and compressed by default. The web page cuts the silence off both ends of a sound (the tail where the 10 ms level falls 50 dB under the peak, the start a window before the first sound, an 8 ms fade out) and packs it with SEA (Dani Biro's Simple Embedded Audio codec, MIT: mono, 3-bit residuals, 4-bit scale factors every 20 frames, 500-frame chunks; about 3.4 bits a frame, a quarter of the room), at the sound's own sample rate. A slot's Untouched box keeps that one whole and 16-bit as before. The slot shows its stored size; the bank line shows KB free.
+  Firmware: the bank directory's spare byte after each CRC is the codec (1: SEA; 0 or 0xFF: 16-bit samples as before, so a bank from rc51 is read as it was). core/pw_sea.inc is the decoder (integer only, no table maths: the dequantiser is a 16 x 8 table made with the reference code and checked against its decoder). SAMPLER, DRUM RACK and GRANULAR read through per-voice readers (16 in all, 170 bytes each: a slice of 20 frames decoded at a time into a ring, a jump restarts at the chunk's start); a voice that finds no free reader hears silence rather than costing a decode a sample. The display and the transient finder read runs of frames without touching the readers. The CZ and FM-DX banks are data and stay as they are.
+  Link: BANK_PUT may carry a codec byte after the name (1: the bytes pulled are the SEA stream; frames a multiple of 20); the bank listing sets bit 31 of a slot's rate for a compressed sound, and sub-command 8 returns the bytes as stored.
+  Web page / emulator: the emulator holds the stream and plays it with the same decoder (pw_web_bank_commit takes the codec), so what you hear is what the FM-1 plays. Backups carry a packed FM-1 sound as its stream (z) beside its decoding, and Restore sends the same bytes back; a saved sound remembers its Untouched box.
+  Tests: the decoder against the reference decoder (a stream with a partial last chunk: forward, backward, at random, by runs, the readers' pool); the bank scenario with a compressed B1 (listing, free room, decoded read-back); the link page test sends packed and Untouched sounds and backs them up and restores them. Not measured: the FM-1's CPU with eight compressed pads, and RAM on the device (the readers add about 2.8 KB).
+
+v1.0.0-rc51
+  New: CLIP PROTECT (OUTPUT's second knob, PROTECT: OFF / ON, ON by default, also for patches saved before it existed). A lightweight brickwall peak limiter on the final output: ceiling -0.5 dBFS, 2 ms lookahead, automatic release (50 ms shallow, 100 ms deep), hard knee, one gain for both channels, no make-up gain, no oversampling. Below the ceiling the signal passes unchanged (2 ms late). It sits after every module, the mix and OUTPUT's LEVEL, before the MASTER knob, so the speaker, headphones and USB audio all get the limited signal. The OUTPUT picture reads "CLIP PROTECT 0.0 dB" and shows the gain taken off (-2.4 dB) while it catches a peak. Switching it on or off while playing crossfades (no click). With it OFF the older gentle bend above -1 dBFS stays.
+  Removed: the SOFT LIMITER setting (CLIP PROTECT replaces it; a saved setting for it is ignored).
+  Tempo: it is the first row of SETTINGS (K1; GLO held: tenths) and GLO+K1 on the patch screen (the header number lights up while it changes; the strip says "GLO+K1 Tempo"). It is gone from the patch list. While GLO is held on the patch screen, K1 sets the tempo instead of fine-turning the module's first knob (K2-K4 still fine-turn).
+  Menu: SELECT scrolls HELP, SETTINGS and DIAGNOSTICS; the PRESET knob does nothing inside them (HOME is the way back).
+  TRIG SEQ: the strip says "OP1-4 Track" (the FM-1 does not tell black keys from white).
+  Tests: CLIP PROTECT (ceiling, transparency below it, linked gain, 22.05 kHz, smooth switching), the CLIP PROTECT and settings scenarios; probes that read a gate from the output skip the first block, where the limiter's delay line fills.
+
+v1.0.0-rc50
+  New module: MIXER 8 (78 modules), eight channels with a level and an equal-power pan each (levels on pages 1-2, pans on pages 3-4), soft limited like MIXER; eight faders with what feeds them.
+  New setting: SOFT LIMITER (SETTINGS, off by default). The master bends smoothly from half scale up and never passes full scale, so a loud patch rounds off instead of clipping hard. It is saved with the settings.
+  TRIG SEQ: a second strip row shows the accent and roll shortcuts (GLO+KEY, again for a roll; the black keys pick the track; step record and live record show theirs). SEQUENCER's full editor already has two rows.
+  Removed: "GLO for help" from the boot screen; the ALGO group jump from SETTINGS (it was confusing; SELECT scrolls all the rows); the reverb from DX ENSEMBLE (it was heavy on the CPU: now 8 modules).
+  Web page: the firmware loads without choosing a file even when the page is opened from a folder (the build writes patchwerk.fwsc.js beside patchwerk.fwsc; the page checks the same SHA-256). The firmware stays its own file, never inside the HTML; the download link is unchanged.
+  Tests: scenarios for MIXER 8, the TRIG SEQ strip and the soft limiter setting.
+
+v1.0.0-rc49
+  New module: FM-DX (77 modules), a TX81Z / DX21 voice on the chip's own arithmetic. Four operators, the eight TX81Z algorithms with feedback, the eight OPZ waves, the chip's envelope (attack, decay 1, sustain level, decay 2, release), the TX81Z's ratio table, detune and fixed-frequency operators, and its LFO (vibrato and tremolo). The engine is a port of ymfm's OPZ (BSD-3-Clause, Copyright (c) 2021 Aaron Giles; assets/dx/LICENSE-ymfm.txt) and matches it sample for sample.
+  FM-DX loads voices the way the CZ loads tones: BANK picks INTERNAL (32 voices made for PATCHWERK, INIT first) or a .syx bank of your own (up to 128 voices, four slots), PRESET picks a voice, the knobs show it and moving one changes it (PRESET gets a *). A saved patch carries a voice that came from a .syx bank or was edited (145 bytes), so it sounds the same with the bank gone. 42 knobs in 11 pages (PRESET, VOICE, OP 1-4 and OP 1-4 ENV, LFO).
+  Picture: the algorithm plate with the four operators lit by their envelopes, each operator's ratio, wave and level, and the envelopes as the chip plays them (middle C, key down then up); an operator's pages show that operator large with its envelope on a time scale that fits the voice.
+  Web page: FM-DX banks under the CZ banks (drop a TX81Z / DX21 / DX27 / DX100 32-voice .syx, or single voices with the TX81Z's extra ACED dump, on a slot or on an FM-DX card; several at once); the sample bank has 24 slots (backup and restore carry them; the FM-1's bank directory has 24 entries: older banks are read as before).
+  New factory patch: DX ENSEMBLE (54 in all). New example and help text for FM-DX.
+  Limits: the voice's pitch EG, key velocity, EBS and the reverb stage are not played; level scaling and the LFO are approximations of the TX81Z's; the INTERNAL voices were designed from the chip's rates and have not been checked against a real TX81Z.
+  Tests: FM-DX's INTERNAL voices all sound, stay finite and end; a plain voice plays its pitch; edits mark PRESET; a saved patch with an edited .syx voice sounds the same with the bank wiped; the add list's order moved by one (three scenarios follow it).
+
+v1.0.0-rc48
+  Fixed: the crash on ADD MODULE's VISUAL page for CZ (the preview module has no state of its own and the CZ read it).
+  New pictures: XFADE (each input's level across MIX, the knob and its CV marked) and SPACE (the tail, the comb delays, the levels). Every module now has a picture on the unit and on the web page; the web page's pictures (web/vis) are redrawn with BUTTON and CZ added.
+  Test: ADD MODULE's VISUAL page is stepped through every module.
+
+v1.0.0-rc47
+  Web page, linked: the picture is copied the moment the unit marks a frame whole, and that copy is what is painted (pieces of the next frame arriving before the browser painted were drawn into this one: the tearing).
+  Unit (base/device): a screen piece that does not fit the mirror ring waits up to 6 ms (40 ms a frame) for the USB interrupt to empty it before it is dropped, so frames go out whole on a busy link; the redraw after a drop starts after 25 ms with half the ring free (was 50 ms and three quarters).
+
+v1.0.0-rc46
+  CZ: a saved patch carries the CZ's tone when it is from a .syx bank or its knobs have edited it (144 bytes each, at the end of the patch; patches with INTERNAL tones left as they are stay the same size). Load it with its bank gone, or another file in the bank, and it sounds as saved; BANK reads SAVED and PRESET shows the saved name. Moving BANK or PRESET goes back to the bank's tone. A patch loads with BANK and PRESET as saved even when that bank is empty.
+  Limit: only the variation being played when the patch is saved carries the tone.
+
+v1.0.0-rc45
+  CZ picture: the DCW and loudness curves are drawn on a time window that fits the tone (0.25 s to 8 s, shown top right) so a plucked tone's fast envelope is visible; they include the key follow, show only the line that is heard, and a ring tone's loudness is the product of the two lines.
+  Test: a CZ preset with knobs moved (INTERNAL and a .syx bank) sounds the same after the patch is saved and loaded, and PRESET still shows its * (the edits are saved with the patch as knob values).
+
+v1.0.0-rc44
+  CZ: the BANK and PRESET knobs' bars show the place among the banks that hold tones and the tones the bank has (a full bar for the only bank); the knob pages have names (no "KNOBS 1-4").
+  CZ ENSEMBLE: quieter (both voices at 40 %).
+  Web page, linked: the unit marks a frame whole only when no rect of it was dropped (a busy link left stale pieces of older screens in the picture); the page waits up to 0.7 s for the mark before painting anyway.
+
+v1.0.0-rc43
+  CZ redone to match MAME's uPD933 and to be editable: BANK is the first knob and PRESET (not TONE) the second; the other 26 knobs show what the preset says (waves, DCW and loudness envelopes as ATK/DEC/SUS/REL, pitch drop, vibrato, line, ring/noise, detune, octave). Move one and that part of the sound is yours (the bank is never changed); PRESET gets a * until the knobs are back. Edits apply to both lines. There is no KNOBS tone: INTERNAL 1 is INIT, a plain saw to start from.
+  CZ: one row of four knobs again with ALGO turning the page (7 pages); the picture shows the wave, and the DCW and loudness envelopes of both lines (the second line in amber when it differs).
+  CZ: ring modulation is the two lines multiplied after their loudness, as in MAME. A bank shows only the tones it has (BANK skips empty .syx slots; PRESET stops at the last tone).
+  INTERNAL is the only built-in bank (81 tones: INIT, 64 CZ-230S picks, 16 PW tones; USER is gone); five ring-mod picks that were nearly silent were swapped for audible ones.
+  CZ ENSEMBLE: an octave lower and mellower (piano over an electric bass; strings over a slap bass; a square lead over a saw bass).
+  Web page, linked: the unit sends a frame-complete marker after each screen change and the page paints on it (needs the new firmware; older firmware falls back to timers).
+
+v1.0.0-rc42
+  CZ: a BANK knob after TONE (TUNE moved to the end of the knobs): INTERNAL (64 tones from the CZ-230S presets, assets/cz/INTERNAL.syx), USER (16 tones made for PATCHWERK, assets/cz/USER.syx), then up to four .syx banks of your own (flash slots 17-20; an older bank directory still loads). tools/make_cz_banks.py makes the two .syx files, tools/gen_cz_inc.py packs them into app/core/pw_czbank.inc.
+  Web page: a CZ banks section under the sample bank: click a slot or drop several .syx files (each its own bank, sent to a linked FM-1); the CZ card's Load CZ banks... does the same and picks the bank; the bank's tones are listed on the card.
+  New factory patch 53, CZ ENSEMBLE: a bell arpeggio from INTERNAL over a USER bass; its variations swap the banks and tones.
+  Web page, linked: the wait for the last piece of a new screen follows the unit's own pace (50 ms to 0.11 s), so it keeps up and still does not tear.
+
+v1.0.0-rc41
+  Fixed: the crash when a CZ module's TONE is a bank tone (loading a .syx, or turning TONE off KNOBS). The rack drew the module's preset name from a label table the TONE knob does not have; it now skips it. Found from the crash address (pv_layout) in the elf.
+
+v1.0.0-rc40
+  The crash screen has a sixth line: two 16-bit step codes, (older, latest), left by the bank's receive path and its USB command (0F0-0F5: the command; 101-109: find room, erase 1000+sector, receive 2000+block, check, directory). Send it with the other numbers when a CZ bank crashes.
+  Web page, linked: a screen change over a twentieth of the screen waits 0.11 s for its last piece (up to 0.7 s) before painting.
+
+v1.0.0-rc39
+  CZ: a bank tone is copied into the module's own state once (and again when TONE or the bank changes) instead of being read from the flash on every audio block; while a bank sound is being received, deleted or erased, the audio side finds the bank empty (pw_plat_sample). Aimed at the crash (a bus fault) when a CZ bank is loaded onto an FM-1 with a CZ in the patch. Not reproduced here: please report if it still happens.
+  Web page, linked: a screen change that covers much of the screen is painted when its last piece has arrived (up to 0.6 s), small ones at once.
+
+v1.0.0-rc38
+  ADD MODULE, GLO held: the strip shows the new module where the module at the cursor is, with the modules that were before and after it, and no arrow; a cable that would insert is shown as a replace.
+  Web page, linked to an FM-1: the mirrored screen is painted when a change's rectangles have all arrived (they were painted as they came: tearing), and in the page's own palette, tone and brightness (the unit's settings are worked out from the colours it sends and undone).
+
+v1.0.0-rc37
+  ADD MODULE, GLO held: the patch strip shows the replace itself (the module that goes dashed and filled, an arrow, the new module) instead of a cable; the bar says "Replace A with B".
+  Web page: the meters (OUTPUT's bars, the jack lights) hold each level and fall over about a tenth of a second. The engine's levels are one short block's peak every other block, so a low note's wave read near zero between its peaks and the bars flickered.
+
+v1.0.0-rc36
+  CZ (checked against MAME's uPD933): NOISE modulation now picks its random pitch (base or 32 semitones up) every 8 samples of the chip's 40 kHz clock, 5 kHz, instead of every sample, so it is a rougher, lower noise like the chip's. The DCW is capped as the pitch rises (1024 minus four times the phase step per chip sample), as the chip does, so high notes of narrow-pulse and resonance tones stay clean.
+

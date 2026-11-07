@@ -1,0 +1,16 @@
+# SONG: GLO + SEL on a clip duplicates it straight after, with a snapshot of its own (a copy of the first one)
+wait 2500
+tap LFO
+wait 200
+tap SEL
+wait 200
+turn SELECT 1
+wait 100
+turn SELECT -1
+wait 100
+press GLO
+tap SEL
+release GLO
+wait 300
+shot song_dup.png
+expect page 11

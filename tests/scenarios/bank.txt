@@ -1,0 +1,53 @@
+# The sample bank in the flash (core/pw_bank.c): a bank written to the data area as the web page would leave
+# it (tests/make_bank.py), a SAMPLER set to B1 plays it.
+# (fm1-base's host "data" command puts a file 0x4000 below the offset it is given: it indexes its simulated flash
+# from PLAT_DATA_LO, which starts at PLAT_XDATA0_LO. So 0xAB000 here is 0xA7000 in the flash.)
+data tests/out/bank_dir.bin 0xAB000
+data tests/out/bank_data.bin 0xAC000
+reboot
+wait 2500
+expect bank 2
+# new patch, a SAMPLER (the fifth source: SEL wires its OUT into OUT L under the cursor), its BANK (K1) to A1 and SAMPLE (K2) to 1
+turn PRESET 1
+wait 100
+turn SELECT -2
+tap SEL
+wait 300
+tap FX
+wait 100
+wait 100
+turn SELECT 12 150
+wait 100
+shot add_sampler.png
+tap SEL
+wait 200
+expect type 24
+turn K1 1
+wait 100
+turn K2 1
+wait 200
+shot sampler_b1.png
+expect param0 1000
+# its trigger: KEYS TRIG into the sampler's GATE (the add list goes round its ends: the end of the list moves when modules are added shown)
+tap FX
+wait 100
+turn SELECT 64 150
+wait 100
+tap SEL
+wait 200
+expect type 26
+# KEYS: outputs PITCH GATE VEL TRIG MOD; the cursor on PITCH: 3 on is TRIG; SEL picks it up
+turn SELECT 3 250
+tap SEL
+wait 100
+# the cable hops to the first input it fits: back to the sampler (GLO + SELECT: module to module), V/OCT, then GATE
+press GLO
+turn SELECT -1
+release GLO
+wait 100
+turn SELECT 1
+wait 100
+tap SEL
+wait 100
+expect cables 2
+shot b1_wired.png

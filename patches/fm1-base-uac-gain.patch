@@ -1,0 +1,29 @@
+diff --git a/device/main_fm1.c b/device/main_fm1.c
+index 8f079cc..7c3f768 100644
+--- a/device/main_fm1.c
++++ b/device/main_fm1.c
+@@ -60,8 +60,8 @@ static void render_block(int32_t *o)                /* ALNK0: one half, measured
+             if (radio_quiet)
+                 continue;
+ #if FELUCCA_UAC_OUT
+-            uac_play(o + 2u * k, REND_FRAMES, full ? 4096u : master_pos * master_pos >> 12);   /* the computer's audio,
+-                                                                                         * at MASTER */
++            uac_play(o + 2u * k, REND_FRAMES, APP_UAC_GAIN(full ? 4096u : master_pos * master_pos >> 12));   /* the
++                                                                       * computer's audio, at MASTER (or the app's) */
+ #endif
+ #if FELUCCA_UAC
+             uac_tap(o + 2u * k, REND_FRAMES);       /* the USB audio input: the same master output */
+diff --git a/include/fm1b_config.h b/include/fm1b_config.h
+index d46664a..49e2918 100644
+--- a/include/fm1b_config.h
++++ b/include/fm1b_config.h
+@@ -27,6 +27,9 @@
+ #ifndef APP_BLE_AT_BOOT
+ #define APP_BLE_AT_BOOT 1                /* Bluetooth starts at power-on (an app's setting may say no) */
+ #endif
++#ifndef APP_UAC_GAIN
++#define APP_UAC_GAIN(g) (g)              /* the computer's audio through the FM-1 (USB audio output): its gain, 0..4096 */
++#endif
+ #ifndef APP_BLOCK
+ #define APP_BLOCK 256u                   /* frames per audio half and render: 5.8 ms at 44.1 kHz */
+ #endif

@@ -1,0 +1,29 @@
+# SONG BREAK: a drum break from the sample bank. Loads and plays at once; the bass is out in the first section, in in the second; the filter and the pad's chords ride lanes.
+wait 2500
+turn PRESET 1
+wait 100
+turn SELECT 40
+wait 200
+tap EDIT
+wait 300
+expect modules 13
+shot break_patch.png
+tap LFO
+wait 200
+shot song_break.png
+turn ALGO 1
+wait 100
+shot song_break_lane1.png
+turn ALGO 1
+wait 100
+shot song_break_lane2.png
+tap LFO
+wait 100
+expect var 0
+expect peak >50
+wait 11000
+expect var 1
+wait 10000
+expect var 2
+expect peak >50
+tap PLAY

@@ -1,0 +1,42 @@
+# SEQUENCER: KNOB 2 on a step goes x1-x4, then TIE, then GLIDE (the tile says so, the bars join)
+wait 2500
+turn PRESET 1
+wait 100
+turn SELECT -5
+tap SEL
+wait 300
+tap FX
+wait 100
+turn SELECT 65 150
+wait 100
+tap SEL
+wait 300
+expect type 20
+shot seq_added.png
+tap SEQ
+tap SEQ
+wait 300
+turn SELECT 1
+turn K2 4
+wait 100
+turn SELECT 1
+turn K2 5
+wait 100
+turn SELECT 1
+turn K2 5
+wait 100
+turn SELECT 1
+turn K2 4
+wait 100
+turn SELECT 1
+turn K2 2
+wait 300
+shot seq_tie.png
+turn SELECT -1
+wait 100
+turn K2 -3
+wait 100
+shot seq_tie_back.png
+tap EDIT
+wait 400
+shot seq_edit_pic.png

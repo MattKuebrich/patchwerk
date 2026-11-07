@@ -1,0 +1,24 @@
+# MOD SEQ's module page: a half-size preview in the lanes' own colors, "Press SEQ to edit steps" under it
+wait 2500
+turn PRESET 1
+wait 100
+turn SELECT -5
+tap SEL
+wait 300
+tap FX
+wait 100
+turn SELECT 67 150
+wait 100
+tap SEL
+wait 300
+expect type 65
+tap SEQ
+wait 300
+press GLO
+tap SEL
+release GLO
+wait 200
+shot modseq_steps.png
+tap EDIT
+wait 400
+shot modseq_edit.png

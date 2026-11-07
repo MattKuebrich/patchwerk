@@ -1,0 +1,35 @@
+# CLIP PROTECT: OUTPUT's PROTECT knob (default ON), its readout on the OUTPUT picture; PRESET does nothing in HELP
+wait 2500
+turn PRESET 1
+wait 100
+turn SELECT -2
+tap SEL
+wait 300
+tap EDIT
+wait 500
+turn SELECT 1
+wait 1000
+expect type 25
+shot output_protect.png
+expect clip 1
+turn K2 -1
+wait 300
+shot output_protect_off.png
+expect clip 0
+turn K2 1
+wait 200
+expect clip 1
+tap HOME
+wait 200
+turn PRESET 1
+wait 100
+turn ALGO -1
+wait 300
+shot menu_row.png
+expect page 8
+turn PRESET 3
+wait 100
+expect page 8
+tap HOME
+wait 200
+expect page 1

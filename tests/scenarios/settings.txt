@@ -1,0 +1,57 @@
+# SETTINGS: a row of the patch list opens it; K1 changes a row (the first is the tempo); SEL twice resets; PRESET does nothing inside
+wait 2500
+turn PRESET 1
+wait 100
+turn ALGO 1
+wait 100
+turn ALGO 1
+wait 300
+expect page 12
+shot settings.png
+turn K1 5
+turn PRESET 3
+wait 100
+expect page 12
+turn SELECT 6
+turn K1 1
+wait 100
+shot settings_palette.png
+turn K1 1
+turn K1 1
+wait 100
+shot settings_palette3.png
+turn SELECT -6
+turn SELECT 2
+turn K1 1
+wait 100
+shot settings_velocity.png
+tap HOME
+wait 200
+expect page 1
+# DIAGNOSTICS: a row of SETTINGS, second from the end (SELECT back from the top: FACTORY RESET, then it)
+turn PRESET 1
+wait 100
+turn ALGO 1
+wait 100
+turn ALGO 1
+wait 100
+turn SELECT -1
+wait 100
+turn SELECT -1
+wait 100
+tap SEL
+wait 300
+expect page 12
+shot diagnostics.png
+# the second page: what each module costs, and the second core (not on the host)
+turn ALGO 1
+wait 1500
+shot diagnostics_cpu.png
+turn ALGO 1
+wait 200
+tap HOME
+wait 200
+expect page 12
+tap HOME
+wait 200
+expect page 1

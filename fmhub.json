@@ -1,0 +1,9 @@
+{
+  "name": "PATCHWERK",
+  "what": "A patchable modular synthesizer for the FM-1: over 80 modules joined by virtual cables on its own screen and knobs, 16 snapshots per patch, a performance page and a song mode, with a browser emulator and patch bay that link to the unit.",
+  "kinds": ["synth"],
+  "play": "https://mattkuebrich.github.io/patchwerk/",
+  "repo": "https://github.com/MattKuebrich/patchwerk",
+  "id": "FM-1_606",
+  "license": "GPL-3.0-only"
+}

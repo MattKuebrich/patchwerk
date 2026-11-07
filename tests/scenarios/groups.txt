@@ -1,0 +1,30 @@
+# GLO + FX suggests a group (the chain going into the output), SEL groups it: one box; GLO + FX opens it, HOME leaves; GLO + REC ungroups; undo
+wait 2500
+expect modules 6
+press GLO
+tap FX
+release GLO
+wait 300
+shot grp_suggest.png
+tap SEL
+wait 400
+shot grp_closed.png
+press GLO
+tap FX
+release GLO
+wait 400
+shot grp_open.png
+tap HOME
+wait 300
+shot grp_back.png
+press GLO
+tap REC
+release GLO
+wait 300
+shot grp_ungrouped.png
+press GLO
+tap OCT-
+release GLO
+wait 300
+shot grp_undone.png
+expect modules 6

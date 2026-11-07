@@ -1,0 +1,48 @@
+# FM-DX: added from the list, played, its pages (the plate with the four operators, an operator up close, its envelope) drawn
+wait 2500
+turn PRESET 1
+wait 100
+turn SELECT -5
+tap SEL
+wait 300
+tap FX
+wait 100
+turn SELECT 7 150
+wait 100
+shot fmdx_add.png
+tap SEL
+wait 300
+expect type 85
+tap EDIT
+wait 300
+shot fmdx_preset.png
+key 7 down
+wait 500
+shot fmdx_playing.png
+key 7 up
+turn ALGO 1
+wait 200
+shot fmdx_voice.png
+turn ALGO 1
+wait 200
+shot fmdx_op1.png
+turn ALGO 1
+wait 200
+shot fmdx_op1env.png
+turn ALGO 3
+wait 200
+shot fmdx_op3.png
+turn ALGO 6
+wait 200
+shot fmdx_lfo.png
+turn ALGO -10
+wait 100
+turn K2 18
+wait 400
+shot fmdx_brass.png
+turn ALGO 1
+wait 200
+shot fmdx_brass_voice.png
+turn ALGO 2
+wait 200
+shot fmdx_brass_op2env.png

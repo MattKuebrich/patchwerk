@@ -1,0 +1,24 @@
+# a bigger group (SONG DUB's bass): held REC inside it deletes one module and stays in the group
+wait 2500
+turn PRESET 1
+wait 100
+turn SELECT 41
+wait 200
+tap EDIT
+wait 300
+tap HOME
+wait 400
+turn SELECT 15
+wait 300
+shot g2_a.png
+press GLO
+tap FX
+release GLO
+wait 400
+shot g2_b.png
+press REC
+wait 1000
+release REC
+wait 300
+shot g2_c.png
+expect modules 15

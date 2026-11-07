@@ -1,0 +1,300 @@
+# The factory patches with the newer modules: each loads and sounds once PLAY runs.
+wait 2500
+turn PRESET 1
+wait 100
+turn SELECT 7
+tap SEL
+wait 300
+expect modules 5
+key 7 down
+wait 600
+expect peak >50
+key 7 up
+shot fm_epiano.png
+turn PRESET 1
+wait 100
+turn SELECT 1
+tap SEL
+wait 300
+expect modules 5
+tap PLAY
+wait 2000
+expect peak >50
+tap PLAY
+turn PRESET 1
+wait 100
+turn SELECT 1
+tap SEL
+wait 300
+expect modules 7
+tap PLAY
+wav turing.wav
+wait 4000
+wavstop
+expect peak >30
+shot turing_pluck.png
+tap PLAY
+turn PRESET 1
+wait 100
+turn SELECT 1
+tap SEL
+wait 300
+expect modules 9
+tap PLAY
+wait 2000
+expect peak >50
+shot acid_303.png
+tap PLAY
+turn PRESET 1
+wait 100
+turn SELECT 1
+tap SEL
+wait 300
+expect modules 9
+key 7 down
+wait 900
+expect peak >30
+key 7 up
+shot vox_choir.png
+turn PRESET 1
+wait 100
+turn SELECT 1
+tap SEL
+wait 300
+expect modules 10
+expect voices 4
+key 7 down
+key 11 down
+key 14 down
+wait 900
+expect peak >30
+key 7 up
+key 11 up
+key 14 up
+shot poly_strings.png
+turn PRESET 1
+wait 100
+turn SELECT 1
+tap SEL
+wait 300
+expect modules 5
+tap PLAY
+wait 1500
+expect peak >50
+press GLO
+tapkey 2
+release GLO
+wait 1500
+expect var 1
+expect peak >50
+tap PLAY
+turn PRESET 1
+wait 100
+turn SELECT 1
+tap SEL
+wait 300
+expect modules 6
+tap PLAY
+wait 1500
+expect peak >30
+press GLO
+tapkey 4
+release GLO
+wait 1500
+expect var 2
+expect peak >30
+tap PLAY
+shot warp_break.png
+turn PRESET 1
+wait 100
+turn SELECT 4
+tap SEL
+wait 300
+expect modules 12
+tap PLAY
+wait 2000
+expect peak >20
+tap PLAY
+# The ten after DUB CHORDS: each loads, and sounds with PLAY running and a key held (INPUT FX: the computer's sound, none here)
+# NOISE SURF
+turn PRESET 1
+wait 100
+turn SELECT 1
+tap SEL
+wait 300
+expect modules 8
+tap PLAY
+key 7 down
+wait 1500
+expect peak >20
+key 7 up
+tap PLAY
+wait 200
+# ARP DREAMS
+turn PRESET 1
+wait 100
+turn SELECT 1
+tap SEL
+wait 300
+expect modules 8
+tap PLAY
+key 7 down
+wait 1500
+expect peak >20
+key 7 up
+tap PLAY
+wait 200
+# FOLD BASS
+turn PRESET 1
+wait 100
+turn SELECT 1
+tap SEL
+wait 300
+expect modules 8
+tap PLAY
+key 7 down
+wait 1500
+expect peak >20
+key 7 up
+tap PLAY
+wait 200
+# TALK BOX
+turn PRESET 1
+wait 100
+turn SELECT 1
+tap SEL
+wait 300
+expect modules 9
+tap PLAY
+key 7 down
+wait 1500
+expect peak >20
+key 7 up
+tap PLAY
+wait 200
+# COIN DRUMS
+turn PRESET 1
+wait 100
+turn SELECT 1
+tap SEL
+wait 300
+expect modules 9
+tap PLAY
+key 7 down
+wait 1500
+expect peak >20
+key 7 up
+tap PLAY
+wait 200
+# BACKWARDS
+turn PRESET 1
+wait 100
+turn SELECT 1
+tap SEL
+wait 300
+expect modules 8
+tap PLAY
+key 7 down
+wait 1500
+expect peak >20
+key 7 up
+tap PLAY
+wait 200
+# CHAOS PAD
+turn PRESET 1
+wait 100
+turn SELECT 1
+tap SEL
+wait 300
+expect modules 13
+tap PLAY
+key 7 down
+wait 1500
+expect peak >20
+key 7 up
+tap PLAY
+wait 200
+# SWITCH SEQ
+turn PRESET 1
+wait 100
+turn SELECT 1
+tap SEL
+wait 300
+expect modules 9
+tap PLAY
+key 7 down
+wait 1500
+expect peak >20
+key 7 up
+tap PLAY
+wait 200
+# INPUT FX
+turn PRESET 1
+wait 100
+turn SELECT 1
+tap SEL
+wait 300
+expect modules 7
+tap PLAY
+key 7 down
+wait 1500
+key 7 up
+tap PLAY
+wait 200
+# The five after INPUT FX
+# GRAIN CLOUD
+turn PRESET 1
+wait 100
+turn SELECT 1
+tap SEL
+wait 300
+expect modules 8
+tap PLAY
+key 7 down
+wait 1500
+expect peak >20
+key 7 up
+tap PLAY
+wait 200
+# TAPE DUB
+turn PRESET 1
+wait 100
+turn SELECT 1
+tap SEL
+wait 300
+expect modules 9
+tap PLAY
+key 7 down
+wait 1500
+expect peak >20
+key 7 up
+tap PLAY
+wait 200
+# BELL GARDEN
+turn PRESET 1
+wait 100
+turn SELECT 1
+tap SEL
+wait 300
+expect modules 9
+tap PLAY
+key 7 down
+wait 1500
+expect peak >20
+key 7 up
+tap PLAY
+wait 200
+# MOTION BASS
+turn PRESET 1
+wait 100
+turn SELECT 1
+tap SEL
+wait 300
+expect modules 8
+tap PLAY
+key 7 down
+wait 1500
+expect peak >5
+key 7 up
+tap PLAY
+wait 200

@@ -1,0 +1,28 @@
+# A cable grabbed inside a group (here from VCA1 CV) goes out with HOME: the box shows that jack (a new input of the group once a cable is plugged in)
+wait 2500
+press GLO
+tap FX
+release GLO
+wait 300
+tap SEL
+wait 400
+press GLO
+tap FX
+release GLO
+wait 400
+expect gview 1
+turn SELECT -1
+wait 200
+shot go_inside.png
+tap SEL
+wait 300
+expect carrying 1
+tap HOME
+wait 400
+expect gview 0
+expect carrying 1
+shot go_out.png
+tap REC
+wait 200
+expect carrying 0
+shot go_dropped.png

@@ -1,0 +1,19 @@
+# the patch list has a Subpatches part after the factory patches; SEL inserts the first (VCO ENV VCF VCA: 4 modules, 4 cables); GLO + OCT- takes it all away in one step
+wait 2500
+expect modules 6
+expect cables 7
+turn PRESET 1
+wait 200
+turn PRESET 50
+wait 200
+shot sub_list.png
+tap SEL
+wait 300
+expect modules 10
+expect cables 11
+press GLO
+tap OCT-
+release GLO
+wait 200
+expect modules 6
+expect cables 7

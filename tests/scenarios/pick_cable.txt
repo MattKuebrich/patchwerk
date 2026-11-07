@@ -1,0 +1,24 @@
+# GLO + SEL lifts the cable plugged in at the cursor; it lands on another jack, nothing is deleted on the way; REC puts it back
+wait 2500
+expect page 1
+expect cables 7
+# the cursor starts on a jack of the first module: lift whatever is plugged there (the cable count never drops while it is in hand)
+press GLO
+tap SEL
+release GLO
+wait 200
+expect cables 7
+tap REC
+wait 200
+expect cables 7
+shot pick_back.png
+press GLO
+tap SEL
+release GLO
+wait 200
+turn SELECT 2
+wait 100
+tap SEL
+wait 300
+expect cables <8
+shot pick_land.png

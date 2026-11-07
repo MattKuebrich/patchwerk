@@ -1,0 +1,53 @@
+# A repeated press cycles the pages: ENV (PERFORM, MUTES, MUTATE), FX on the add list; HOME on the patch screen steps the
+# selected module's knob pages, and held for as long as REC takes to delete it shows the CPU and the battery instead.
+wait 2500
+expect page 1
+tap ENV
+wait 100
+expect page 9
+tap ENV
+wait 100
+expect page 10
+tap ENV
+wait 100
+expect page 13
+tap ENV
+wait 100
+expect page 9
+tap HOME
+wait 100
+expect page 1
+tap FX
+wait 100
+expect page 3
+tap FX
+wait 100
+expect page 3
+shot add_page2.png
+tap HOME
+wait 100
+expect page 1
+# KEYS is under the cursor: K1 is its first knob (GLIDE) on the first page
+turn K1 2
+wait 100
+expect param0 50
+tap HOME
+wait 100
+turn K1 2
+wait 100
+expect param0 50
+tap HOME
+wait 100
+turn K1 2
+wait 100
+expect param0 100
+# held: no page change, the stats in the top bar
+press HOME
+wait 900
+shot home_held.png
+release HOME
+wait 100
+expect page 1
+turn K1 -2
+wait 100
+expect param0 50

@@ -1,0 +1,21 @@
+# MUTATE page: ALGO twice from PERFORM, SELECT to a module, SEL locks it, FX nudges, REC rolls
+wait 2500
+tap ENV
+wait 300
+turn ALGO 1
+wait 200
+turn ALGO 1
+wait 200
+shot m1
+expect page 13
+turn SELECT 2
+wait 100
+tap SEL
+wait 100
+shot m2
+tap FX
+wait 400
+shot m3
+tap REC
+wait 400
+shot m4

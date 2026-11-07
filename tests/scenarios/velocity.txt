@@ -1,0 +1,18 @@
+# The keys' velocity and pressure (base/lib/touch): a soft key lands soft, a hard one hard; leaning in is pressure
+wait 2500
+key 7 down 30 0
+wait 200
+expect kbvel <45
+key 7 up
+wait 200
+key 9 down 120 0
+wait 200
+expect kbvel >105
+key 9 up
+wait 200
+key 4 down 90 80
+wait 400
+expect kbpress >40
+key 4 up
+wait 300
+expect kbpress <5

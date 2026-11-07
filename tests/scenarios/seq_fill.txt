@@ -1,0 +1,28 @@
+# SEQUENCER and MOD SEQ: GLO + SEL randomizes the pattern, GLO + REC clears it; GLO + OCT- undoes
+wait 2500
+turn PRESET 1
+wait 100
+turn SELECT -5
+tap SEL
+wait 300
+tap FX
+wait 100
+turn SELECT 65 150
+wait 100
+tap SEL
+wait 300
+expect type 20
+shot seq_added.png
+tap SEQ
+wait 300
+shot seq_page.png
+press GLO
+tap SEL
+release GLO
+wait 200
+shot seq_random.png
+press GLO
+tap REC
+release GLO
+wait 200
+shot seq_clear.png

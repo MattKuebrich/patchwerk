@@ -1,0 +1,82 @@
+# The panel's shortcuts: PRESETS opens the patch list from anywhere, GLO tapped shows the shortcuts,
+# GLO + ALGORITHM turns the parameter page, the knobs move in coarse steps (GLO held: fine), SAVE stores.
+wait 2500
+expect page 1
+turn PRESET 1
+wait 100
+expect page 7
+tap HOME
+wait 100
+tap EDIT
+wait 100
+turn PRESET -1
+wait 100
+expect page 7
+tap HOME
+wait 100
+# GLO tapped alone does nothing (it is only a modifier); the help is a row of the patch list
+tap GLO
+wait 100
+expect page 1
+turn PRESET 1
+wait 100
+turn ALGO -1
+wait 300
+expect page 8
+shot help.png
+tap HOME
+wait 100
+expect page 1
+# GLO held with another control is a modifier, never the shortcuts
+press GLO
+turn K1 1
+release GLO
+wait 100
+expect page 1
+# KEYS is under the cursor (BASIC VOICE): K1 is its GLIDE (0..1 s): one detent = 1/40, fine = 1/400
+# (the GLO + K1 detent above was the tempo's, not the knob's)
+turn K1 2
+wait 100
+expect param0 50
+press GLO
+turn K1 2
+release GLO
+wait 100
+expect param0 50   # (GLO + K1 on the patch screen is the tempo now: the knob keeps its value)
+# GLO + SELECT: the next module (VCO 1); GLO + ALGORITHM: its next parameter page
+press GLO
+turn SELECT 1
+release GLO
+wait 100
+expect type 0
+press GLO
+turn ALGO 1
+release GLO
+wait 100
+shot page2.png
+# SAVE from the patch screen: the SAVE page, on the first empty user slot; SEL stores it
+tap SAVE
+wait 100
+expect page 14
+shot save_ask.png
+tap SEL
+wait 300
+expect store_writes >0
+# LIST: SEL held shows the row on the patch screen
+tap ARP
+wait 100
+expect page 4
+turn SELECT 2
+press SEL
+wait 700
+release SEL
+wait 100
+expect page 1
+shot cable_shown.png
+# FX, FX again, and ALGORITHM: a group at a time
+tap FX
+wait 100
+turn ALGO 1
+wait 100
+shot add_group.png
+tap HOME

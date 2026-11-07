@@ -1,0 +1,18 @@
+# ADD MODULE keeps the patch strip on all three pages
+wait 2500
+turn PRESET 1
+wait 100
+turn SELECT -5
+tap SEL
+wait 300
+tap FX
+wait 100
+turn SELECT 15 150
+wait 100
+shot add_p1.png
+turn ALGO 1
+wait 100
+shot add_p2.png
+turn ALGO 1
+wait 100
+shot add_p3.png

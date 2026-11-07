@@ -1,0 +1,31 @@
+# ARP + a knob lays the knob on a MOD SEQ lane (one is added), the knob then follows the lane's steps
+wait 2500
+expect page 1
+expect modules 6
+expect locks 0
+press ARP
+wait 100
+turn K1 6
+wait 100
+turn K1 2
+release ARP
+wait 200
+expect page 1
+expect modules 7
+expect locks 1
+shot lane_rec.png
+# held again on the same knob: the same lane (no new MOD SEQ)
+press ARP
+turn K1 -3
+release ARP
+wait 100
+expect modules 7
+expect locks 1
+# GLO + ARP + the knob lets it go
+press ARP
+press GLO
+turn K1 1
+release GLO
+release ARP
+wait 100
+expect locks 0

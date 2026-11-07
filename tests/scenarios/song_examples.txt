@@ -1,0 +1,29 @@
+# The SONG example patches (F46-F47): load SONG BERLIN (it plays at once), look at its song: snapshots follow the clips, a lane moves the filter.
+wait 2500
+turn PRESET 1
+wait 100
+turn SELECT 38
+wait 200
+shot list.png
+tap EDIT
+wait 300
+expect modules 13
+tap LFO
+wait 200
+shot song_berlin.png
+turn ALGO 1
+wait 100
+shot song_berlin_lane1.png
+turn ALGO 1
+wait 100
+shot song_berlin_lane2.png
+tap LFO
+wait 100
+expect var 0
+wait 12000
+expect var 1
+wait 8000
+expect var 2
+expect peak >50
+tap PLAY
+wait 200

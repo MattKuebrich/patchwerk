@@ -1,0 +1,17 @@
+# MATRIX with groups: SONG ACID's instruments are groups (G1 the line, G2 the kick, G3 the drive, G4 the snare and hats): each is a header with a bar down its rows; SEL on a header folds it
+wait 2500
+turn PRESET 1
+wait 100
+turn SELECT 39
+wait 200
+tap EDIT
+wait 300
+expect modules 14
+tap ARP
+wait 300
+turn SELECT 8
+wait 200
+shot matrix_groups_open.png
+tap SEL
+wait 300
+shot matrix_groups_fold.png

@@ -1,0 +1,80 @@
+# MATRIX (ARP): a cable from a module by picking, a cable moved, a module deleted (REC), replaced from the add list
+# (EDIT); PERFORM 2 (LFO): a white key mutes, MORPH moves between variations
+wait 2500
+expect modules 6
+expect cables 7
+tap ARP
+wait 200
+expect page 4
+shot list.png
+# the first row is a module (KEYS): SEL starts a cable from it: output, module, input
+tap SEL
+wait 100
+shot pick_out.png
+tap SEL
+wait 100
+turn SELECT 3
+wait 100
+shot pick_mod.png
+tap SEL
+wait 100
+shot pick_in.png
+tap SEL
+wait 200
+expect cables 8
+press GLO
+tap OCT-
+release GLO
+wait 100
+expect cables 7
+# down to a cable: SEL moves it (to another input of the same module, next one down)
+turn SELECT 1
+tap SEL
+wait 100
+tap SEL
+wait 100
+turn SELECT 1
+tap SEL
+wait 200
+expect cables 7
+shot moved.png
+# REC on a module row: deleted
+turn SELECT -1
+tap REC
+wait 200
+expect modules 5
+press GLO
+tap OCT-
+release GLO
+wait 100
+expect modules 6
+# LIVE: the first white key mutes the first voice; MORPH needs a B, then moves
+tap ENV
+wait 100
+turn ALGO 1
+wait 200
+expect page 10
+shot live.png
+key w0 down
+wait 100
+key w0 up
+wait 2000
+shot live_muted.png
+key w0 down
+wait 100
+key w0 up
+wait 100
+press GLO
+key w2 down
+wait 100
+key w2 up
+release GLO
+wait 100
+turn SELECT 19 100
+turn SELECT -1 100
+turn K1 10
+wait 200
+shot live_morph.png
+tap GLO
+wait 300
+shot shortcuts.png

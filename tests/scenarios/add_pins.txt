@@ -1,0 +1,31 @@
+# ADD list: REC makes a module a favorite (a star), KNOB 3 comes back to the favorite, GLO + OP1 adds the first favorite
+wait 2500
+turn PRESET 1
+wait 100
+turn SELECT -5
+tap SEL
+wait 300
+tap FX
+wait 100
+turn SELECT 58 150
+wait 100
+tap REC
+wait 100
+turn SELECT 20 150
+wait 100
+turn K3 1
+wait 100
+tap SEL
+wait 300
+expect type 86
+tap HOME
+wait 300
+press GLO
+wait 300
+key 1 down
+wait 100
+key 1 up
+wait 100
+release GLO
+wait 300
+expect type 86
