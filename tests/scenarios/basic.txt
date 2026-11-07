@@ -1,0 +1,58 @@
+# PATCHWERK in fm1-base's host simulator: ./build.sh --host, then
+#   app/build/host/patchwerk_host tests/scenarios/basic.txt app/build/scenarios
+# Boot: the platform's splash, then the patch screen with BASIC VOICE (no user patch saved yet).
+wait 2500
+shot boot.png
+expect modules 6
+expect cables 7
+# Play a key: the voice sounds.
+wav keys.wav
+key 7 down
+wait 400
+expect peak >100
+key 7 up
+wait 600
+# MIDI in over USB and over the TRS jack plays the KEYS module too.
+midi 90 40 64
+wait 300
+expect peak >100
+midi 80 40 00
+midi TRS 90 45 64
+wait 300
+expect peak >100
+midi TRS 80 45 00
+wait 800
+wavstop
+# A factory patch with a sequencer: ARP opens the patch list, F2 BERLIN SEQ, EDIT loads it, PLAY runs it.
+turn PRESET 1
+wait 100
+turn SELECT 1
+wait 100
+tap EDIT
+wait 300
+expect modules 9
+tap PLAY
+wait 100
+expect playing 1
+wav berlin.wav
+wait 3000
+wavstop
+expect peak >50
+shot berlin.png
+tap PLAY
+wait 100
+# Save it in user slot 1, reboot: it comes back on its own.
+turn PRESET 1
+wait 100
+turn SELECT 54
+wait 200
+shot slots.png
+tap SAVE
+wait 100
+tap SEL
+wait 300
+expect store_writes >0
+reboot
+wait 2500
+expect modules 9
+shot after_reboot.png

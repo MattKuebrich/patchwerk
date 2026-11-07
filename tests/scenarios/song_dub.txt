@@ -1,0 +1,34 @@
+# SONG DUB (F49): five groups (bass, kick, hat, chord drone, space) brought in by the snapshots; the song plays them
+wait 2500
+turn PRESET 1
+wait 100
+turn SELECT 41
+wait 200
+shot dub_list.png
+tap EDIT
+wait 300
+expect modules 16
+tap LFO
+wait 200
+shot song_dub.png
+turn ALGO 1
+wait 100
+shot song_dub_lane1.png
+turn ALGO 1
+wait 100
+shot song_dub_lane2.png
+tap LFO
+wait 100
+expect var 0
+wav song_dub.wav
+wait 6000
+expect peak >30
+wait 3000
+expect var 1
+wait 21000
+expect var 2
+wait 12000
+expect var 3
+wavstop
+tap PLAY
+wait 200

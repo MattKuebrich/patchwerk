@@ -1,0 +1,88 @@
+diff --git a/chip/usb.c b/chip/usb.c
+index bdf6769..b781136 100644
+--- a/chip/usb.c
++++ b/chip/usb.c
+@@ -289,6 +289,9 @@ static uint32_t midi_out_room(void)                  /* free slots in the out ri
+ #ifndef FELUCCA_USB_LAYOUT
+ #define FELUCCA_USB_LAYOUT 0
+ #endif
++#ifndef FELUCCA_USB_MAC_LAYOUT
++#define FELUCCA_USB_MAC_LAYOUT 0
++#endif
+ #ifndef FELUCCA_CDC_DEFAULT
+ #define FELUCCA_CDC_DEFAULT 1
+ #endif
+@@ -417,14 +420,52 @@ typedef char cfg_len_ok[sizeof CFG_DESC == CFG_LEN ? 1 : -1];
+ static uint8_t usb_cdc_on = FELUCCA_CDC_DEFAULT != 0;      /* the console is presented (read by the TIMER5 ISR) */
+ #define USB_CDC_ON usb_cdc_on
+ #define AUD_IF (usb_cdc_on ? AUD_IF_CDC : 0u)
++#elif FELUCCA_USB_MAC_LAYOUT && FELUCCA_UAC && FELUCCA_UAC_OUT
++/* FELUCCA_USB_MAC_LAYOUT (an app's app.h): audio and MIDI as two functions, each with its own audio control
++ * interface and an IAD, the audio control's collection naming only the two audio streams. macOS 14's
++ * AppleUSBAudio left the plain layout's audio interfaces without a driver (the MIDI streaming interface in
++ * the middle of the audio control's collection); this is the shape class-compliant audio + MIDI devices use.
++ *   IF 0 audio control (streams 1, 2), IF 1 the stream to the host, IF 2 the stream from the host,
++ *   IF 3 audio control (MIDI 4), IF 4 MIDI streaming. bcdDevice + 0.08: no host reuses the plain layout's. */
++#define D_AC_MAC                                                                                     \
++    9, 4, 0, 0, 0, 1, 1, 0, 0,                                                                       \
++    10, 0x24, 1, 0x00, 0x01, 52, 0, 2, 1, 2,              /* AC header: the two streams only */        \
++    12, 0x24, 2, 1, 0x03, 0x06, 0, 2, 0x03, 0x00, 0, 0,    /* input terminal 1: line, 2 ch (L R) */      \
++    9, 0x24, 3, 2, 0x01, 0x01, 0, 1, 0,                    /* output terminal 2: USB streaming, from 1 */ \
++    12, 0x24, 2, 3, 0x01, 0x01, 0, 2, 0x03, 0x00, 0, 0,    /* input terminal 3: USB streaming, 2 ch */   \
++    9, 0x24, 3, 4, 0x01, 0x03, 0, 3, 0,                    /* output terminal 4: speaker, from 3 */
++#define CFG_LEN_MAC (9 + 8 + 61 + 2 * (52 + FMT_LEN - 11) + 8 + 18 + 74)
++static const uint8_t DEV_DESC_MAC[18] = {18, 1, 0x00, 0x02, 0xEF, 0x02, 0x01, 64, 0x09, 0x12, FELUCCA_USB_PID & 0xFF,
++                                         FELUCCA_USB_PID >> 8, BCD_LO(0) + 0x08, 0x03, 1, 2, 0, 1};
++static const uint8_t CFG_DESC_MAC[] = {
++    D_CFG(CFG_LEN_MAC, 5),
++    D_IAD(0, 3, 1, 0, 0),                                  /* IAD: audio, IF 0-2 */
++    D_AC_MAC
++    D_AS(1)
++    D_ASO(2)
++    D_IAD(3, 2, 1, 0, 0),                                  /* IAD: MIDI, IF 3-4 */
++    9, 4, 3, 0, 0, 1, 1, 0, 0,                             /* audio control for MIDI */
++    9, 0x24, 1, 0x00, 0x01, 9, 0, 1, 4,                    /* AC header: MIDI streaming IF 4 */
++    D_MIDI(4)
++};
++typedef char cfg_mac_len_ok[sizeof CFG_DESC_MAC == CFG_LEN_MAC ? 1 : -1];
++#define DEV_DESC DEV_DESC_MAC
++#define CFG_DESC CFG_DESC_MAC
++#define USB_CDC_ON 0
++#define USB_MAC 1                           /* get_desc: DEV_DESC / CFG_DESC, the layout above */
++#define AUD_IF 0u
++#define UAC_AS_IF 1u
++#define UAC_ASO_IF 2u
+ #else
+ #define DEV_DESC DEV_DESC_PLAIN
+ #define CFG_DESC CFG_DESC_PLAIN
+ #define USB_CDC_ON 0
+ #define AUD_IF 0u
+ #endif
++#ifndef UAC_AS_IF
+ #define UAC_AS_IF (AUD_IF + 2u)
+ #define UAC_ASO_IF (AUD_IF + 3u)            /* the output stream (FELUCCA_UAC_OUT) */
++#endif
+ static const uint8_t STR0[4] = {4, 3, 0x09, 0x04};
+ static const uint8_t STR1[] = {42, 3, 'H', 0, 0xFC, 0, 'g', 0, 'e', 0, 'l', 0, 't', 0, 'o', 0, 'n', 0, ' ', 0, 'I', 0,
+                                'n', 0, 's', 0, 't', 0, 'r', 0, 'u', 0, 'm', 0, 'e', 0, 'n', 0, 't', 0, 's', 0};
+@@ -461,10 +502,20 @@ static int get_desc(uint32_t wvalue, const uint8_t **d, uint16_t *l)
+ {
+     switch (wvalue >> 8) {
+     case 1:
++#ifdef USB_MAC
++        *d = DEV_DESC;
++        *l = 18;
++        return 1;
++#endif
+         *d = USB_CDC_ON ? DEV_DESC : DEV_DESC_PLAIN;
+         *l = 18;
+         return 1;
+     case 2:
++#ifdef USB_MAC
++        *d = CFG_DESC;
++        *l = (uint16_t)sizeof CFG_DESC;
++        return 1;
++#endif
+         *d = USB_CDC_ON ? CFG_DESC : CFG_DESC_PLAIN;
+         *l = (uint16_t)(USB_CDC_ON ? sizeof CFG_DESC : sizeof CFG_DESC_PLAIN);
+         return 1;

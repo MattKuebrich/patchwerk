@@ -1,0 +1,18 @@
+# SPDX-License-Identifier: GPL-3.0-only
+# PATCHWERK's words for a screen reader (fm1-reader): the text on the screen <TAB> what to say.
+# url: https://YOUR-NAME.github.io/patchwerk/words/
+PATCHWERK	patchwerk
+SWIRL	swirl
+VCO	V C O
+VCF	V C F
+VCA	V C A
+LPG	low pass gate
+S&H	sample and hold
+CVMIX	C V mixer
+V/OCT	volts per octave
+EOC	end of cycle
+EOS	end of sequence
+EOR	end of rise
+SQR	square
+TRI	triangle
+SIN	sine

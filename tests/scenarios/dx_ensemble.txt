@@ -1,0 +1,13 @@
+# DX ENSEMBLE (F54): two FM-DX voices from INTERNAL (an electric piano arpeggio over an FM bass) sound (the patch starts playing by itself)
+wait 2500
+turn PRESET 1
+wait 100
+turn SELECT 48
+wait 200
+shot dx_ensemble_list.png
+tap SEL
+wait 300
+expect modules 8
+wait 2500
+expect peak >50
+shot dx_ensemble.png

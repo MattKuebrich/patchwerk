@@ -1,0 +1,53 @@
+# Compact patch view: with SETTINGS' AUTO COMPACT on, only a big patch (more than ten boxes) goes compact by itself; GLO+SEQ steps AUTO, COMPACT, FULL
+# (off, the default: full size, and GLO+SEQ steps FULL, COMPACT)
+wait 2500
+turn PRESET 1
+wait 100
+turn SELECT -2
+wait 100
+tap SEL
+wait 200
+turn SELECT 4
+turn K1 1
+wait 100
+shot compact_setting.png
+tap HOME
+wait 300
+reboot
+wait 2500
+turn PRESET 1
+wait 100
+turn SELECT 39
+wait 200
+tap EDIT
+wait 300
+expect modules 14
+tap HOME
+wait 300
+shot compact_auto.png
+press GLO
+tap SEQ
+release GLO
+wait 200
+shot compact_forced.png
+press GLO
+tap SEQ
+release GLO
+wait 200
+shot compact_full.png
+press GLO
+tap SEQ
+release GLO
+wait 200
+shot compact_auto2.png
+reboot
+wait 2500
+turn PRESET 1
+wait 100
+turn SELECT 5
+wait 200
+tap EDIT
+wait 300
+tap HOME
+wait 300
+shot compact_small.png

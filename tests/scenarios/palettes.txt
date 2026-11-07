@@ -1,0 +1,133 @@
+# every palette on the patch screen, matrix and module page
+wait 2500
+shot pal0_patch.png
+tap ARP
+wait 300
+shot pal0_matrix.png
+tap HOME
+wait 100
+tap EDIT
+wait 300
+shot pal0_edit.png
+tap HOME
+wait 100
+press GLO
+tap HOME
+release GLO
+wait 100
+turn SELECT 1
+turn K1 1
+wait 100
+tap HOME
+wait 300
+shot pal1_patch.png
+tap ARP
+wait 300
+shot pal1_matrix.png
+tap HOME
+wait 100
+tap EDIT
+wait 300
+shot pal1_edit.png
+tap HOME
+wait 100
+press GLO
+tap HOME
+release GLO
+wait 100
+turn SELECT 1
+turn K1 1
+wait 100
+tap HOME
+wait 300
+shot pal2_patch.png
+tap ARP
+wait 300
+shot pal2_matrix.png
+tap HOME
+wait 100
+tap EDIT
+wait 300
+shot pal2_edit.png
+tap HOME
+wait 100
+press GLO
+tap HOME
+release GLO
+wait 100
+turn SELECT 1
+turn K1 1
+wait 100
+tap HOME
+wait 300
+shot pal3_patch.png
+tap ARP
+wait 300
+shot pal3_matrix.png
+tap HOME
+wait 100
+tap EDIT
+wait 300
+shot pal3_edit.png
+tap HOME
+wait 100
+press GLO
+tap HOME
+release GLO
+wait 100
+turn SELECT 1
+turn K1 1
+wait 100
+tap HOME
+wait 300
+shot pal4_patch.png
+tap ARP
+wait 300
+shot pal4_matrix.png
+tap HOME
+wait 100
+tap EDIT
+wait 300
+shot pal4_edit.png
+tap HOME
+wait 100
+press GLO
+tap HOME
+release GLO
+wait 100
+turn SELECT 1
+turn K1 1
+wait 100
+tap HOME
+wait 300
+shot pal5_patch.png
+tap ARP
+wait 300
+shot pal5_matrix.png
+tap HOME
+wait 100
+tap EDIT
+wait 300
+shot pal5_edit.png
+tap HOME
+wait 100
+press GLO
+tap HOME
+release GLO
+wait 100
+turn SELECT 1
+turn K1 1
+wait 100
+tap HOME
+wait 300
+shot pal6_patch.png
+tap ARP
+wait 300
+shot pal6_matrix.png
+tap HOME
+wait 100
+tap EDIT
+wait 300
+shot pal6_edit.png
+tap HOME
+wait 100

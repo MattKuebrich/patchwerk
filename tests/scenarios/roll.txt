@@ -1,0 +1,112 @@
+# PIANO ROLL: added from the list, its editor on the SEQ page: draw a chord and a tune, copy the bar, the loop plays
+wait 2500
+turn PRESET 1
+wait 100
+turn SELECT -2
+tap SEL
+wait 300
+tap FX
+wait 100
+turn SELECT 55 150
+wait 100
+shot roll_add.png
+turn ALGO 1
+wait 300
+shot roll_add_vis.png
+turn ALGO -1
+wait 100
+tap SEL
+wait 300
+expect modules 2
+tap SEQ
+wait 300
+shot roll_empty.png
+# a chord at step 1: C4 E4 G4 (ALGORITHM moves up the keys, SEL puts a note)
+turn ALGO 5
+tap SEL
+turn ALGO 4
+tap SEL
+turn ALGO 3
+tap SEL
+wait 200
+# a tune on the next steps, one octave up
+turn SELECT 4
+turn ALGO 5
+tap SEL
+turn SELECT 2
+turn ALGO 2
+tap SEL
+turn SELECT 2
+turn ALGO -2
+tap SEL
+turn K1 2
+wait 200
+shot roll_notes.png
+turn ALGO -6
+wait 200
+shot roll_below.png
+turn ALGO 6
+wait 100
+# KNOB 2 changes the pitch of the note under the cursor
+turn K2 3
+wait 200
+shot roll_pitch.png
+press GLO
+tap SEL
+release GLO
+wait 200
+turn K4 1
+wait 100
+press GLO
+tap SEL
+release GLO
+wait 200
+shot roll_copy.png
+tap PLAY
+wait 1500
+shot roll_play.png
+tap HOME
+wait 200
+tap EDIT
+wait 300
+shot roll_page.png
+# the factory patch: chords and a lead, from the roll, on one cable
+turn PRESET 1
+wait 100
+turn SELECT 51
+wait 200
+tap EDIT
+wait 1500
+expect modules 11
+tap HOME
+wait 300
+shot roll_factory_patch.png
+tap SEQ
+wait 300
+shot roll_factory_edit.png
+# the view: AUTO folds a roll whose notes are in more than two octaves (only the pitches that have a note, big); GLO + SEQ: FOLD, then all KEYS, then AUTO
+shot roll_auto_fold.png
+turn ALGO 1
+turn ALGO 1
+wait 200
+shot roll_fold_up.png
+press GLO
+tap SEQ
+tap SEQ
+release GLO
+wait 300
+shot roll_keys.png
+press GLO
+tap SEQ
+release GLO
+wait 300
+# the metronome (GLO + PRESET): MET in the top bar
+press GLO
+turn PRESET 1
+release GLO
+wait 600
+shot roll_metro.png
+press GLO
+turn PRESET -1
+release GLO
+wait 300

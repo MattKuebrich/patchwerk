@@ -1,0 +1,18 @@
+# REC on a jack with several cables unplugs one a press, the one plugged first first; EDIT opens a module on its first knobs
+wait 2500
+turn PRESET 1
+wait 100
+turn SELECT 39
+wait 200
+tap EDIT
+wait 300
+tap HOME
+wait 300
+expect cables 19
+tap REC
+wait 200
+expect cables 18
+shot unplug_one.png
+tap REC
+wait 200
+expect cables 17

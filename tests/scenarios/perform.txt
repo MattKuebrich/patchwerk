@@ -1,0 +1,67 @@
+# The performance page, variations, copy and paste, undo, voices: from the panel.
+wait 2500
+# a new patch (an OUTPUT, an empty performance page)
+turn PRESET 1
+wait 100
+turn SELECT -2
+tap SEL
+wait 300
+expect modules 1
+# ENV held while a knob turns: that knob goes on the performance page (and nothing else happens)
+press ENV
+turn K1 1
+release ENV
+wait 200
+expect perf 1
+expect page 1
+tap ENV
+wait 200
+expect page 9
+shot perform.png
+# the first eight white keys pick a variation there (they do not play)
+tapkey 4
+wait 100
+expect var 2
+tapkey 0
+wait 100
+expect var 0
+# GLO + a white key, from the patch: SAVES the playing snapshot into that key (and goes there)
+tap HOME
+press GLO
+tapkey 2
+release GLO
+wait 100
+expect var 1
+# SEL + a white key, on the patch screen: RECALLS (snapshot 1), and the SEL does not grab a cable
+press SEL
+tapkey 0
+release SEL
+wait 100
+expect var 0
+tapkey 0
+wait 100
+expect var 0
+# copy (GLO + ENV) and paste (GLO + LFO): one more module; undo (GLO + OCT-) takes it away, redo (GLO + OCT+) back
+press GLO
+tap ENV
+tap LFO
+release GLO
+wait 200
+expect modules 2
+press GLO
+tap OCT-
+release GLO
+wait 200
+expect modules 1
+press GLO
+tap OCT+
+release GLO
+wait 200
+expect modules 2
+# voices: the patch list's knob 4
+turn PRESET 1
+wait 100
+turn K4 3
+wait 200
+expect voices 4
+shot voices.png

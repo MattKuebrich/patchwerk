@@ -1,0 +1,72 @@
+# SAVE is the menu's button: from a screen it opens the SAVE page, again: SETTINGS, HELP, PATCHES, the SAVE page. A patch stored
+# with KIND on GROUP is inserted (not loaded) from the list, as one group box, into the open patch.
+wait 2500
+turn PRESET 1
+wait 100
+turn SELECT 1
+wait 100
+tap EDIT
+wait 300
+expect modules 9
+tap SAVE
+wait 100
+expect page 14
+shot save_page.png
+tap SAVE
+wait 100
+expect page 12
+tap SAVE
+wait 100
+expect page 8
+tap SAVE
+wait 100
+expect page 7
+tap SAVE
+wait 100
+expect page 14
+turn ALGO 1
+wait 100
+expect page 12
+turn ALGO -1
+wait 100
+expect page 14
+# KIND: GROUP, store in the first free slot
+turn K4 1
+wait 100
+shot save_group.png
+tap SEL
+wait 300
+expect store_writes >0
+shot save_stored.png
+# a blank patch, then the list on that slot (GLO + SELECT jumps by section): SEL inserts its modules as one group
+tap HOME
+wait 100
+turn PRESET 1
+wait 100
+press GLO
+turn SELECT -1
+turn SELECT -1
+release GLO
+wait 100
+tap SEL
+wait 300
+expect modules 1
+turn PRESET 1
+wait 100
+press GLO
+turn SELECT 1
+turn SELECT 1
+turn SELECT 1
+release GLO
+wait 100
+shot list_group.png
+tap SEL
+wait 300
+expect page 1
+expect modules 9
+shot group_inserted.png
+press GLO
+tap OCT-
+release GLO
+wait 100
+expect modules 1

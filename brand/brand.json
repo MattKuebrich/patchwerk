@@ -1,0 +1,18 @@
+{
+  "_": "PATCHWERK's brand colors: edit this file, then run  sh tools/gen_brand.sh  (the release does it too). They reach the FM-1's default palette (core/pw_ui.c), the update-mode screen and the update screen (the loader, unity.c), the site's mark and tab icon, and the page's colors (buttons, bars, cables, warnings). Hex, #rrggbb.",
+  "name": "RISO",
+  "accent": "#e0d0aa",
+  "ok": "#00d678",
+  "warn": "#ff8020",
+  "bad": "#ff3838",
+  "cats": {
+    "source": "#ff8020",
+    "filter": "#1482ff",
+    "fx": "#ff40aa",
+    "mod": "#00d678",
+    "util": "#e0ee28",
+    "seq": "#8260ff",
+    "io": "#ff3838"
+  },
+  "cables": ["source", "fx", "filter", "mod", "accent"]
+}

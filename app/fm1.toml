@@ -1,0 +1,23 @@
+# PATCHWERK's build settings (fm1-base's tools/build.py: ./build.sh)
+name = "PATCHWERK"                # the build's files: patchwerk.fwsc, patchwerk-X.Y.fwsc
+id_prefix = "FM-1_606"         # package identity: dev FM-1_60600, releases FM-1_606XXYYZZ (v1.0: FM-1_606010000)
+usb_manufacturer = "PATCHWERK"
+usb_product = "PATCHWERK FM-1"
+words = "words.tsv"
+include = ["core"]
+device_include = ["devinc"]    # <string.h>: the toolchain has no C library headers
+o2_cflags = ["-DPW_FM1B"]
+# the synth's engine and modules (the DSP) at -O2; its UI, presets, link and bank code at -Os (about a fifth smaller)
+o2 = ["core/pw_engine.c", "core/pw_modules.c"]
+os = ["core/pw_presets.c", "core/pw_link.c", "core/pw_bank.c"]
+oz = ["core/pw_ui.c"]          # the UI at -Oz: smaller again (the screens are not time-critical; the audio runs in its own interrupt)
+# the second core (experimental; DIAGNOSTICS > CPU starts it on request): its entry and stacks. To build without it, remove these two lines and APP_CPU1 in app.h
+asm = ["cpu1/entry.S"]
+vendored = ["cpu1/"]
+# the screen and panel mirrored over USB: the web page shows the FM-1's screen and plays its panel (base/device/mirror.c)
+mirror = true
+# the site
+tagline = "a modular synth for the FM-1"
+repo = "https://github.com/YOUR-NAME/patchwerk"
+licence = "GPL-3.0-only"
+credits = "Built on fm1-base and felucca-bsp, from Felucca by Leo Kuroshita (Hügelton Instruments)."

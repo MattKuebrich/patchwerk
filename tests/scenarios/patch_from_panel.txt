@@ -1,0 +1,125 @@
+# A voice from an empty patch, with the panel only: new patch (an OUTPUT), add KEYS and a VCO,
+# cable them on the patch screen with SEL, play.
+wait 2500
+turn PRESET 1
+wait 100
+expect page 7
+turn SELECT -2
+wait 100
+tap SEL
+wait 300
+expect modules 1
+expect page 1
+# FX: KEYS is in the last group (IN/OUT): the end of the list, three back (AUDIO IN, MIDI IN, MIDI OUT after it): SELECT goes module to module however fast it is turned.
+tap FX
+wait 100
+expect page 3
+turn SELECT -1
+wait 100
+turn SELECT -4
+wait 100
+# ENV: added alone (SEL would wire KEYS PITCH into the OUTPUT under the cursor)
+tap ENV
+wait 200
+expect modules 2
+expect cables 0
+expect type 26
+# The cursor sits on KEYS' first output (it has no inputs). FX: VCO, the first in the list: SEL wires PITCH into its V/OCT.
+tap FX
+wait 100
+turn SELECT 5
+wait 100
+shot add_plan.png
+tap SEL
+wait 300
+expect cables 1
+expect type 0
+# The cursor lands on the VCO's first output (SIN); SAW is 2 on; SEL picks it up and hops to OUT L; SEL plugs.
+turn SELECT 2
+wait 100
+tap SEL
+wait 100
+tap SEL
+wait 200
+expect cables 2
+shot patched.png
+key 7 down
+wait 400
+expect peak >200
+key 7 up
+wait 200
+# REC unplugs the jack under the cursor (OUT L: the VCO's cable); GLO + OCT- puts it back
+tap REC
+wait 100
+expect cables 1
+press GLO
+tap OCT-
+release GLO
+wait 100
+expect cables 2
+# FX on an audio input: the list starts at the sources (VCO); ten on, past them, the VCF.
+# SEL puts it into the cable: VCO SAW > VCF > OUT L.
+tap FX
+wait 100
+expect page 3
+turn K2 1
+wait 100
+shot insert_plan.png
+tap SEL
+wait 300
+expect modules 4
+expect cables 3
+expect type 5
+key 7 down
+wait 400
+expect peak >100
+key 7 up
+wait 200
+# one undo takes the whole insert back
+press GLO
+tap OCT-
+release GLO
+wait 100
+expect modules 3
+expect cables 2
+# SELECT turned fast: module to module (four detents at once: two modules on); slowly: jack to jack
+spin SELECT 20
+wait 100
+expect type 25
+spin SELECT -4
+wait 100
+expect type 26
+turn SELECT 1
+wait 100
+expect type 26
+# FX: the small add list; HOME closes it, nothing added
+tap FX
+wait 100
+shot popup2.png
+tap HOME
+wait 100
+expect page 1
+expect modules 3
+# ENV: PERFORM, ALGORITHM to MUTES, ENV again to MUTATE, HOME back to the patch
+tap ENV
+wait 100
+turn ALGO 1
+wait 100
+expect page 10
+tap ENV
+wait 100
+expect page 13
+tap HOME
+wait 100
+expect page 1
+# REC held: the module under the cursor deleted, no question; GLO + OCT- brings it back
+press REC
+wait 900
+release REC
+wait 100
+expect modules 2
+press GLO
+tap OCT-
+release GLO
+wait 100
+expect modules 3

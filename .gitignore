@@ -1,0 +1,6 @@
+app/build/
+web/build/
+tests/out/
+patchwerk.fwsc.js
+*.zip
+emulator.html

@@ -1,0 +1,24 @@
+# an inserted Subpatch is one box with its interface jacks; ALGORITHM turns through every member's pages; GLO + FX opens it (warm ground); GLO held shows GLO+FX first
+wait 2500
+turn PRESET 1
+wait 200
+turn PRESET 54
+wait 200
+tap SEL
+wait 300
+shot sp_box.png
+turn ALGO 1
+turn ALGO 1
+turn ALGO 1
+wait 200
+shot sp_pages.png
+press GLO
+wait 400
+wait 200
+shot sp_glo.png
+tap FX
+release GLO
+wait 300
+shot sp_open.png
+tap HOME
+wait 200

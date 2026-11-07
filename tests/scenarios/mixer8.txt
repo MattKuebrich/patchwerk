@@ -1,0 +1,20 @@
+# MIXER 8: eight faders with what feeds them, then the pans
+wait 2500
+turn PRESET 1
+wait 100
+turn SELECT -5
+tap SEL
+wait 300
+tap FX
+wait 100
+turn SELECT 58 150
+wait 100
+tap SEL
+wait 300
+expect type 86
+tap EDIT
+wait 3500
+shot mix8.png
+turn ALGO 2
+wait 200
+shot mix8_pan.png

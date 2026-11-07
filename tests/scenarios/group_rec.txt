@@ -1,0 +1,19 @@
+# inside an open group, held REC deletes the module under the cursor, not the group
+wait 2500
+expect modules 6
+press GLO
+tap FX
+release GLO
+wait 300
+tap SEL
+wait 400
+press GLO
+tap FX
+release GLO
+wait 400
+press REC
+wait 1000
+release REC
+wait 300
+shot grp_rec.png
+expect modules 5

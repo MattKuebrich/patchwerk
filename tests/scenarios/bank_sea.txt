@@ -1,0 +1,11 @@
+# A compressed sound (SEA) in the sample bank (core/pw_bank.c, core/pw_sea.inc): a bank written to the data area as the web
+# page would leave it (tests/make_bank.py: one sound, B1, stored compressed, 1356 bytes for 3020 frames). It is listed, the
+# bank's free room is what its stored bytes leave (one 4 KB sector, not the two its 16-bit size would take), and the sound is
+# read back decoded.
+data tests/out/bank_sea_dir.bin 0xAB000
+data tests/out/bank_sea_data.bin 0xAC000
+reboot
+wait 2500
+expect bank 1
+expect bankfree 208896
+expect smp0 >1000

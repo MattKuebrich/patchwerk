@@ -1,0 +1,30 @@
+# TRIG SEQ's strip has two rows (accent, roll); MIXER 8 (eight faders); GLO+K1 tempo
+wait 2500
+turn PRESET 1
+wait 100
+turn SELECT -5
+tap SEL
+wait 300
+tap FX
+wait 100
+turn SELECT 68 150
+wait 100
+tap SEL
+wait 300
+expect type 49
+tap EDIT
+wait 3500
+shot trig_strip.png
+tap REC
+wait 3500
+shot trig_strip_rec.png
+
+# GLO+K1 on the patch screen sets the tempo; CLIP PROTECT on the OUTPUT module
+tap HOME
+wait 300
+press GLO
+turn K1 5
+release GLO
+wait 100
+shot tempo_glo_k1.png
+expect clip 1

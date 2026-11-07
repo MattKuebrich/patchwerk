@@ -1,0 +1,26 @@
+# A saved patch in user slot 1 loads at power-on; HOME held at power-on skips it and starts with a blank patch (an OUTPUT alone).
+wait 2500
+turn PRESET 1
+wait 100
+turn SELECT 1
+wait 100
+tap EDIT
+wait 300
+expect modules 9
+turn PRESET 1
+wait 100
+turn SELECT 54
+wait 100
+tap SAVE
+wait 100
+tap SEL
+wait 300
+reboot
+wait 2500
+expect modules 9
+press HOME
+reboot
+wait 2500
+release HOME
+expect modules 1
+shot skipped.png

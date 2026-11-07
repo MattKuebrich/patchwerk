@@ -1,0 +1,195 @@
+# ADD MODULE's VISUAL page for every module in turn (a module with state of its own, drawn without it, must not crash)
+wait 2500
+turn PRESET 1
+wait 100
+turn SELECT -2
+tap SEL
+wait 300
+tap FX
+wait 100
+turn ALGO 1
+wait 50
+turn ALGO 1
+wait 50
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+turn SELECT 1
+wait 30
+shot add_visuals_end.png
+expect modules 1

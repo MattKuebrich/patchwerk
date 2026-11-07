@@ -1,0 +1,35 @@
+# GLO LATCH (a setting: the patch list's SETTINGS row, K1): tap GLO, then the key. Tap GLO twice: latched, then not.
+wait 2500
+turn PRESET 1
+wait 100
+turn ALGO 1
+wait 100
+turn ALGO 1
+wait 300
+expect page 12
+turn K1 1
+wait 100
+shot latch_setting.png
+tap HOME
+wait 200
+expect page 1
+tap LFO
+wait 200
+expect page 11
+tap SEL
+wait 200
+turn SELECT 1
+wait 100
+turn SELECT -1
+wait 100
+tap GLO
+wait 100
+shot latch_on.png
+tap SEL
+wait 300
+shot latch_dup.png
+tap GLO
+wait 100
+tap GLO
+wait 200
+expect page 11
