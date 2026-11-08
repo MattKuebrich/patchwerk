@@ -4,7 +4,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Patchwerk">
 <meta property="og:title" content="Patchwerk for FM-1">
-<meta property="og:description" content="A patchable modular synth for the FM-1. Play it in your browser, or install it on the unit.">
+<meta property="og:description" content="A modular synth for the FM-1">
 <meta property="og:url" content="https://mattkuebrich.com/patchwerk/">
 <meta property="og:image" content="https://mattkuebrich.com/patchwerk/brand/og.png">
 <meta property="og:image:width" content="1200">
@@ -1340,7 +1340,7 @@ return { productOf, logicalImage, Updater, STOCK_SHA256, IS_OTA };
   const log = (t) => { $('fw-log').textContent += t + '\n'; };
   let pkg = null, stock = null, writing = false;
   const STOCK_FILES = { [FM1OTA.STOCK_SHA256]: 'V15', d017fb65e70aca97ee29d944470c3515a74581df5c0576bf70de917c7b2b61d5: 'V16' };   /* (M-VAVE's own firmware files, by SHA-256) */
-  const FWSC_META = '/*__FWSC__*/';   /* build_page.py: {"pkg": "patchwerk.fwsc", "sha256": ...}, the firmware this page was built with, a file beside it */
+  const FWSC_META = '{"pkg": "patchwerk-v1.0.2.fwsc", "sha256": "71d16353599222129f653526945eab99e0abdaaac8138fc1315fa544b4bf3934", "version": "v1.0.2"}';   /* build_page.py: {"pkg": "patchwerk.fwsc", "sha256": ...}, the firmware this page was built with, a file beside it */
   const hex = async (u8) => [...new Uint8Array(await crypto.subtle.digest('SHA-256', u8))].map((b) => b.toString(16).padStart(2, '0')).join('');
   async function readPackage(file) { return readRaw(new Uint8Array(await file.arrayBuffer())); }
   function readRaw(raw) {
