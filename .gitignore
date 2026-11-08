@@ -1,6 +1,10 @@
 app/build/
 web/build/
 tests/out/
-patchwerk.fwsc.js
+patchwerk*.fwsc.js
 *.zip
 emulator.html
+RELEASING.md
+publish.command
+.DS_Store
+**/.DS_Store
