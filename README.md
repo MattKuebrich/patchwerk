@@ -2,7 +2,7 @@
 
 A patchable modular synthesizer for the M-VAVE FM-1: firmware for the unit, plus a browser emulator with a visual patch bay.
 
-**[Try it in your browser](https://mattkuebrich.github.io/patchwerk/)**: the same firmware, the FM-1 drawn on screen. Turn on sound and play.
+**[Try it in your browser](https://mattkuebrich.com/patchwerk/)**: the same firmware, the FM-1 drawn on screen. Turn on sound and play.
 Connect a real FM-1 over USB (desktop Chrome or Edge) and the page and the unit stay in sync both ways.
 
 <p>
@@ -23,7 +23,7 @@ Connect a real FM-1 over USB (desktop Chrome or Edge) and the page and the unit 
 
 ## Install on an FM-1
 
-Open the [page](https://mattkuebrich.github.io/patchwerk/) in desktop Chrome or Edge, connect the FM-1 with a USB data cable, back up
+Open the [page](https://mattkuebrich.com/patchwerk/) in desktop Chrome or Edge, connect the FM-1 with a USB data cable, back up
 your projects and samples, and press **Install**. The same page puts M-VAVE's own firmware back. You can also download
 the `patchwerk-v….fwsc` file from the [Releases](https://github.com/MattKuebrich/patchwerk/releases) and choose it on the page.
 
@@ -36,7 +36,7 @@ Unofficial: not made or endorsed by M-VAVE. Installing firmware is at your own r
 HOME is the patch screen. **FX** adds a module, **SELECT** and **SEL** patch cables, the four knobs shape the selected module and
 **ALGO** turns its pages. A button pressed again turns to its next page. **ENV** is PERFORM (again: MUTES, MUTATE), **SEQ** the
 sequencers, **SAVE** the save page and the menu. The unit's HELP page (press SAVE until you reach it) lists every shortcut;
-the [cheatsheet](https://mattkuebrich.github.io/patchwerk/cheatsheet.html) has them on one page, and [docs/REFERENCE.md](docs/REFERENCE.md) has every module and setting.
+the [cheatsheet](https://mattkuebrich.com/patchwerk/cheatsheet.html) has them on one page, and [docs/REFERENCE.md](docs/REFERENCE.md) has every module and setting.
 
 ## Build
 
