@@ -1,0 +1,26 @@
+# more pictures for the reference (web/shots/mutate.png, groups.png; mutes.png is in web_shots.txt), raw: tools/gen_shots.sh lifts and enlarges them
+wait 2500
+# MUTATE: ENV three times, a module picked and locked, then FX nudges
+tap ENV
+wait 200
+tap ENV
+wait 200
+tap ENV
+wait 300
+turn SELECT 2
+wait 100
+tap SEL
+wait 100
+tap FX
+wait 400
+shot mutate.png
+tap HOME
+wait 300
+# GROUPS: GLO + FX suggests the chain into the output, SEL groups it
+press GLO
+tap FX
+release GLO
+wait 300
+tap SEL
+wait 400
+shot groups.png

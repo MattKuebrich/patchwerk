@@ -1,6 +1,6 @@
-# Building and installing PATCHWERK (macOS)
+# Building and installing Patchwerk (macOS)
 
-PATCHWERK is an app on [fm1-base](https://github.com/charlesvestal/fm1-base) (`base/`, with
+Patchwerk is an app on [fm1-base](https://github.com/charlesvestal/fm1-base) (`base/`, with
 [felucca-bsp](https://github.com/hugelton/felucca-bsp) inside it). `./build.sh` runs fm1-base's build on
 `app/`, whose settings are in `app/fm1.toml`. No Windows anywhere: JieLi's compiler for the FM-1 is Linux
 x86-64 only, and on a Mac the build runs it in a Docker container by itself.
@@ -54,7 +54,7 @@ Back up your FM-1 projects and samples first. Connect the FM-1 by USB (a data ca
 python3 base/bsp/tools/fm1_install.py app/build/patchwerk.fwsc
 ```
 
-It asks before it writes and restarts the FM-1 into PATCHWERK. `--info` says what is on the connected FM-1.
+It asks before it writes and restarts the FM-1 into Patchwerk. `--info` says what is on the connected FM-1.
 
 **From Chrome instead of a terminal:** make a release build and fm1-base's installer page around it, then open
 it from `localhost` (Web MIDI needs a secure page):
@@ -67,7 +67,7 @@ cd /tmp/patchwerk-site && python3 -m http.server 8000      # open http://localho
 
 ## 4. If it goes wrong
 
-- **It crashes at start because of a saved patch:** hold **HOME** while switching on. PATCHWERK starts with a
+- **It crashes at start because of a saved patch:** hold **HOME** while switching on. Patchwerk starts with a
   factory patch instead of user patch 1 (patches survive reinstalling the firmware).
 - **It crashes at start twice:** the FM-1 starts in fm1-base's SAFE MODE (no sound, the updater works): install
   a fixed build, or the stock firmware, from there.
@@ -84,18 +84,18 @@ disassembly to look them up.
 
 ## USB audio on a Mac
 
-PATCHWERK presents the FM-1 as a USB sound card both ways (the computer's sound into AUDIO IN; PATCHWERK's output
+Patchwerk presents the FM-1 as a USB sound card both ways (the computer's sound into AUDIO IN; Patchwerk's output
 recordable on the computer). fm1-base's plain USB layout left the audio part without a driver on macOS 14, so
-PATCHWERK builds felucca-bsp with `FELUCCA_USB_MAC_LAYOUT` (app.h; `patches/felucca-bsp-usb-mac-layout.patch`,
+Patchwerk builds felucca-bsp with `FELUCCA_USB_MAC_LAYOUT` (app.h; `patches/felucca-bsp-usb-mac-layout.patch`,
 applied by `./build.sh`): audio and MIDI as two USB functions, the shape class-compliant audio + MIDI devices
-use. It should then show as **PATCHWERK FM-1** in Audio MIDI Setup and System Settings → Sound. The computer's
+use. It should then show as **Patchwerk FM-1** in Audio MIDI Setup and System Settings → Sound. The computer's
 sound is not mixed into the FM-1's output by itself (`APP_UAC_GAIN`, `patches/fm1-base-uac-gain.patch`): an AUDIO
 IN module brings it into the patch.
 
 ## Linking the web page to the FM-1
 
-Open the emulator page (`index.html`, or the published one at https://mattkuebrich.github.io/patchwerk/) in desktop Chrome or
-Edge, connect the FM-1 running PATCHWERK by USB, and press **Link FM-1** (allow MIDI with SysEx when Chrome asks).
+Open the emulator page (`index.html`, or the published one at https://mattkuebrich.com/patchwerk/) in desktop Chrome or
+Edge, connect the FM-1 running Patchwerk by USB, and press **Link FM-1** (allow MIDI with SysEx when Chrome asks).
 The page then shows the FM-1's screen (fm1-base's mirror), presses its buttons and keys, and keeps its patch bay
 and the FM-1's patch the same both ways (`app/core/pw_link.c`). The sample bank's **Send** writes a sound into
 the FM-1's flash. Inside the Claude artifact viewer Web MIDI with SysEx is not allowed: save the page first.

@@ -1,3 +1,15 @@
+v1.0.3
+  - Everything on the web shows the screen the way the unit's panel does (the same look as the emulator with "Match the unit's panel" ticked):
+    the module pictures, the screenshots in the README and the reference, the logo and the link preview, and the page's own brand colors,
+    its mark and its tab icon. They are made through tools/panel_look.py (a port of the page's look); the firmware's palettes are as they were.
+    tools/gen_shots.sh makes the screenshots from the host simulator (tests/scenarios/web_shots.txt, og_shots.txt).
+  - The name is written Patchwerk (not all capitals) in the page, README, BUILDING.md, the reference, the cheatsheet and the unit's help text. The
+    splash on the unit stays capitals (its large face has only those letters), and patch codes still start with PATCHWERK: so old ones load.
+  - The README links to mattkuebrich.com/patchwerk and opens with the page's own description. The reference has pictures for groups, MUTES and
+    MUTATE (web/shots/groups.png, mutes.png, mutate.png).
+  - update.command (double-click, kept off GitHub): puts the newest patchwerk-v….zip from Downloads into the folder, keeping fmhub.json, then offers to publish.
+  - "Match the unit's panel" is also under the emulator (one switch with the palette editor's).
+
 v1.0.2
   - The screen shown while a sample (or anything else) is sent over USB is now a still (the five cables, no animation): transfers are
     so quick that the cables flickered. The sound's bank slot and name are still under them.

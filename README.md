@@ -1,12 +1,11 @@
-<p align="center"><img src="brand/logo.png" width="360" alt="PATCHWERK"></p>
+<p align="center"><img src="brand/logo.png" width="360" alt="Patchwerk"></p>
 
-A patchable modular synthesizer for the M-VAVE FM-1: firmware for the unit, plus a browser emulator with a visual patch bay.
+Patchwerk is a modular synthesizer for the M-VAVE FM-1 with over 80 modules. Build and play patches directly on the FM-1, or use the browser emulator, which runs the same firmware and includes a visual patch bay. Connect your FM-1 over USB to control it from the browser, with changes synced both ways.
 
-**[Try it in your browser](https://mattkuebrich.com/patchwerk/)**: the same firmware, the FM-1 drawn on screen. Turn on sound and play.
-Connect a real FM-1 over USB (desktop Chrome or Edge) and the page and the unit stay in sync both ways.
+**[Try it in your browser](https://mattkuebrich.com/patchwerk/)**
 
 <p>
-<img src="web/shots/add.png" width="190" alt="Adding a filter between an oscillator and an amplifier">
+<img src="web/shots/add.png" width="190" alt="Adding a filter after another module">
 <img src="web/shots/cable.png" width="190" alt="Patching with cables">
 <img src="web/shots/perform.png" width="190" alt="The perform page">
 <img src="web/shots/song.png" width="190" alt="The song page">
@@ -45,7 +44,7 @@ the [cheatsheet](https://mattkuebrich.com/patchwerk/cheatsheet.html) has them on
 
 ## Credits and license
 
-PATCHWERK is GPL-3.0-only (`LICENSE`). It is built on [fm1-base](https://github.com/charlesvestal/fm1-base) and
+Patchwerk is GPL-3.0-only (`LICENSE`). It is built on [fm1-base](https://github.com/charlesvestal/fm1-base) and
 [felucca-bsp](https://github.com/hugelton/felucca-bsp) (`base/`), whose files stay MPL-2.0 file by file (`base/LICENSING.md`). The CZ module
 is a port of Melodee's CZ engine (GPL-3.0, Kerem Kilic) and MAME's uPD933 model (BSD-3-Clause, Devin Acker). The FM-DX module is a
 port of ymfm's OPZ (YM2414) model and tables (BSD-3-Clause, Aaron Giles; `assets/dx/LICENSE-ymfm.txt`). The FM drums in sample

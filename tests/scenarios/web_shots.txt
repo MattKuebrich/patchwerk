@@ -1,0 +1,99 @@
+# the pictures on the web page, README and reference (web/shots/*.png), taken raw: sh tools/gen_shots.sh copies them (no expectations, it only draws)
+wait 2500
+# cable: the cursor on KEYS 1's VEL jack, nothing plugged in
+turn SELECT 2
+wait 100
+shot cable.png
+# knobs: VCF 1's module page
+press GLO
+turn SELECT 2
+release GLO
+wait 100
+press GLO
+turn SELECT 1
+release GLO
+wait 100
+tap EDIT
+wait 300
+shot knobs.png
+tap HOME
+wait 200
+# add: the cursor on VCA 1's input, the add list at the VCF
+press GLO
+turn SELECT 1
+release GLO
+wait 100
+tap FX
+wait 100
+turn SELECT 16 150
+wait 100
+shot add.png
+tap HOME
+wait 200
+# perform: four knobs of VCF 1 and four of ENV 1 on the page, snapshot 5
+press GLO
+turn SELECT -1
+release GLO
+wait 100
+press ENV
+turn K1 1
+turn K2 1
+turn K3 1
+turn K4 1
+release ENV
+wait 100
+press GLO
+turn SELECT -2
+release GLO
+wait 100
+press ENV
+turn K1 1
+turn K2 1
+turn K3 1
+turn K4 1
+release ENV
+wait 200
+tap ENV
+wait 200
+tapkey 4
+wait 200
+shot perform.png
+tap HOME
+wait 200
+# SONG ACID, the patch list first (the patch list shows the current patch's name)
+turn PRESET 1
+wait 100
+turn SELECT 39
+wait 300
+shot patches.png
+tap EDIT
+wait 400
+tap ARP
+wait 300
+turn SELECT 8
+wait 200
+shot matrix.png
+tap SEQ
+wait 300
+shot seq.png
+tap LFO
+wait 300
+shot song.png
+# mutes: SONG ACID's sounds, sequencers and effects, ENV twice
+tap HOME
+wait 200
+tap ENV
+wait 200
+tap ENV
+wait 300
+shot mutes.png
+# settings (docs/img/settings.png): scrolled to PALETTE and DARKS
+tap HOME
+wait 200
+tap SAVE
+wait 200
+tap SAVE
+wait 300
+turn SELECT 9
+wait 300
+shot settings.png

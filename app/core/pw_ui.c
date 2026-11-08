@@ -3968,7 +3968,7 @@ static const char *const help_rows[][2] = {
     {"#KEYS", ""},
     {"$", ""},
     {"#HOW IT WORKS", ""},
-    {"~", "PATCHWERK turns the FM-1 into a modular: oscillators, filters, effects, sequencers and modulators, joined by cables. Any output can feed any input."},
+    {"~", "Patchwerk turns the FM-1 into a modular: oscillators, filters, effects, sequencers and modulators, joined by cables. Any output can feed any input."},
     {"~", "Everything is a voltage: audio swings +/-5 V, pitch is 1 V per octave, gates are 0 or 5 V. So a sequencer can play a filter and an envelope can steer a delay."},
     {"~", "HOME is the patch screen. Add modules (FX), cable them (SELECT, SEL), shape them (knobs), play (keys, sequencers) and perform (ENV). Sixteen snapshots keep every knob, step and bypass."},
     {"~", "A button pressed again turns to its next page: FX (the add list's pages), ENV (PERFORM, MUTES, MUTATE), SEQ (the next sequencer), EDIT (the module's faces), SAVE (the menu's pages). ARP and LFO, pressed again, go back. ALGO turns pages too."},

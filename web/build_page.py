@@ -60,11 +60,15 @@ html = html.replace('/*__ENGINE_JS__*/', factory).replace('__WASM_B64__', w)
 
 # PATCHWERK's mark as the FM-1 draws it at power-on (core/pw_ui.c draw_boot): five cables drooping between their plugs,
 # drawn here pixel for pixel (half size for the page's header, a 32 px one for the tab), kept sharp by the browser
-import io
+import io, sys
 from PIL import Image, ImageDraw
 import json
 BRAND = json.load(open(here / 'brand.json'))   # brand/brand.json through tools/gen_brand.py: the one place the colors are chosen
 _rgb = lambda h: tuple(int(h.lstrip('#')[i:i + 2], 16) for i in (0, 2, 4))
+sys.path.insert(0, str(here.parent / 'tools'))
+import panel_look   # the page shows the brand colors the way the unit's panel does (the same look as the emulator's screen with "Match the unit's panel" on)
+def _web(h): return panel_look.tohex(panel_look.px(panel_look.hexc(h)))
+BRAND = {k: (_web(v) if isinstance(v, str) and v.startswith('#') else {a: _web(b) for a, b in v.items()} if k == 'cats' else v) for k, v in BRAND.items()}
 CABLES = [_rgb(BRAND['accent'] if k == 'accent' else BRAND['cats'][k]) for k in BRAND['cables']]   # the mark's cables (the power-on screen's)
 BRAND_CSS = ('--accent: %s; --ok: %s; --warn: %s; --bad: %s;\n  --c-source: %s; --c-filter: %s; --c-fx: %s; --c-mod: %s;\n  --c-util: %s; --c-seq: %s; --c-io: %s;'
              % ((BRAND['accent'], BRAND['ok'], BRAND['warn'], BRAND['bad']) + tuple(BRAND['cats'][k] for k in ('source', 'filter', 'fx', 'mod', 'util', 'seq', 'io'))))

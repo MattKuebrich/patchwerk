@@ -1,4 +1,4 @@
-# PATCHWERK reference
+# Patchwerk reference
 
 Every control, setting and module. [`README.md`](../README.md) is the short version. The unit's HELP page and the [cheatsheet](https://mattkuebrich.github.io/patchwerk/cheatsheet.html) list the shortcuts, and [`CHANGELOG.txt`](../CHANGELOG.txt) has the release notes.
 
@@ -44,6 +44,8 @@ A signal input (IN, L, R) gets the module inserted, and a control input (FREQ, R
 <img src="../web/shots/matrix.png" width="240" alt="The MATRIX page">
 
 **Groups.** GLO+FX suggests chains going to an output. SELECT turns through them and SEL turns the outlined one into a group, one box you can fold, open and carry between patches. On a group box SEL opens it (HOME leaves), and with a cable in hand the cable goes in with you (plug it into any jack inside and the box gets that jack). GLO+REC ungroups. To keep a group, save a patch with KIND set to GROUP on the SAVE page, and the patch list inserts it into the open patch as one box.
+
+<img src="../web/shots/groups.png" width="240" alt="A group on the patch screen: KEYS1+4 folded into one box">
 
 **Safe start.** Hold HOME at power-on to start with a blank patch (an OUTPUT alone) instead of U1, and without the second core. Nothing is deleted.
 
@@ -119,11 +121,15 @@ A patch keeps 16 snapshots. Each holds every knob, every sequencer step and whic
 
 **PERFORM** (ENV) is eight knobs from anywhere. Hold ENV and turn a knob to put it there. SEL held while you move a MIDI controller's knob makes that CC drive the knob (CC 21-28 are the defaults). Its last row, Bar Sync, makes snapshot changes wait for the bar line.
 
+<img src="../web/shots/perform.png" width="240" alt="The PERFORM page">
+
 **MUTES** (ENV again) lists the patch's sounds, sequencers and effects, eight tiles a page. A lower key mutes or unmutes one (its module is bypassed, so a muted sequencer stops its notes and tails ring on). SEL held solos it. REC held makes the change wait for the next bar. KNOB 1 is MORPH: every knob moves part way from the snapshot playing (A) to B (GLO + a lower key picks B, otherwise it is the next snapshot). Choosing a snapshot ends it. SEL tapped turns Bar Sync on and off.
+
+<img src="../web/shots/mutes.png" width="240" alt="The MUTES page">
 
 **MUTATE** (ENV once more) shakes the patch up and lets you take it back. FX nudges (every knob moves a little) and REC rolls (new values, part way to a random one). KNOB 1 is AMOUNT and KNOB 2 DENSITY, how many knobs are touched. Sequencer steps are included: a roll draws new notes from a pentatonic scale and flips gates. The list shows every module that can be mutated. SEL locks one (it is left alone) and SEL on the top row locks or unlocks all. Locks are saved with the patch. Levels, tuning, banks, presets and tempo are never touched, and resonance and feedback stay below howling. GLO+OCT- undoes a mutation in one step. The MUTATE module does the same from a trigger.
 
-<img src="../web/shots/perform.png" width="240" alt="The PERFORM page">
+<img src="../web/shots/mutate.png" width="240" alt="The MUTATE page, with NUDGE and ROLL">
 
 ## Song
 

@@ -1,5 +1,5 @@
 <meta charset="utf-8">
-<title>PATCHWERK for FM-1</title>
+<title>Patchwerk for FM-1</title>
 <meta name="description" content="A patchable modular synth for the FM-1. Over 80 modules joined by virtual cables, with a browser emulator and patch bay that link to the unit.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Patchwerk">
@@ -9,7 +9,7 @@
 <meta property="og:image" content="https://mattkuebrich.com/patchwerk/brand/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="The PATCHWERK logo beside the patch screen">
+<meta property="og:image:alt" content="The Patchwerk logo beside the patch screen">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://mattkuebrich.com/patchwerk/brand/og.png">
 <link rel="icon" href="__ICON_PNG__">
@@ -134,6 +134,8 @@ h1, h2, h3 { text-wrap: balance; margin: 0; }
 .caps-panel .fm1-wrap { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 6px; }
 .deck kbd { font: 500 11px var(--f-code); color: var(--dim); border: 1px solid var(--line); border-radius: 3px; padding: 0 4px; }
 .deck .sp { flex: 1; }
+.matchbar { margin-bottom: 6px; }
+.matchbar label { cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
 .link { display: flex; align-items: center; gap: 8px; color: var(--dim); }
 .link select { background: var(--well); border: 1px solid var(--line); color: var(--silk); border-radius: 5px; padding: 5px 6px; font-size: 12px; max-width: 220px; }
 .link .led { width: 9px; height: 9px; border-radius: 50%; background: #3a3e49; }
@@ -475,18 +477,18 @@ footer { padding-block: 40px 40px; color: var(--faint); font-size: 12.5px; }
 
 <div class="wrap"><div class="inner">
   <div class="top">
-    <div class="mark"><img src="__MARK_PNG__" width="__MARK_W__" height="__MARK_H__" alt="" aria-hidden="true">PATCHWERK <small style="color:var(--faint);font-weight:500;margin-left:6px">__PW_VERSION__</small></div>
+    <div class="mark"><img src="__MARK_PNG__" width="__MARK_W__" height="__MARK_H__" alt="" aria-hidden="true">Patchwerk <small style="color:var(--faint);font-weight:500;margin-left:6px">__PW_VERSION__</small></div>
     <nav><a href="#play">Play</a><a href="#hardware">How it works</a><a href="#patcher">Patch bay</a><a href="#modules">Modules</a><a href="#samples">Samples</a><a href="#colors">Colors</a><a href="#backup">Backup</a><a href="#install">Install</a><a href="cheatsheet.html" target="_blank" rel="noopener">Cheatsheet</a><a href="https://github.com/MattKuebrich/patchwerk" target="_blank" rel="noopener">Source</a></nav>
   </div>
   <div class="hero">
     <div>
       <h1>A patchable modular synth for the M-VAVE FM-1</h1>
-      <p>PATCHWERK is a modular synthesizer for the M-VAVE FM-1 with over 80 modules. Build and play patches directly on the FM-1, or use the browser emulator, which runs the same firmware and includes a visual patch bay. Connect your FM-1 over USB to control it from the browser, with changes synced both ways.</p>
+      <p>Patchwerk is a modular synthesizer for the M-VAVE FM-1 with over 80 modules. Build and play patches directly on the FM-1, or use the browser emulator, which runs the same firmware and includes a visual patch bay. Connect your FM-1 over USB to control it from the browser, with changes synced both ways.</p>
     </div>
     <div class="cta">
       <button class="btn power" id="power" aria-pressed="false"><span class="dot"></span><span id="power-label">Turn on sound</span></button>
       <a class="btn" href="#install">Install on an FM-1</a>
-      <span class="link"><span class="led" id="link-led"></span><select id="link-port" hidden aria-label="The FM-1's MIDI port"></select><button class="btn" id="link-btn" aria-pressed="false" title="Needs desktop Chrome or Edge and the FM-1 on USB running PATCHWERK; choose Allow when the browser asks to use MIDI devices. While linked the emulator is silent: the sound is the FM-1's.">Link FM-1</button><span id="link-status">Not linked</span></span>
+      <span class="link"><span class="led" id="link-led"></span><select id="link-port" hidden aria-label="The FM-1's MIDI port"></select><button class="btn" id="link-btn" aria-pressed="false" title="Needs desktop Chrome or Edge and the FM-1 on USB running Patchwerk; choose Allow when the browser asks to use MIDI devices. While linked the emulator is silent: the sound is the FM-1's.">Link FM-1</button><span id="link-status">Not linked</span></span>
     </div>
   </div>
 </div></div>
@@ -494,6 +496,7 @@ footer { padding-block: 40px 40px; color: var(--faint); font-size: 12.5px; }
 <div class="wrap" id="play"><div class="inner play">
   <div class="linkbar" id="link-banner" role="status"><span id="link-banner-text"></span><button class="tbtn" id="link-banner-btn" type="button">Link it now</button><button class="tbtn" id="link-banner-hide" type="button" title="Hide this note">Hide</button></div>
   <div class="fm1-wrap"><div class="fm1" id="fm1" aria-label="FM-1 emulator: knobs, buttons, keys and screen"></div></div>
+  <div class="deck matchbar"><label title="The page lifts the darks and turns the colors down the way the unit's panel does. Off: the screen's colors exactly as the firmware sends them."><input type="checkbox" id="em-panel" checked> Match the unit's panel</label></div>
   <div class="deck">
     <span>Computer keys <kbd>A</kbd>–<kbd>'</kbd> play the keys, <kbd>Z</kbd> <kbd>X</kbd> octave, <kbd>Space</kbd> play/stop. Knobs: drag, arrow keys, or click one then scroll; hold <kbd>Shift</kbd> for GLO. <b>Caps Lock on</b>: the keyboard is the panel: <kbd>1</kbd>–<kbd>6</kbd> FX to GLO, <kbd>Q</kbd>–<kbd>Y</kbd> HOME to REC (held while pressed), <kbd>←</kbd><kbd>→</kbd> SELECT, <kbd>↑</kbd><kbd>↓</kbd> ALGORITHM, <kbd>7</kbd>–<kbd>0</kbd> / <kbd>U</kbd>–<kbd>P</kbd> knobs 1–4 up / down, <kbd>-</kbd><kbd>=</kbd> PRESETS.</span>
     <span id="midi-status">MIDI: not connected</span>
@@ -504,7 +507,7 @@ footer { padding-block: 40px 40px; color: var(--faint); font-size: 12.5px; }
 
 <div class="wrap section" id="hardware"><div class="inner">
   <h2>How it works</h2>
-  <p class="lede">PATCHWERK is a modular: you build a sound by placing modules (oscillators, filters, effects, sequencers, modulators) and joining them with cables. Everything is a voltage, so any output can feed any input: a sequencer can play a filter, an envelope can steer a delay. HOME is always the patch screen, and you can build and edit patches right on the FM-1. Press a page's button again to turn to its next page.</p>
+  <p class="lede">Patchwerk is a modular: you build a sound by placing modules (oscillators, filters, effects, sequencers, modulators) and joining them with cables. Everything is a voltage, so any output can feed any input: a sequencer can play a filter, an envelope can steer a delay. HOME is always the patch screen, and you can build and edit patches right on the FM-1. Press a page's button again to turn to its next page.</p>
   <ol class="how">
     <li><figure><img src="__SHOT_add__" width="240" height="240" alt="The FM-1 screen adding a VCF between a VCO and a VCA"></figure><div><b>Add.</b> Press FX to open the library, turn SELECT to browse and press SEL to add. With a cable selected the module is wired in between, like this VCF between VCO and VCA; ENV adds it unpatched.</div></li>
     <li><figure><img src="__SHOT_cable__" width="240" height="240" alt="The FM-1 screen showing a patch with a cable being started"></figure><div><b>Patch.</b> HOME is the patch screen. Turn SELECT to a jack, press SEL to grab its cable, move to another jack and press SEL again. REC unplugs; GLO + OCT&minus; undoes anything. Hold HOME for a moment to see CPU and battery.</div></li>
@@ -564,7 +567,7 @@ footer { padding-block: 40px 40px; color: var(--faint); font-size: 12.5px; }
 
 <div class="wrap section" id="modules"><div class="inner">
   <h2><span id="mod-count">85</span> modules</h2>
-  <p class="lede">Explore PATCHWERK's modules, including synths, samplers, effects, sequencers, and modulation tools.</p>
+  <p class="lede">Explore Patchwerk's modules, including synths, samplers, effects, sequencers, and modulation tools.</p>
   <div class="filters" id="filters"></div>
   <div class="ref" id="ref"></div>
 </div></div>
@@ -695,7 +698,7 @@ footer { padding-block: 40px 40px; color: var(--faint); font-size: 12.5px; }
 
 <div class="wrap section" id="install"><div class="inner">
   <h2>Install on an FM-1</h2>
-  <p class="lede">Install PATCHWERK from this page over USB. It takes about two minutes and your FM-1 keeps its own firmware recoverable.</p>
+  <p class="lede">Install Patchwerk from this page over USB. It takes about two minutes and your FM-1 keeps its own firmware recoverable.</p>
   <ol class="ins-steps">
     <li><i>1</i><div><b>Back up</b><span>Save your projects and samples first (see Backup above).</span></div></li>
     <li><i>2</i><div><b>Connect</b><span>Desktop Chrome or Edge, a USB <em>data</em> cable, the FM-1 charged. Choose Allow when asked for MIDI.</span></div></li>
@@ -723,20 +726,20 @@ footer { padding-block: 40px 40px; color: var(--faint); font-size: 12.5px; }
         <li><b>USB cable disconnected, or the screen stays black.</b> The FM-1 is probably still in update mode. Leave it connected, reopen this page, select the firmware file and click Install to resume. Don't turn it off.</li>
         <li><b>"FM-1 not found" with a black screen.</b> Check whether the FM-1 appears as a USB drive named <code>WL82 UBOOT1.00</code>. If it does, you can restore the original firmware using <a href="https://github.com/Quixotic7/MvaveFM1Unbricker" target="_blank" rel="noopener">MvaveFM1Unbricker</a> (Windows/Linux) or <a href="https://github.com/Saintpid/FM1-Switch" target="_blank" rel="noopener">FM-1 Switch</a> (Mac/Windows).</li>
         <li><b>FM-1 doesn't appear over USB.</b> Recovery may still be possible using a small RP2040 board connected to the FM-1's USB lines. See the <a href="https://github.com/Quixotic7/MvaveFM1Unbricker/blob/main/TRANSPORTER-GUIDE.md" target="_blank" rel="noopener">Transporter guide</a> or <a href="https://github.com/GoodPerson42/FM1-Unbricking-For-Dummies" target="_blank" rel="noopener">FM1 Unbricking for Dummies</a>. The recovery process backs up the flash before making changes and asks for confirmation.</li>
-        <li><b>Bootloader protection.</b> PATCHWERK's installer leaves the first 16 KB of flash untouched, preserving the FM-1's boot code. The recovery tools linked above are independent community projects. Read their instructions before using them.</li>
+        <li><b>Bootloader protection.</b> Patchwerk's installer leaves the first 16 KB of flash untouched, preserving the FM-1's boot code. The recovery tools linked above are independent community projects. Read their instructions before using them.</li>
       </ul>
     </details>
     <details><summary>Details</summary><pre id="fw-log"></pre></details>
   </div>
   <details class="more build"><summary>Build the firmware yourself (developers)</summary>
-  <p class="lede">PATCHWERK is an app on fm1-base, the community platform for FM-1 firmware (on felucca-bsp, from Felucca). It builds on a Mac or Linux; on a Mac, Docker runs JieLi's compiler for the chip. You install it over USB, from a terminal or from Chrome.</p>
+  <p class="lede">Patchwerk is an app on fm1-base, the community platform for FM-1 firmware (on felucca-bsp, from Felucca). It builds on a Mac or Linux; on a Mac, Docker runs JieLi's compiler for the chip. You install it over USB, from a terminal or from Chrome.</p>
   <ol class="steps">
-    <li><div><h3>Set up once</h3><p>Install Docker Desktop and start it. Then, in the PATCHWERK folder:</p><pre>pip3 install Pillow mido python-rtmidi
+    <li><div><h3>Set up once</h3><p>Install Docker Desktop and start it. Then, in the Patchwerk folder:</p><pre>pip3 install Pillow mido python-rtmidi
 sh base/tools/get_toolchain.sh
 git clone --depth 1 --branch AC79NN_SDK_V1.2.1_2023-12-13 \
     https://gitee.com/Jieli-Tech/fw-AC79_AIoT_SDK.git ~/fw-AC79_AIoT_SDK</pre></div></li>
     <li><div><h3>Build</h3><p>The build checks RAM, pool and flash sizes and refuses anything that would break an FM-1.</p><pre>./build.sh                      # app/build/patchwerk.fwsc</pre></div></li>
-    <li><div><h3>Install</h3><p>Back up your projects and samples. Connect the FM-1 with a USB data cable. The installer asks before it writes, then restarts the FM-1 into PATCHWERK.</p><pre>python3 base/bsp/tools/fm1_install.py app/build/patchwerk.fwsc</pre></div></li>
+    <li><div><h3>Install</h3><p>Back up your projects and samples. Connect the FM-1 with a USB data cable. The installer asks before it writes, then restarts the FM-1 into Patchwerk.</p><pre>python3 base/bsp/tools/fm1_install.py app/build/patchwerk.fwsc</pre></div></li>
     <li><div><h3>Or from Chrome</h3><p>Make a release build and fm1-base's installer page around it, serve it locally (Web MIDI needs a secure page), and open <code>localhost:8000/install/</code>. Its last section puts M-VAVE's firmware back.</p><pre>./build.sh --release 0.1
 python3 base/tools/make_site.py app app/build/patchwerk-0.1.fwsc 0.1 /tmp/patchwerk-site
 cd /tmp/patchwerk-site &amp;&amp; python3 -m http.server 8000</pre></div></li>
@@ -744,7 +747,7 @@ cd /tmp/patchwerk-site &amp;&amp; python3 -m http.server 8000</pre></div></li>
   </details>
 </div></div>
 
-<div class="wrap"><div class="inner"><footer>PATCHWERK is GPL-3.0 (<a href="https://github.com/MattKuebrich/patchwerk" target="_blank" rel="noopener">source on GitHub</a>), built on fm1-base and felucca-bsp, from Felucca by Leo Kuroshita (Hügelton Instruments). The FM drums in sample bank C are from &ldquo;hizmi &ndash; Hybrid Sample Pack 01&rdquo;. Unofficial: M-VAVE and FM-1 are names of their owner, and this project is not affiliated with or endorsed by them.</footer></div></div>
+<div class="wrap"><div class="inner"><footer>Patchwerk is GPL-3.0 (<a href="https://github.com/MattKuebrich/patchwerk" target="_blank" rel="noopener">source on GitHub</a>), built on fm1-base and felucca-bsp, from Felucca by Leo Kuroshita (Hügelton Instruments). The FM drums in sample bank C are from &ldquo;hizmi &ndash; Hybrid Sample Pack 01&rdquo;. Unofficial: M-VAVE and FM-1 are names of their owner, and this project is not affiliated with or endorsed by them.</footer></div></div>
 
 <script>
 /* One MIDI access (with SysEx) for the whole page (a global: the install's script and the emulator's both use it): the install, the update-mode test and the
@@ -803,7 +806,7 @@ return { productOf, logicalImage, Updater, STOCK_SHA256, IS_OTA };
     denied: "MIDI access was not allowed. When the browser asks to use MIDI devices, choose Allow (or allow MIDI for this page in the address bar's site settings), then press Install again.",
     notfound: "FM-1 not found. Check the USB cable (a data cable), close other apps that use MIDI, and press Install again.",
     model: "The connected device is not an FM-1.",
-    open: "This FM-1 runs M-VAVE's Open firmware. Put M-VAVE's firmware back first (below), then install PATCHWERK.",
+    open: "This FM-1 runs M-VAVE's Open firmware. Put M-VAVE's firmware back first (below), then install Patchwerk.",
     lost: "The USB connection was lost. Replug it and press Install again: the FM-1 stays in update mode until it is finished.",
     noloader: "The FM-1 in update mode was not found. Replug the USB cable and press Install again.",
     stopped: "The FM-1 stopped answering. Replug it and press Install again.",
@@ -847,7 +850,7 @@ return { productOf, logicalImage, Updater, STOCK_SHA256, IS_OTA };
       pkg = readRaw(raw);
       $('fw-pick').hidden = true; $('fw-other').hidden = false;
       { const dl = $('fw-dl'); dl.href = meta.pkg; dl.setAttribute('download', 'patchwerk-' + (/^v/.test(meta.version) ? meta.version : 'v' + meta.version) + '.fwsc'); }   /* (the version is in the downloaded file's name) */
-      $('fw-what').textContent = 'PATCHWERK ' + meta.version + ' (' + (raw.length / 1024).toFixed(0) + ' KB), loaded from ' + meta.pkg + '.';
+      $('fw-what').textContent = 'Patchwerk ' + meta.version + ' (' + (raw.length / 1024).toFixed(0) + ' KB), loaded from ' + meta.pkg + '.';
       status('Ready. Connect the FM-1 by USB and press Install.', 'good');
       $('fw-go').disabled = writing;
       $('fw-other').addEventListener('click', () => { $('fw-pick').hidden = false; $('fw-other').hidden = true; });
@@ -862,8 +865,8 @@ return { productOf, logicalImage, Updater, STOCK_SHA256, IS_OTA };
     try {
       pkg = await readPackage(f);
       const patchwerk = /^FM-1_(47|606)/.test(pkg.product);
-      $('fw-what').textContent = `${pkg.product}, ${(pkg.raw.length / 1024).toFixed(0)} KB` + (patchwerk ? ' (PATCHWERK)' : '');
-      status(patchwerk ? 'Ready. Connect the FM-1 by USB and press Install.' : 'This is an FM-1 package, but not PATCHWERK. Press Install only if you meant it.', patchwerk ? 'good' : '');
+      $('fw-what').textContent = `${pkg.product}, ${(pkg.raw.length / 1024).toFixed(0)} KB` + (patchwerk ? ' (Patchwerk)' : '');
+      status(patchwerk ? 'Ready. Connect the FM-1 by USB and press Install.' : 'This is an FM-1 package, but not Patchwerk. Press Install only if you meant it.', patchwerk ? 'good' : '');
       $('fw-go').disabled = writing;
     } catch (err) { status('That file is not an FM-1 firmware package (.fwsc).', 'bad'); }
   });
@@ -1453,7 +1456,7 @@ function initMIDI() {
    Two things over the same USB-MIDI port, both SysEx:
    - fm1-base's mirror (base/device/mirror.c): the FM-1 sends its screen (rectangles, run-length coded) and its
      panel (held, turned, lit); the page sends its own presses and turns back ("remote"), one at a time.
-   - PATCHWERK's link (app/core/pw_link.c): this page's engine (M) as the host, its patch kept the same as the FM-1's,
+   - Patchwerk's link (app/core/pw_link.c): this page's engine (M) as the host, its patch kept the same as the FM-1's,
      both ways; the patch bay shows it and edits it.
    While linked the page makes no sound of its own: what plays is the FM-1. */
 const MR_REQ = 0x50, MR_RECT = 0x51, MR_FILL = 0x52, MR_INPUT = 0x53, MR_REMOTE = 0x54, MR_PRESENT = 0x55, BANK_CMD = 0x60;
@@ -1633,7 +1636,7 @@ function linkMidi(ev) {
   const d = ev.data;
   if (d[0] !== 0xF0 || d[d.length - 1] !== 0xF7) return;
   LINK.heard = performance.now();
-  if (d[1] === 0x7D) {             /* PATCHWERK's link */
+  if (d[1] === 0x7D) {             /* Patchwerk's link */
     new Uint8Array(mem(), M.pw_web_buf(), d.length).set(d);
     M.pw_web_link_rx(d.length, performance.now() | 0);
     return;
@@ -1652,7 +1655,7 @@ function linkTick() {
   if (LINK.busy && now - LINK.busy.t > 400) { LINK.busy.t = now; linkSend(LINK.busy.bytes); }
   const quiet = now - LINK.heard > 4000;
   if (M.pw_web_link_active() && !quiet) { const c = M.pw_web_link_cap(); linkStatus(`Linked: the patch bay, screen and panel are the FM-1's (${c & 255} modules max)`, 'on'); }
-  else linkStatus(quiet ? 'Waiting for the FM-1 (PATCHWERK running, USB connected)…' : 'Linking…', 'wait');
+  else linkStatus(quiet ? 'Waiting for the FM-1 (Patchwerk running, USB connected)…' : 'Linking…', 'wait');
   pollDirect(false);
 }
 /* Which ports are the FM-1? Their names differ by computer (macOS may call them after the USB product, the chip
@@ -1695,11 +1698,11 @@ async function linkFind(acc) {
   sel.hidden = false;
   if (!result) {
     LINK.noAnswer = true;
-    linkStatus(`No FM-1 answered on USB. Is it running PATCHWERK, on a data cable, with no other app using its MIDI port? You can also pick its port here. ${names()}`, 'err');
+    linkStatus(`No FM-1 answered on USB. Is it running Patchwerk, on a data cable, with no other app using its MIDI port? You can also pick its port here. ${names()}`, 'err');
     return null;
   }
   if (!/^FM-1_(47|606)/.test(result.id)) LINK.noAnswer = true;
-  if (!/^FM-1_(47|606)/.test(result.id)) linkStatus(`That FM-1 runs ${result.id}, not PATCHWERK: install PATCHWERK first.`, 'err');
+  if (!/^FM-1_(47|606)/.test(result.id)) linkStatus(`That FM-1 runs ${result.id}, not Patchwerk: install Patchwerk first.`, 'err');
   if (!/^FM-1_(47|606)/.test(result.id)) return null;
   return result;
 }
@@ -1763,9 +1766,9 @@ function linkBanner(found) {
   b.hidden = LINK.on || (hid && !plugged);
   if (b.hidden) return;
   $('link-banner-text').innerHTML = nomidi ? '<b>You\'re using the emulator.</b> To connect an FM-1, open this page in desktop Chrome or Edge.'
-    : LINK.noAnswer ? '<b>The FM-1 did not answer.</b> It is probably still on M-VAVE\'s own firmware: <a href="#install">install PATCHWERK</a> on it first, then link again. If the browser asked to use MIDI devices, choose Allow.'
+    : LINK.noAnswer ? '<b>The FM-1 did not answer.</b> It is probably still on M-VAVE\'s own firmware: <a href="#install">install Patchwerk</a> on it first, then link again. If the browser asked to use MIDI devices, choose Allow.'
     : found ? '<b>A MIDI device is plugged in.</b> Linking makes changes here reach the FM-1 and shows the unit\'s patch here; choose Allow when the browser asks.'
-    : '<b>You\'re using the emulator.</b> Patches you make here are saved in this browser. Have an FM-1? Plug it in over USB and <a href="#install">install PATCHWERK</a>.';
+    : '<b>You\'re using the emulator.</b> Patches you make here are saved in this browser. Have an FM-1? Plug it in over USB and <a href="#install">install Patchwerk</a>.';
   $('link-banner-btn').hidden = nomidi || !plugged;
   $('link-banner-hide').hidden = plugged;
   if (found) { b.classList.remove('found'); void b.offsetWidth; b.classList.add('found'); }
@@ -2285,7 +2288,7 @@ async function bankRead() {
   let b = await bankAsk([4]);
   if (!b) { await new Promise((r) => setTimeout(r, 500)); b = await bankAsk([4]); }
   const ne = b && b[0] === 4 ? Math.min(b[2] || 16, 24) : 0;   /* (16 sounds; 17-20 with the CZ's banks; 21-24 the FM-DX's) */
-  if (!b || b[0] !== 4 || b.length < 8 + ne * 20 || ne < 16) { toast('The FM-1 did not list its bank (PATCHWERK up to date?)'); bankRender(); return; }
+  if (!b || b[0] !== 4 || b.length < 8 + ne * 20 || ne < 16) { toast('The FM-1 did not list its bank (Patchwerk up to date?)'); bankRender(); return; }
   const u32 = (o) => (b[o] | (b[o + 1] << 8) | (b[o + 2] << 16) | (b[o + 3] << 24)) >>> 0;
   BANK.free = u32(4);
   FLASH_TOTAL = b.length >= 16 + ne * 20 ? u32(8 + ne * 20) : FLASH_MAIN;   /* (rc54 firmware sends its room after the entries; older firmware has the main window only) */
@@ -2410,7 +2413,7 @@ async function fm1SlotGet(i) {
   let total = 1, off = 0, out = null;
   while (off < total) {
     const b = await bankAsk([5, i, off & 255, (off >> 8) & 255], 4000);
-    if (!b || b[0] !== 5) throw new Error('The FM-1 did not answer (PATCHWERK up to date?)');
+    if (!b || b[0] !== 5) throw new Error('The FM-1 did not answer (Patchwerk up to date?)');
     if (b[1]) return null;                                   /* an empty slot */
     total = b[3] | (b[4] << 8); const k = b[7];
     if (!out) out = new Uint8Array(total);
@@ -2453,7 +2456,7 @@ setInterval(() => {
   $('bk-from-fm1').disabled = !LINK.on; $('bk-to-fm1').disabled = !LINK.on;
   if (!LINK.on) { if ($('bk-from-fm1').checked) document.querySelector('input[name=bk-from][value=emu]').checked = true; if ($('bk-to-fm1').checked) document.querySelector('input[name=bk-to][value=emu]').checked = true; }
 }, 700);
-(() => {   /* the diagnostics card stays hidden: #diagnostics in the address, ?diag, or five quick clicks on the PATCHWERK name at the top */
+(() => {   /* the diagnostics card stays hidden: #diagnostics in the address, ?diag, or five quick clicks on the Patchwerk name at the top */
   const c = $('diagnostics'); if (!c) return;
   const show = () => { c.hidden = false; c.scrollIntoView({ block: 'center' }); };
   if (/diag/i.test(location.hash + location.search)) { c.hidden = false; setTimeout(show, 600); }
@@ -2466,7 +2469,7 @@ if ($('dg-go')) $('dg-go').addEventListener('click', async () => {
     let total = 1, off = 0, txt = '';
     while (off < total) {
       const b = await bankAsk([9, off & 255, (off >> 8) & 255], 4000);
-      if (!b || b[0] !== 9 || b[1]) throw new Error('The FM-1 did not answer (is it on PATCHWERK rc77 or later?)');
+      if (!b || b[0] !== 9 || b[1]) throw new Error('The FM-1 did not answer (is it on Patchwerk rc77 or later?)');
       total = b[3] | (b[4] << 8); const k = b[7];
       for (let i = 0; i < k; i++) txt += String.fromCharCode(b[8 + i]);
       off += k; if (!k) break;
@@ -2547,7 +2550,7 @@ async function bkOpen(file) {
     if (j && j.patchwerk === 'patch') { await patchOpenJson(j); return; }
     if (!j || j.patchwerk !== 'backup' || !Array.isArray(j.slots)) throw 0;
     bkShow(j);
-  } catch (e) { bkStatus('bk-r-status', 'That is not a PATCHWERK backup file', 'bad'); }
+  } catch (e) { bkStatus('bk-r-status', 'That is not a Patchwerk backup file', 'bad'); }
 }
 $('bk-drop').addEventListener('click', () => $('bk-file').click());
 $('bk-file').addEventListener('change', (e) => { const f = e.target.files[0]; if (f) bkOpen(f); e.target.value = ''; });
@@ -2603,7 +2606,7 @@ async function patchOpenFile(file) {
     if (j.patchwerk === 'patch') { await patchOpenJson(j); return; }
     if (j.patchwerk === 'backup') { bkShow(j); $('backup').scrollIntoView({ behavior: 'smooth' }); toast('A backup: pick what to restore'); return; }
   } catch (e) { /* below */ }
-  bkStatus('pf-status', 'That is not a PATCHWERK patch file', 'bad'); toast('That is not a PATCHWERK patch file');
+  bkStatus('pf-status', 'That is not a Patchwerk patch file', 'bad'); toast('That is not a Patchwerk patch file');
 }
 $('pf-save').addEventListener('click', async () => {
   const b = await savePatchBytes(); if (!b) return;
@@ -3524,9 +3527,9 @@ function showCodeBox(code) {
       try {
         const txt = $('code-text').value.trim().replace(/^PATCHWERK:/, '');
         const r = await loadPatchBytes(b64.dec(txt));
-        toast(r < 0 ? 'That code is not a valid PATCHWERK patch' : r > 0 ? 'Loaded, some modules did not fit' : 'Patch loaded');
+        toast(r < 0 ? 'That code is not a valid Patchwerk patch' : r > 0 ? 'Loaded, some modules did not fit' : 'Patch loaded');
         if (r >= 0) { box.remove(); setTimeout(fit, 150); }
-      } catch (e) { toast('That code is not a valid PATCHWERK patch'); }
+      } catch (e) { toast('That code is not a valid Patchwerk patch'); }
     };
   }
   $('code-text').value = code; $('code-text').focus(); if (code) $('code-text').select();
@@ -3667,7 +3670,9 @@ $('mod-count').textContent = types.types.filter((t) => !t.hidden).length;
   const lookSet = () => { PANEL_LIFT = +lg.value; PANEL_TOP = +lt.value; PANEL_SAT = +ls.value; PANEL_PUR = +kp.value; panelLut(); look(); if (CUSTOM) pushAll(); store.set(PANEL_KEY, JSON.stringify({ lift: PANEL_LIFT, top: PANEL_TOP, sat: PANEL_SAT, pur: PANEL_PUR })); redraw(); };
   lg.oninput = lt.oninput = ls.oninput = kp.oninput = lookSet;
   $('pe-lr').onclick = () => { lg.value = 0.62; lt.value = 255; ls.value = 0.62; kp.value = 1; lookSet(); };
-  $('pe-panel').onchange = () => { LIFT = MATCH = PEL = $('pe-panel').checked; if (CUSTOM) pushAll(); redraw(); };
+  const setMatch = (on) => { LIFT = MATCH = PEL = on; $('pe-panel').checked = $('em-panel').checked = on; if (CUSTOM) pushAll(); redraw(); };   /* (the same switch under the emulator and in the palette editor) */
+  $('pe-panel').onchange = () => setMatch($('pe-panel').checked);
+  $('em-panel').onchange = () => setMatch($('em-panel').checked);
   bsel.onchange = fromBase; $('pe-reset').onclick = fromBase;
   $('pe-off').onclick = () => { CUSTOM = false; call('pw_web_custom_use', 0); CUSREV++; redraw(); };
   /* saved palettes (this browser) */
@@ -3699,16 +3704,16 @@ $('mod-count').textContent = types.types.filter((t) => !t.hidden).length;
     if (!LINK.on) { fmSay('Set in the emulator (Settings > PALETTE ends with USER). Link the FM-1 to send it there too.'); return; }
     const body = [11]; vals.forEach((v) => body.push(v & 255, v >> 8));
     const a = await bankAsk(body, 6000);
-    fmSay(!a ? 'The FM-1 did not answer (is PATCHWERK up to date on it?).' : a[0] === 11 && a[1] === 0 ? 'Sent. Settings > PALETTE on the FM-1 now ends with USER, and it is the one in use.' : 'The FM-1 refused it (it may need the latest PATCHWERK).');
+    fmSay(!a ? 'The FM-1 did not answer (is Patchwerk up to date on it?).' : a[0] === 11 && a[1] === 0 ? 'Sent. Settings > PALETTE on the FM-1 now ends with USER, and it is the one in use.' : 'The FM-1 refused it (it may need the latest Patchwerk).');
   };
   $('pe-get').onclick = async () => {
     if (!fmNeed()) return;
     const a = await bankAsk([12], 6000);
-    if (!a || a[0] !== 12 || a.length < 39) { fmSay('The FM-1 did not answer (is PATCHWERK up to date on it?).'); return; }
+    if (!a || a[0] !== 12 || a.length < 39) { fmSay('The FM-1 did not answer (is Patchwerk up to date on it?).'); return; }
     if (!a[2]) { fmSay('The FM-1 has no USER palette yet.'); return; }
     const got = Array.from({ length: a.length >= 69 ? 33 : NCOL }, (_, i) => hex(a[3 + 2 * i] | a[4 + 2 * i] << 8));   /* (an older FM-1 answers with the first order, 33) */
     ST.cur = got.length === 33 ? fromOld(got) : got;
-    $('pe-panel').checked = false; LIFT = MATCH = PEL = false;   /* (these are the unit's own values: shown as they are) */
+    $('pe-panel').checked = $('em-panel').checked = false; LIFT = MATCH = PEL = false;   /* (these are the unit's own values: shown as they are) */
     show(); pushAll(); fmSay('Read the FM-1\'s USER palette. They are the unit\'s own values, so the panel look is off; tick it to see how the unit shows them.');
   };
   $('pe-rm').onclick = async () => {
