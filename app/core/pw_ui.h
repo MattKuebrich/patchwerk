@@ -28,6 +28,9 @@ const char *pw_ui_sub_what(unsigned i);
 int pw_ui_sub_insert(unsigned i);
 void pw_ui_ungroup(int slot);              /* take the group a module is in apart (one undo step) */          /* add one to the patch as a group: its first module's slot, or -1 */
 int pw_ui_help_lines(unsigned type);   /* the add list's description of a module: its lines (the list has room for 8) */   /* a message on the screen for a moment */
+#ifdef PLAT_HOST
+void pw_ui_logo_shot(void);
+#endif
 void pw_ui_progress(const char *what, const char *detail, unsigned percent);   /* a long job's screen, at once */
 void pw_ui_redraw_all(void);    /* send every tile again at the next frame */
 void pw_ui_control(void);       /* control task, called continuously */

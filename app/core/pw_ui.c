@@ -1022,6 +1022,19 @@ void pw_ui_splash_frame(void)
     draw_boot(anim_ms);
     present();
 }
+#ifdef PLAT_HOST
+void pw_ui_logo_shot(void)   /* the splash as the logo: the finished mark, the name and the tagline, no version (for brand/logo.png) */
+{
+    splash_pal();
+    n_prims = n_text = 0;
+    fill(0, 0, W, H, C_BG);
+    draw_cables(1190u);
+    text_center(W / 2, 132, "PATCHWERK", F_L, C_WHITE);
+    text_center(W / 2, 172, "a modular synth for the FM-1", F_S, C_DIM);
+    present();
+    band_valid = 0;
+}
+#endif
 void pw_ui_splash(void)
 {
     splash_pal();

@@ -780,6 +780,7 @@ int app_expect(const char *what, int *got)
             for (unsigned l = 0; l < 4; l++) { unsigned a, b; n += pws.mod[i].used == 1 && pw_mseq_lock_of(&pws.mod[i], l, &a, &b); }
         *got = n;
     }
+    else if (!strcmp(what, "logo")) { pw_ui_logo_shot(); *got = 1; }   /* the splash without its version (a shot for brand/logo.png) */
     else if (!strncmp(what, "progress", 8)) {   /* "progress50": the transfer screen at 50% (for a shot) */
         strcpy(bank_what, "B3 KICK");
         pw_ui_progress("RECEIVING", bank_what, (unsigned)atoi(what + 8));
