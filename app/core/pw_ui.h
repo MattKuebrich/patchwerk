@@ -12,7 +12,7 @@ void pw_ui_custom_use(int on);       /* ... and show it (over the current palett
 void pw_ui_set_palette(int pal);   /* select a palette by number (tests) */
 int pw_ui_palette(int pal, int tone, int bright, uint16_t *out, int max);   /* the palette's colors as screen settings make them (pal < 0: the defaults) */
 int pw_ui_has_vis(unsigned type);   /* the module page draws a visualization of this module */
-#define PW_VERSION "v1.0.1"
+#define PW_VERSION "v1.0.2"
 #define PW_IDENT "FM-1_606010000"   /* the release identity (fm1.toml id_prefix + the version) */                 /* shown at power-on; CHANGELOG.txt says what each brought */
 void pw_ui_init(void);          /* control task, after pw_init(): with PATCHWERK's boot screen */
 void pw_ui_init_noboot(void);   /* the same, straight to the patch (the platform showed pw_ui_splash) */

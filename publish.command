@@ -52,6 +52,7 @@ if [ -n "$newrepo" ] || ! git remote get-url origin >/dev/null 2>&1; then
         git remote add origin "https://github.com/$OWNER/$REPO.git" 2>/dev/null
     fi
 fi
+run git rm -q --cached --ignore-unmatch RELEASING.md
 run git add -A
 if [ -n "$DRY" ] || ! git diff --cached --quiet; then run git commit -q -m "PATCHWERK $ver" || fail "git commit failed."; else echo "  (nothing new to commit)"; fi
 run git push -u origin main || fail "git push failed (is the repo empty or yours?)."

@@ -1,4 +1,4 @@
-# PATCHWERK
+<p align="center"><img src="brand/logo.png" width="360" alt="PATCHWERK"></p>
 
 A patchable modular synthesizer for the M-VAVE FM-1: firmware for the unit, plus a browser emulator with a visual patch bay.
 
@@ -27,6 +27,8 @@ Open the [page](https://mattkuebrich.github.io/patchwerk/) in desktop Chrome or 
 your projects and samples, and press **Install**. The same page puts M-VAVE's own firmware back. You can also download
 the `patchwerk-v….fwsc` file from the [Releases](https://github.com/MattKuebrich/patchwerk/releases) and choose it on the page.
 
+It also works on the newer FM-1s with the UC25HQ80 flash chip (JEDEC 0xB36014).
+
 Unofficial: not made or endorsed by M-VAVE. Installing firmware is at your own risk; BUILDING.md has the rescue steps.
 
 ## Using it
@@ -39,7 +41,6 @@ the [cheatsheet](https://mattkuebrich.github.io/patchwerk/cheatsheet.html) has t
 ## Build
 
 - [BUILDING.md](BUILDING.md): build the firmware (macOS or Linux; Docker on a Mac), install it, the host simulator and tests.
-- [RELEASING.md](RELEASING.md): publish a version to GitHub (`publish.command` does it).
 - `CHANGELOG.txt`: what each version changed.
 
 ## Credits and license

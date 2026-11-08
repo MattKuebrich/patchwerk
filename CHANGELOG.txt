@@ -1,3 +1,12 @@
+v1.0.2
+  - The screen shown while a sample (or anything else) is sent over USB is now a still (the five cables, no animation): transfers are
+    so quick that the cables flickered. The sound's bank slot and name are still under them.
+  - Shorter pad names on the preset banks (808 CHAT ... FM CRASH, BREAK).
+  - README.md: the logo on top, and a line that the newer FM-1s (UC25HQ80 flash chip, JEDEC 0xB36014) work too.
+  - docs/REFERENCE.md rewritten (shorter, every module with its picture, song, snapshots, metronome, palettes, sample banks).
+  - RELEASING.md stays on your computer: publish.command no longer puts it on GitHub.
+  - Removed unused files (docs/EXPERIMENTS.md, docs/REMOVED-PALETTES.txt, two unused screenshot scripts, tools/symsize.py, .gitmodules).
+
 v1.0.1
   - New preset sample banks: A 808, B 909, C FM drums, D random (eight sounds each; the drum banks run kick, snare, clap, closed hat,
     open hat, tom, cowbell, crash, so pads 1-8 line up; the 808 has no crash and the 909 no cowbell, so their rimshot stands in).

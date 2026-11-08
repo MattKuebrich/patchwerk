@@ -1,4 +1,4 @@
-# PATCHWERK v1.0.1 for The Firmware Hub
+# PATCHWERK v1.0.2 for The Firmware Hub
 
 Identity: FM-1_606 (this release: FM-1_606010000). Licence: GPL-3.0-only.
 Repo: https://github.com/MattKuebrich/patchwerk. Playable: https://mattkuebrich.github.io/patchwerk/ (the emulator; it also installs the firmware).
@@ -9,8 +9,8 @@ PATCHWERK turns the FM-1 into a patchable modular synthesizer: over 80 modules (
 
 ## Steps still yours
 
-1. Install v1.0.1 on a real FM-1 and play it (the hub asks for a real-device test). Check the free RAM line in SETTINGS and that a patch saves and loads.
-2. Publish it: `publish.command` (see RELEASING.md) builds `patchwerk.fwsc`, pushes the repo, turns on the page and makes the v1.0.1 release with `patchwerk.fwsc` attached.
+1. Install v1.0.2 on a real FM-1 and play it (the hub asks for a real-device test). Check the free RAM line in SETTINGS and that a patch saves and loads.
+2. Publish it: `publish.command` builds `patchwerk.fwsc`, pushes the repo, turns on the page and makes the v1.0.2 release with `patchwerk.fwsc` attached.
 3. Email zven@thefirmwarehub.com with the repo and release links, the description above and the screenshots in `submission/screenshots/` (240x240).
 
 Identity rules checked: not 9NN, not 015, not 47 (FRASIL); FM-1_606 is unused in the hub's table at the time of writing.

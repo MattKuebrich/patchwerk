@@ -997,16 +997,16 @@ static void draw_boot(uint32_t el)   /* el: ms since power-on (the splash screen
     text_center(W / 2, 172, "a modular synth for the FM-1", F_S, C_DIM);
     text_center(W / 2, 192, PW_VERSION, F_S, C_AMBER);
 }
-/* a long job (a sample arriving over USB): its screen, sent at once. The splash's five cables are the bar: they are patched in from left to right as it goes. */
+/* a long job (a sample arriving over USB): its screen, sent at once. A still: the splash's five cables patched in, the job's name and its slot.
+ * (A sample goes in a moment, so a bar that moved would only flicker.) */
 void pw_ui_progress(const char *what, const char *detail, unsigned percent)
 {
+    (void)percent;
     n_prims = n_text = 0;
     fill(0, 0, W, H, C_BG);
-    draw_cables((uint32_t)clampi((int)percent, 0, 100) * 1190u / 100u);
+    draw_cables(1190u);
     text_center(W / 2, 128, what, F_M, C_WHITE);
     if (detail) text_center(W / 2, 156, detail, F_M, C_TEXT);
-    char b[8]; char *o = s_int(b, (int)percent); s_cpy(o, "%");
-    text_center(W / 2, 190, b, F_S, C_DIM);
     present();
     band_valid = 0;                /* the page is drawn whole again afterwards */
 }

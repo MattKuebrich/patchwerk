@@ -113,7 +113,7 @@ The simulator runs this exact app against a simulated FM-1, driven by a script (
 
 ## Publishing
 
-RELEASING.md: `publish.command` builds the firmware and the page, pushes to GitHub, turns on Pages and makes the release.
+`publish.command` builds the firmware and the page, pushes to GitHub, turns on Pages and makes the release.
 
 ## Mac: double-click
 

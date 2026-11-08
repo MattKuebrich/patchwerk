@@ -13,18 +13,18 @@ from scipy.signal import resample_poly
 BANKS = {
     '808': [
         ('808_bd.wav', '808 KICK', 11025, 0.9), ('808_snare.wav', '808 SNARE', 22050, 0.2), ('808_clap.wav', '808 CLAP', 22050, 0.25),
-        ('808_hihatclosed.wav', '808 HAT CL', 22050, 0.15), ('808_hihatopen.wav', '808 HAT OP', 16000, 0.45), ('808_tom_l.wav', '808 TOM', 11025, 0.45),
-        ('808_cowbell.wav', '808 COWBL', 16000, 0.4), ('808_rimshot.wav', '808 RIM', 22050, 0.1)],
+        ('808_hihatclosed.wav', '808 CHAT', 22050, 0.15), ('808_hihatopen.wav', '808 OHAT', 16000, 0.45), ('808_tom_l.wav', '808 TOM', 11025, 0.45),
+        ('808_cowbell.wav', '808 BELL', 16000, 0.4), ('808_rimshot.wav', '808 RIM', 22050, 0.1)],
     '909': [
         ('909_kick.wav', '909 KICK', 11025, 0.6), ('909_snare.wav', '909 SNARE', 22050, 0.2), ('909_clap.wav', '909 CLAP', 22050, 0.28),
-        ('909_hihatclosed.wav', '909 HAT CL', 22050, 0.15), ('909_hihatopen.wav', '909 HAT OP', 16000, 0.4), ('909_tom-l.wav', '909 TOM', 11025, 0.6),
-        ('909_rimshot.wav', '909 RIM', 22050, 0.07), ('909_cymbal.wav', '909 CYMBAL', 16000, 0.7)],
+        ('909_hihatclosed.wav', '909 CHAT', 22050, 0.15), ('909_hihatopen.wav', '909 OHAT', 16000, 0.4), ('909_tom-l.wav', '909 TOM', 11025, 0.6),
+        ('909_rimshot.wav', '909 RIM', 22050, 0.07), ('909_cymbal.wav', '909 CRASH', 16000, 0.7)],
     'fm': [
         ('kd_grav.wav', 'FM KICK', 16000, 0.6), ('sd_tan.wav', 'FM SNARE', 22050, 0.21), ('bin.wav', 'FM CLAP', 22050, 0.3),
-        ('kin4.wav', 'FM HAT CL', 22050, 0.14), ('pishh.wav', 'FM HAT OP', 22050, 0.27), ('paon_s.wav', 'FM TOM', 22050, 0.1),
-        ('chin.wav', 'FM COWBL', 22050, 0.21), ('gyumo_s.wav', 'FM CRASH', 22050, 0.34)],
+        ('kin4.wav', 'FM CHAT', 22050, 0.14), ('pishh.wav', 'FM OHAT', 22050, 0.27), ('paon_s.wav', 'FM TOM', 22050, 0.1),
+        ('chin.wav', 'FM BELL', 22050, 0.21), ('gyumo_s.wav', 'FM CRASH', 22050, 0.34)],
     'random': [
-        ('boombreak.wav', 'BOOM BRK', 11025, 0.8), ('vibes.wav', 'VIBES', 11025, 0.7), ('uke.wav', 'UKE', 11025, 0.8),
+        ('boombreak.wav', 'BREAK', 11025, 0.8), ('vibes.wav', 'VIBES', 11025, 0.7), ('uke.wav', 'UKE', 11025, 0.8),
         ('soft.wav', 'SOFT', 11025, 0.8), ('future.wav', 'FUTURE', 11025, 0.41), ('easy.wav', 'EASY', 16000, 0.36),
         ('dink.wav', 'DINK', 8363, 0.55), ('voiceoh.wav', 'VOICE OH', 8363, 1.0)],
 }
