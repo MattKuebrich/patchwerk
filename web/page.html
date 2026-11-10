@@ -419,6 +419,7 @@ code { font-family: var(--f-code); font-size: 0.9em; }
 .flash .small { color: var(--dim); font-size: var(--s-1); margin: 0; }
 .flash-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
 .flash-row label { font-size: var(--s-1); color: var(--dim); }
+.flash-row label.fw-opt { color: var(--text, inherit); display: inline-flex; align-items: center; gap: 8px; cursor: pointer; }
 details.build { margin: 18px 0 8px; }
 details.build > summary { cursor: pointer; color: var(--dim); font-size: var(--s-1); }
 details.build[open] > summary { margin-bottom: 10px; }
@@ -586,10 +587,10 @@ footer { padding-block: 40px 40px; color: var(--faint); font-size: 12.5px; }
 <div class="wrap section" id="samples"><div class="inner">
   <h2>Sample banks</h2>
   <p class="lede">Four banks of eight sounds, A through D, shared by SAMPLER, GRANULAR and DRUM RACK.</p>
-  <p class="lede">Click a slot to load a sound, or drag and drop up to eight audio files onto a bank. <b>Trim</b> removes silence, and <b>Compress</b> reduces file size. <b>Presets</b> load the included banks: A is an 808 kit, B a 909 kit, C FM drums and D a mix of odd sounds. Drum banks run kick, snare, clap, closed hat, open hat, tom, cowbell, crash, so pads 1&ndash;8 of a DRUM RACK line up.</p>
+  <p class="lede">Click a slot to load a sound, or drag and drop up to eight audio files onto a bank. <b>Trim</b> removes silence, and <b>Compress</b> reduces file size. <b>Presets</b> load the included banks: A is an 808 kit, B a 909 kit, C FM drums and D various sounds. Drum banks run kick, snare, clap, closed hat, open hat, tom, cowbell, crash, so pads 1&ndash;8 of a DRUM RACK line up.</p>
   <p class="lede">When connected to an FM-1, <b>Send</b> saves samples to its flash memory. You can also record directly on the FM-1 using AUDIO IN and SAMPLER.</p>
   <div id="bank-free" class="storage">Emulator bank</div>
-  <div class="bank-bar"><button class="tbtn" id="bank-factory" title="Load the 808 kit into A and the 909 kit into B (replaces what is there)">808 + 909 to A+B</button><button class="tbtn" id="bank-factory2" title="Load the FM drums into C and the random sounds into D (replaces what is there)">FM + Random to C+D</button><button class="tbtn" id="bank-sendall" disabled title="Write every sound here into the FM-1's flash">Send all to the FM-1</button><button class="tbtn" id="bank-read" disabled>Read the FM-1's bank</button><button class="tbtn" id="bank-erase-snd" disabled title="Erase the sounds (A-D) on the FM-1. The CZ and FM-DX banks stay.">Erase sounds on the FM-1</button><button class="tbtn" id="bank-prune" disabled title="Remove the sounds on this page that are not on the FM-1 (they exist nowhere else)">Remove sounds not on the FM-1</button><button class="tbtn" id="bank-erase" disabled title="Erase every sound, CZ bank and FM-DX bank on the FM-1">Erase everything on the FM-1</button></div>
+  <div class="bank-bar"><button class="tbtn" id="bank-factory" title="Load the 808 kit into A and the 909 kit into B (replaces what is there)">808 + 909 to A+B</button><button class="tbtn" id="bank-factory2" title="Load the FM drums into C and the various sounds into D (replaces what is there)">FM + Various to C+D</button><button class="tbtn" id="bank-sendall" disabled title="Write every sound here into the FM-1's flash">Send all to the FM-1</button><button class="tbtn" id="bank-read" disabled>Read the FM-1's bank</button><button class="tbtn" id="bank-erase-snd" disabled title="Erase the sounds (A-D) on the FM-1. The CZ and FM-DX banks stay.">Erase sounds on the FM-1</button><button class="tbtn" id="bank-prune" disabled title="Remove the sounds on this page that are not on the FM-1 (they exist nowhere else)">Remove sounds not on the FM-1</button><button class="tbtn" id="bank-erase" disabled title="Erase every sound, CZ bank and FM-DX bank on the FM-1">Erase everything on the FM-1</button></div>
   <div class="banks">
     <div class="bankcol" id="bankcol1"><h3>A <small id="bank-sum1"></small><span class="sp"></span><button class="tbtn mini" data-clearbank="0" title="Clear the eight slots of A on this page">Clear bank</button><button class="tbtn mini" data-rmbank="0" hidden title="Remove the sounds of A from the FM-1">Remove from FM-1</button></h3><div class="bank" id="bank"></div></div>
     <div class="bankcol" id="bankcol2"><h3>B <small id="bank-sum2"></small><span class="sp"></span><button class="tbtn mini" data-clearbank="1" title="Clear the eight slots of B on this page">Clear bank</button><button class="tbtn mini" data-rmbank="1" hidden title="Remove the sounds of B from the FM-1">Remove from FM-1</button></h3><div class="bank" id="bank2"></div></div>
@@ -711,6 +712,10 @@ footer { padding-block: 40px 40px; color: var(--faint); font-size: 12.5px; }
     </div>
     <div class="flash-row"><span id="fw-what" class="small"></span><a class="tbtn" id="fw-dl" href="patchwerk-__PW_VERSION__.fwsc" download="patchwerk-__PW_VERSION__.fwsc">Download firmware __PW_VERSION__</a><button class="tbtn" type="button" id="fw-other" hidden>Use another file</button></div>
     <div class="flash-row">
+      <label class="fw-opt" for="fw-factory"><input type="checkbox" id="fw-factory"> Load the factory sample banks after installing</label>
+      <span class="small">Puts the 808, 909, FM drums and other sounds in banks A to D on the FM-1 once it restarts, replacing what is in them (here and on the FM-1). Keep this page open.</span>
+    </div>
+    <div class="flash-row">
       <button class="btn power" type="button" id="fw-go" disabled>Install on FM-1</button>
       <progress id="fw-bar" max="100" value="0" aria-label="Install progress"></progress><span class="flash-pct" id="fw-pct" aria-hidden="true">0%</span>
     </div>
@@ -747,7 +752,7 @@ cd /tmp/patchwerk-site &amp;&amp; python3 -m http.server 8000</pre></div></li>
   </details>
 </div></div>
 
-<div class="wrap"><div class="inner"><footer>Patchwerk is GPL-3.0 (<a href="https://github.com/MattKuebrich/patchwerk" target="_blank" rel="noopener">source on GitHub</a>), built on fm1-base and felucca-bsp, from Felucca by Leo Kuroshita (Hügelton Instruments). The FM drums in sample bank C are from &ldquo;hizmi &ndash; Hybrid Sample Pack 01&rdquo;. Unofficial: M-VAVE and FM-1 are names of their owner, and this project is not affiliated with or endorsed by them.</footer></div></div>
+<div class="wrap"><div class="inner"><footer>Patchwerk is GPL-3.0 (<a href="https://github.com/MattKuebrich/patchwerk" target="_blank" rel="noopener">source on GitHub</a>), built on fm1-base and felucca-bsp, from Felucca by Leo Kuroshita (Hügelton Instruments). Credits and licenses for the sample banks are on the <a href="samples.html">samples page</a>. Unofficial: M-VAVE and FM-1 are names of their owner, and this project is not affiliated with or endorsed by them.</footer></div></div>
 
 <script>
 /* One MIDI access (with SysEx) for the whole page (a global: the install's script and the emulator's both use it): the install, the update-mode test and the
@@ -817,7 +822,7 @@ return { productOf, logicalImage, Updater, STOCK_SHA256, IS_OTA };
   };
   const status = (msg, kind) => { const el = $('fw-status'); el.textContent = msg; el.className = 'flash-status' + (kind ? ' ' + kind : ''); };
   const log = (t) => { $('fw-log').textContent += t + '\n'; };
-  let pkg = null, stock = null, writing = false;
+  let pkg = null, stock = null, writing = false, installed = false;
   const STOCK_FILES = { [FM1OTA.STOCK_SHA256]: 'V15', d017fb65e70aca97ee29d944470c3515a74581df5c0576bf70de917c7b2b61d5: 'V16' };   /* (M-VAVE's own firmware files, by SHA-256) */
   const FWSC_META = '/*__FWSC__*/';   /* build_page.py: {"pkg": "patchwerk.fwsc", "sha256": ...}, the firmware this page was built with, a file beside it */
   const hex = async (u8) => [...new Uint8Array(await crypto.subtle.digest('SHA-256', u8))].map((b) => b.toString(16).padStart(2, '0')).join('');
@@ -886,6 +891,7 @@ return { productOf, logicalImage, Updater, STOCK_SHA256, IS_OTA };
     let midi;
     try { midi = await sysexAccess(); }
     catch (e) { status(e && e.name !== 'SecurityError' && e.name !== 'NotAllowedError' && e.name !== 'AbortError' ? 'MIDI could not start: ' + (e.message || e) : SAY.denied, 'bad'); return; }
+    installed = false;
     writing = true; $('fw-go').disabled = $('stock-go').disabled = true; setBar(0);
     const keepOff = keepAwake();   /* (a tab in the background is slowed down by the browser: this asks it not to) */
     $('fw-log').textContent = '';
@@ -903,7 +909,7 @@ return { productOf, logicalImage, Updater, STOCK_SHA256, IS_OTA };
           else { setBar(50 + f * 50); status(`Writing… ${Math.round(f * 100)}%. Don't unplug the cable.`); }
         }
         if (k === 'reboot') status('Written. The FM-1 is restarting…');
-        if (k === 'done') { setBar(100); status(isStock ? "Done. The FM-1 runs M-VAVE's firmware again." : `Done. The FM-1 runs ${a}.`, 'good'); }
+        if (k === 'done') { installed = !isStock; setBar(100); status(isStock ? "Done. The FM-1 runs M-VAVE's firmware again." : `Done. The FM-1 runs ${a}.`, 'good'); }
       };
       const ota = await up.find(FM1OTA.IS_OTA);
       if (ota) {                             /* an earlier install was cut off: finish it */
@@ -918,6 +924,10 @@ return { productOf, logicalImage, Updater, STOCK_SHA256, IS_OTA };
       else if (e && e.code === 'stopped' && /nothing was written/.test(e.message || '')) status(SAY.refused, 'bad');
       else status((e && SAY[e.code] ? SAY[e.code] + (e.detail && e.code === 'mismatch' ? e.detail : '') : 'Install failed: ' + (e && e.message)), 'bad');
       log(String(e && e.stack || e));
+    }
+    if (installed && $('fw-factory').checked && window.pwFactoryAfterInstall) {
+      try { await window.pwFactoryAfterInstall(status, setBar); }
+      catch (e) { status('Done. The FM-1 runs Patchwerk, but the factory sounds were not sent (' + (e && e.message || e) + '). Link the FM-1 below and use "Send all".', 'bad'); log(String(e && e.stack || e)); }
     }
     keepOff();
     writing = false; $('fw-go').disabled = !pkg; $('stock-go').disabled = !stock;
@@ -1891,11 +1901,27 @@ if (!store.get('patchwerk-bank-internal')) {
   store.set('patchwerk-bank-internal', '1');
 }
 function bankFactory(base) {
-  const btn = base ? $('bank-factory2') : $('bank-factory'), pair = base ? 'C and D' : 'A and B', what = base ? 'The FM drums are in C and the random sounds in D' : 'The 808 kit is in A and the 909 kit in B';
+  const btn = base ? $('bank-factory2') : $('bank-factory'), pair = base ? 'C and D' : 'A and B', what = base ? 'The FM drums are in C and the various sounds in D' : 'The 808 kit is in A and the 909 kit in B';
   if (!confirmBtn(btn, `Click again: replaces all 16 sounds in ${pair}`)) return;
   for (let k = 0; k < 16; k++) { const i = base + k; BANK.slots[i] = bankFactorySound(k + (base ? 16 : 0)); bankPush(i); bankSave(i); }
   bankRender(); toast(what);
 }
+/* the install's "Load the factory sample banks" box: once the new firmware has restarted, link to it and send A-D (all 32 sounds) */
+window.pwFactoryAfterInstall = async function (say, bar) {
+  const nap = (ms) => new Promise((r) => setTimeout(r, ms));
+  if (!FACTORY_BANK.length) throw new Error('this page has no factory sounds');
+  say('Done. Waiting for the FM-1 to restart before loading the factory sounds…', 'good'); bar(100);
+  if (LINK.on) await linkStop();     /* (a link to the old firmware died with its restart) */
+  await nap(5000);
+  for (let t = 0; t < 8 && !LINK.on; t++) { await linkStart(); if (!LINK.on) await nap(2500); }
+  if (!LINK.on) throw new Error('the FM-1 did not answer on USB');
+  await nap(2500);
+  for (const base of [0, 24]) for (let k = 0; k < 16; k++) { const i = base + k; BANK.slots[i] = bankFactorySound(k + (base ? 16 : 0)); bankPush(i); bankSave(i); }
+  bankRender();
+  say('Done. Sending the factory sounds to the FM-1: keep this page open…', 'good');
+  await bankSendAll();
+  say('Done. The FM-1 runs Patchwerk and has the factory sounds in A to D.', 'good');
+};
 /* what is on the FM-1, by kind: the sounds (A-D), the CZ banks, the FM-DX banks */
 const KIND_SLOTS = { 1: SOUND_SLOTS, 2: [16, 17, 18, 19], 3: [20, 21, 22, 23] };
 const KIND_NAME = { 1: ['sound', 'sounds'], 2: ['CZ bank', 'CZ banks'], 3: ['FM-DX bank', 'FM-DX banks'] };

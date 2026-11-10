@@ -113,7 +113,7 @@ async def main():
         await pg.click('#bank-factory2'); await pg.click('#bank-factory2'); await pg.wait_for_timeout(400)
         nc = await pg.evaluate("[...document.querySelectorAll('#bank3 .bslot header span')].map((e) => e.textContent)")
         nd = await pg.evaluate("[...document.querySelectorAll('#bank4 .bslot header span')].map((e) => e.textContent)")
-        check(nc[0] == 'FM KICK' and nc[7] == 'FM CRASH' and nd[0] == 'BREAK' and nd[7] == 'VOICE OH', f'FM + Random to C+D ({nc[0]}, {nc[7]}, {nd[0]}, {nd[7]})')
+        check(nc[0] == 'FM KICK' and nc[7] == 'FM CRASH' and nd[0] == 'PIANO' and nd[7] == 'SCRATCH', f'FM + Various to C+D ({nc[0]}, {nc[7]}, {nd[0]}, {nd[7]})')
         # Clear bank: one bank's eight slots, after a second click
         await pg.click('[data-clearbank="1"]'); await pg.wait_for_timeout(200)
         mid = await pg.evaluate("[...document.querySelectorAll('#bank2 .bslot header span')].filter((e) => e.textContent !== 'empty').length")

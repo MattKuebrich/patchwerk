@@ -1,13 +1,10 @@
 {
-  "name": "Patchwerk",
-  "what": "A patchable modular synth for the FM-1. With over 80 modules, including synth engines, samplers, filters, effects, sequencers, and generative tools, you can build, patch, and perform directly on the hardware.",
+  "what": "A modular synth for the FM-1. With over 80 modules, including synth engines, samplers, filters, effects, sequencers, and generative tools, you can build, patch, and perform directly on the hardware.",
+  "author": "Matt Kuebrich",
   "kinds": ["synth"],
   "play": "https://mattkuebrich.com/patchwerk/",
   "editor": "https://mattkuebrich.com/patchwerk/",
   "cheat": "https://mattkuebrich.com/patchwerk/cheatsheet.html",
   "image": "web/shots/cable.png",
-  "color": "#dbd1ba",
-  "repo": "https://github.com/MattKuebrich/patchwerk",
-  "id": "FM-1_606",
-  "license": "GPL-3.0-only"
+  "color": "#dbd1ba"
 }

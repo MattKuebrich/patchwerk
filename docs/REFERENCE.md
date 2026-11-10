@@ -318,8 +318,8 @@ SAMPLER, GRANULAR and DRUM RACK play sounds from four banks of eight, A to D, ke
 | --- | --- |
 | A | 808 kit |
 | B | 909 kit |
-| C | FM drums (from "hizmi - Hybrid Sample Pack 01") |
-| D | A mix of odd sounds |
+| C | FM drums |
+| D | Various: PIANO, CHOIR, AMEN, SAFARI, DRONE, BLIP, MARIMBA and SCRATCH |
 
 The drum banks run kick, snare, clap, closed hat, open hat, tom, cowbell and crash. The 808 has no crash and the 909 no cowbell, so their rimshot stands in. A DRUM RACK's KIT A, B, C or D plays that bank's sounds 1-8 on its pads.
 

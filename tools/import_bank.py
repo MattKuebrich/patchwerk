@@ -1,7 +1,7 @@
-"""The preset sample banks from assets/samples/<bank>/*.wav: A 808, B 909, C FM drums, D random; eight sounds each, the drums in the
+"""The preset sample banks from assets/samples/<bank>/*.wav: A 808, B 909, C FM drums, D various sounds; eight sounds each, the drums in the
 order of the DRUM RACK's pads (1 kick, 2 snare, 3 clap, 4 closed hat, 5 open hat, 6 tom, 7 cowbell, 8 crash). Each sound is mixed to
 mono, its silent tail cut (and a long one shortened, with a fade), resampled to a lower rate so all 32 stay small, and normalised to
-the sampler's full scale (26000). (The 808 has no crash and the 909 no cowbell: their rimshot stands in.)
+the sampler's full scale (26000). (The 808 has no crash and the 909 no cowbell: their rimshot stands in. The two drum breaks in D, AMEN and SAFARI, are not trimmed.)
 
     python3 tools/import_bank.py      -> web/factory_bank.json (the page builds it in) and tests/out/bank/*.wav
 """
@@ -9,7 +9,7 @@ import base64, json, pathlib, wave
 import numpy as np
 from scipy.signal import resample_poly
 
-# per bank, slot order: (file, name on the FM-1 (12 letters), rate Hz, longest seconds)
+# per bank, slot order: (file, name on the FM-1 (12 letters), rate Hz, longest seconds; None: not trimmed at all, only resampled)
 BANKS = {
     '808': [
         ('808_bd.wav', '808 KICK', 11025, 0.9), ('808_snare.wav', '808 SNARE', 22050, 0.2), ('808_clap.wav', '808 CLAP', 22050, 0.25),
@@ -18,15 +18,15 @@ BANKS = {
     '909': [
         ('909_kick.wav', '909 KICK', 11025, 0.6), ('909_snare.wav', '909 SNARE', 22050, 0.2), ('909_clap.wav', '909 CLAP', 22050, 0.28),
         ('909_hihatclosed.wav', '909 CHAT', 22050, 0.15), ('909_hihatopen.wav', '909 OHAT', 16000, 0.4), ('909_tom-l.wav', '909 TOM', 11025, 0.6),
-        ('909_rimshot.wav', '909 RIM', 22050, 0.07), ('909_cymbal.wav', '909 CRASH', 16000, 0.7)],
+        ('909_rimshot.wav', '909 RIM', 22050, 0.07), ('909_crash.wav', '909 CRASH', 16000, 0.7)],
     'fm': [
         ('kd_grav.wav', 'FM KICK', 16000, 0.6), ('sd_tan.wav', 'FM SNARE', 22050, 0.21), ('bin.wav', 'FM CLAP', 22050, 0.3),
         ('kin4.wav', 'FM CHAT', 22050, 0.14), ('pishh.wav', 'FM OHAT', 22050, 0.27), ('paon_s.wav', 'FM TOM', 22050, 0.1),
         ('chin.wav', 'FM BELL', 22050, 0.21), ('gyumo_s.wav', 'FM CRASH', 22050, 0.34)],
     'random': [
-        ('boombreak.wav', 'BREAK', 11025, 0.8), ('vibes.wav', 'VIBES', 11025, 0.7), ('uke.wav', 'UKE', 11025, 0.8),
-        ('soft.wav', 'SOFT', 11025, 0.8), ('future.wav', 'FUTURE', 11025, 0.41), ('easy.wav', 'EASY', 16000, 0.36),
-        ('dink.wav', 'DINK', 8363, 0.55), ('voiceoh.wav', 'VOICE OH', 8363, 1.0)],
+        ('piano.wav', 'PIANO', 16000, 2.5), ('choir.wav', 'CHOIR', 16000, 1.6), ('amen.wav', 'AMEN', 22050, None),
+        ('safari.wav', 'SAFARI', 22050, None), ('drone.wav', 'DRONE', 11025, 4.5), ('blip.wav', 'BLIP', 22050, 0.2),
+        ('marimba.wav', 'MARIMBA', 11025, 2.6), ('vinyl.wav', 'SCRATCH', 22050, 0.3)],
 }
 BANK = [(d, *e) for d, rows in BANKS.items() for e in rows]
 FLASH = 0x4F000   # the FM-1's room for sounds (app/core/pw_bank.h PW_BANK_ROOM, 316 KB)
@@ -47,6 +47,10 @@ def read(path):
 
 
 def shape(x, sr, rate, longest):
+    if longest is None:                                # kept whole (the drum breaks): no cut, no fade
+        g = np.gcd(rate, sr)
+        y = resample_poly(x, rate // g, sr // g)
+        return y / (np.max(np.abs(y)) or 1.0) * 26000
     peak = np.max(np.abs(x)) or 1.0
     loud = np.where(np.abs(x) > peak * 10 ** (-54 / 20))[0]
     x = x[: (loud[-1] + 1) if len(loud) else len(x)]

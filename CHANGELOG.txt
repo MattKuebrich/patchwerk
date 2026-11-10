@@ -9,6 +9,11 @@ v1.0.3
     MUTATE (web/shots/groups.png, mutes.png, mutate.png).
   - update.command (double-click, kept off GitHub): puts the newest patchwerk-v….zip from Downloads into the folder, keeping fmhub.json, then offers to publish.
   - "Match the unit's panel" is also under the emulator (one switch with the palette editor's).
+  - Install on FM-1 has a box, "Load the factory sample banks after installing" (off by default): when the firmware is written, the page waits for the
+    FM-1 to restart, links to it and sends the 808, 909, FM drums and other sounds to banks A to D, replacing what is there.
+  - New preset sounds: bank A is the TR-808 set by Michael Fischer, B the AudioRealism TR-909 pack (now with a real crash), D various sounds (piano, choir, marimba, drone, blip,
+    a scratch and two drum breaks, AMEN and SAFARI, which are compressed but not trimmed; the button is now "FM + Various to C+D"). The FM drums stay. All 32
+    sounds are about 225 KB on the FM-1. samples.html lists where each comes from; the page footer links to it, and hizmi's readme is kept in assets/samples/fm/HHSP01.NFO.
 
 v1.0.2
   - The screen shown while a sample (or anything else) is sent over USB is now a still (the five cables, no animation): transfers are
@@ -23,7 +28,7 @@ v1.0.1
   - New preset sample banks: A 808, B 909, C FM drums, D random (eight sounds each; the drum banks run kick, snare, clap, closed hat,
     open hat, tom, cowbell, crash, so pads 1-8 line up; the 808 has no crash and the 909 no cowbell, so their rimshot stands in).
     The web page's "808 + 909 to A+B" and "FM + Random to C+D" buttons load them; about 140 KB on the FM-1 once sent packed.
-    The FM drums are from "hizmi - Hybrid Sample Pack 01" (credited on the page and in the README).
+    The FM drums are from "hizmi - Hybrid Sample Pack 01" (credited in the page footer).
   - The screen shown while a sample (or anything else) is sent over USB is redrawn in the current style: the splash's five cables are
     patched in as the transfer goes, with the sound's bank slot and name under them.
   - The firmware file carries its version in the name (patchwerk-v1.0.1.fwsc) on the page, in the repo and on the release.
