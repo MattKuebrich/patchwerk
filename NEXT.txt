@@ -1,0 +1,5 @@
+Changes in the source that are not in a release yet (they need new firmware): move them into the next version's CHANGELOG.txt entry.
+
+  - While sounds are sent one after another (Send all) the FM-1 stays on the transfer screen (the logo) until the last one is saved, instead of flashing back
+    to the patch screen between them. The page tells it that more follow (the last byte of the sound request); with no next sound it goes back after 4 s.
+    app/app.c: bank_hold. Not tried on the unit.

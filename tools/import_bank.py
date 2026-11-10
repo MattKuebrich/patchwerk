@@ -24,8 +24,8 @@ BANKS = {
         ('kin4.wav', 'FM CHAT', 22050, 0.14), ('pishh.wav', 'FM OHAT', 22050, 0.27), ('paon_s.wav', 'FM TOM', 22050, 0.1),
         ('chin.wav', 'FM BELL', 22050, 0.21), ('gyumo_s.wav', 'FM CRASH', 22050, 0.34)],
     'random': [
-        ('piano.wav', 'PIANO', 16000, 2.5), ('choir.wav', 'CHOIR', 16000, 1.6), ('amen.wav', 'AMEN', 22050, None),
-        ('safari.wav', 'SAFARI', 22050, None), ('drone.wav', 'DRONE', 11025, 4.5), ('blip.wav', 'BLIP', 22050, 0.2),
+        ('piano.wav', 'PIANO', 16000, 1.5), ('choir.wav', 'CHOIR', 16000, 1.6), ('amen.wav', 'AMEN', 22050, None),
+        ('safari.wav', 'SAFARI', 22050, None), ('drone.wav', 'DRONE', 11025, 1.0), ('blip.wav', 'BLIP', 22050, 0.2),
         ('marimba.wav', 'MARIMBA', 11025, 2.6), ('vinyl.wav', 'SCRATCH', 22050, 0.3)],
 }
 BANK = [(d, *e) for d, rows in BANKS.items() for e in rows]

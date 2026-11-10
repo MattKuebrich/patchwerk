@@ -11,6 +11,8 @@ v1.0.3
   - "Match the unit's panel" is also under the emulator (one switch with the palette editor's).
   - Install on FM-1 has a box, "Load the factory sample banks after installing" (off by default): when the firmware is written, the page waits for the
     FM-1 to restart, links to it and sends the 808, 909, FM drums and other sounds to banks A to D, replacing what is there.
+  - Send all to the FM-1 no longer gives up with "No room" while the FM-1 still has room (it counted every sound against one gap; it now asks the FM-1 for the
+    real figure when its own count runs out).
   - New preset sounds: bank A is the TR-808 set by Michael Fischer, B the AudioRealism TR-909 pack (now with a real crash), D various sounds (piano, choir, marimba, drone, blip,
     a scratch and two drum breaks, AMEN and SAFARI, which are compressed but not trimmed; the button is now "FM + Various to C+D"). The FM drums stay. All 32
     sounds are about 225 KB on the FM-1. samples.html lists where each comes from; the page footer links to it, and hizmi's readme is kept in assets/samples/fm/HHSP01.NFO.

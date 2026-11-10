@@ -465,6 +465,8 @@ int pw_plat_flash_erase(uint32_t off) { flash_quiet(); return plat_data_erase(of
 int pw_plat_flash_write(uint32_t off, const void *src, uint32_t n) { flash_quiet(); return plat_data_write(off, src, n); }
 int pw_plat_host_read(uint32_t addr, uint8_t *dst, uint32_t n) { return plat_host_read(addr, dst, n); }
 static char bank_what[24];
+static uint8_t bank_hold;            /* a sound was saved and more follow: the transfer screen stays (it goes when the next one starts or after 4 s) */
+static uint32_t bank_hold_until;
 void pw_plat_progress(const char *what, unsigned percent) { pw_ui_progress(what, bank_what, percent); }
 
 #define BANK_CMD 0x60u
@@ -501,7 +503,7 @@ void app_usb_cmd(const uint8_t *d, uint32_t n)
     if (n < 8u || d[2] != BANK_CMD || len + 7u > n || !len)
         return;
     ans[0] = b[0]; ans[1] = PW_BANK_E_ARG;
-    if (b[0] == BANK_PUT && len >= 26u) {         /* slot, frames u32, rate u32, crc u32, name[12], codec (1: SEA; not sent: samples) */
+    if (b[0] == BANK_PUT && len >= 26u) {         /* slot, frames u32, rate u32, crc u32, name[12], codec (1: SEA; 0: samples), more (1: more sounds follow: the transfer screen stays up) */
         char name[13];
         uint32_t frames = rd32(b + 2), rate = rd32(b + 6), crc = rd32(b + 10);
         for (i = 0; i < 12u; i++)
@@ -513,15 +515,20 @@ void app_usb_cmd(const uint8_t *d, uint32_t n)
         bank_what[i++] = (char)('0' + (b[1] + 1) % 10);
         bank_what[i++] = ' ';
         memcpy(bank_what + i, name, 13);
+        bank_hold = 0;
         PW_TRACE(0x0F0);
         pw_ui_progress("SAMPLE FROM USB", bank_what, 0);
         PW_TRACE(0x0F1);
         plat_host_patience(2000u, 120000u);
         ans[1] = (uint8_t)pw_bank_receive(b[1], frames, rate, name, crc, len >= 27u ? b[26] : 0u);
         PW_TRACE(0x0F2);
-        pw_ui_redraw_all();
-        PW_TRACE(0x0F3);
-        pw_ui_notice(ans[1] ? "SAMPLE NOT SAVED" : "SAMPLE SAVED IN THE BANK");
+        if (!ans[1] && len >= 28u && b[27]) {      /* more sounds follow (the page's Send all): no flash back to the patch screen between them */
+            bank_hold = 1; bank_hold_until = plat_ms() + 4000u;
+        } else {
+            pw_ui_redraw_all();
+            PW_TRACE(0x0F3);
+            pw_ui_notice(ans[1] ? "SAMPLE NOT SAVED" : "SAMPLE SAVED IN THE BANK");
+        }
         PW_TRACE(0x0F4);
         usb_answer(ans, 2);
         PW_TRACE(0x0F5);
@@ -709,7 +716,12 @@ void app_frame(void)
             if (plat_ms() - last_say > 6000u) { last_say = plat_ms(); pw_ui_notice("CPU OVERLOAD - FEWER MODULES"); }
         }
     }
-    pw_ui_control();
+    if (bank_hold && (int32_t)(plat_ms() - bank_hold_until) >= 0) {   /* the batch ended (or the page went away): the normal screen again */
+        bank_hold = 0;
+        pw_ui_redraw_all();
+        pw_ui_notice("SAMPLES SAVED IN THE BANK");
+    }
+    if (!bank_hold) pw_ui_control();
     plat_present();                          /* (the mirror: this frame is whole) */
     pw_link_poll(plat_ms());                 /* a web page linked: what changed here goes to it */
     plat_glow(1);                            /* the unlit buttons glow, readable in the dark */

@@ -2316,7 +2316,7 @@ async function bankRead() {
   const ne = b && b[0] === 4 ? Math.min(b[2] || 16, 24) : 0;   /* (16 sounds; 17-20 with the CZ's banks; 21-24 the FM-DX's) */
   if (!b || b[0] !== 4 || b.length < 8 + ne * 20 || ne < 16) { toast('The FM-1 did not list its bank (Patchwerk up to date?)'); bankRender(); return; }
   const u32 = (o) => (b[o] | (b[o + 1] << 8) | (b[o + 2] << 16) | (b[o + 3] << 24)) >>> 0;
-  BANK.free = u32(4);
+  BANK.free = u32(4); BANK.freeEst = false;   /* (the FM-1's own figure: the largest gap, not a guess) */
   FLASH_TOTAL = b.length >= 16 + ne * 20 ? u32(8 + ne * 20) : FLASH_MAIN;   /* (rc54 firmware sends its room after the entries; older firmware has the main window only) */
   BANK.freeTotal = b.length >= 16 + ne * 20 ? u32(12 + ne * 20) : null;
   const dev = [], read = (a, first, n) => {
@@ -2359,9 +2359,11 @@ async function bankSend(i, batch) {   /* batch: 'mid' or 'last' inside Send all:
   delete BANK.err[i];
   if (!BANK.dev) await bankRead();
   const own = BANK.dev && BANK.dev[i] ? Math.ceil(devBytes(BANK.dev[i]) / 4096) * 4096 : 0;
-  const room = Math.max(BANK.free, own);
-  let rate = 0, frames = 0, bytes, codec = 0;
   const z = bankZ(s, i);
+  let room = Math.max(BANK.free, own);
+  /* inside Send all the room left is only a guess (each sound is taken off the largest gap, but later ones may go in another window): if the guess says no, ask the FM-1 before giving up */
+  if (BANK.freeEst && (z ? Math.ceil(z.bytes.length / 4096) * 4096 : Math.ceil(s.data.length * 2 / 4096) * 4096) > room) { await bankRead(); room = Math.max(BANK.free, own); }
+  let rate = 0, frames = 0, bytes, codec = 0;
   if (z) {      /* compressed (SEA), trimmed or not: the stream as it is, at the sound's own rate */
     if (Math.ceil(z.bytes.length / 4096) * 4096 > room) { bankFail(i, `No room: needs ${kbs(sectors(z.bytes.length))}, only ${kbs(room)} free`, `The FM-1 has no room for this sound (${kbs(sectors(z.bytes.length))} needed, ${kbs(room)} free in its largest gap): remove a sound from the FM-1 first`); return; }
     rate = s.rate; frames = z.frames; bytes = z.bytes; codec = 1;
@@ -2391,7 +2393,7 @@ async function bankSend(i, batch) {   /* batch: 'mid' or 'last' inside Send all:
     bar.textContent = `Sending to the FM-1… ${Math.round(served / bytes.length * 100)}%`;
   };
   bar.textContent = 'The FM-1 is making room…';
-  const ans = await bankAsk([1, i, ...le32(frames), ...le32(rate), ...le32(crc), ...name, ...(codec ? [1] : [])], 180000);
+  const ans = await bankAsk([1, i, ...le32(frames), ...le32(rate), ...le32(crc), ...name, codec ? 1 : 0, batch === 'mid' ? 1 : 0], 180000);   /* (the last byte: more sounds follow, so the FM-1 stays on its transfer screen) */
   LINK.serve = null; LINK.uploading = false; BANK.busy = false;
   const why = ['', 'it refused the request', 'its bank is full', 'its flash would not write', 'the transfer stopped', 'the sound arrived damaged', 'the extra flash cannot hold this sound as it is (try Trim or Compress the other way, or clear a sound)'];
   const ok = !!ans && !ans[1];
@@ -2400,7 +2402,7 @@ async function bankSend(i, batch) {   /* batch: 'mid' or 'last' inside Send all:
   bankRender();       /* (the sending text goes: it only shows while sending) */
   if (!ans || ans[1]) BANK.err[i] = { short: !ans ? 'The FM-1 stopped answering' : ans[1] === 2 ? `No room: ${kbs(room)} free` : `Not saved: ${why[ans[1]] || 'error ' + ans[1]}` }, BANK.err[i].long = BANK.err[i].short, bankRender();
   toast(!ans ? 'The FM-1 stopped answering' : ans[1] ? `Not saved: ${why[ans[1]] || 'error ' + ans[1]}` : bankIdx(i) < 0 && i >= 20 ? `FM-DX bank ${i - 19} is on the FM-1` : bankIdx(i) < 0 ? `CZ bank ${i - 15} is on the FM-1` : `${bankLabel(i)} is on the FM-1 (${codec ? (bytes.length / 1024).toFixed(1) + ' KB, compressed' : rate / 1000 + ' kHz'})`);
-  if (ok) BANK.free = Math.max(0, (BANK.free || 0) - Math.ceil(bytes.length / 4096) * 4096);   /* (what is left, as far as we know) */
+  if (ok) { BANK.free = Math.max(0, (BANK.free || 0) - Math.ceil(bytes.length / 4096) * 4096); BANK.freeEst = true; }   /* (what is left, as far as we know) */
   if (batch === 'mid' && ok) return true;
   LINK.lastHello = 0;                 /* the link and the mirror waited: start them again */
   mirrorRefresh();
