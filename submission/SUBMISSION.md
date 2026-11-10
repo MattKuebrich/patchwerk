@@ -5,7 +5,7 @@ Repo: https://github.com/MattKuebrich/patchwerk. Playable: https://mattkuebrich.
 
 ## Description (2-3 sentences)
 
-Patchwerk turns the FM-1 into a patchable modular synthesizer: over 80 modules (oscillators, a Casio CZ and a TX81Z-style FM voice, six filter circuits, drums, a sampler, sequencers, effects, envelopes and LFOs) joined by virtual cables on the FM-1's own screen and knobs. Each patch keeps 16 snapshots, a performance page and a song mode that plays snapshots and automates knobs; MIDI plays it over USB and TRS. A browser page runs the same code, links to a real FM-1, loads sounds into its sample bank and installs the firmware.
+Patchwerk turns the FM-1 into a modular synthesizer: over 80 modules (oscillators, a Casio CZ and a TX81Z-style FM voice, six filter circuits, drums, a sampler, sequencers, effects, envelopes and LFOs) joined by virtual cables on the FM-1's own screen and knobs. Each patch keeps 16 snapshots, a performance page and a song mode that plays snapshots and automates knobs; MIDI plays it over USB and TRS. A browser page runs the same code, links to a real FM-1, loads sounds into its sample bank and installs the firmware.
 
 ## Steps still yours
 
