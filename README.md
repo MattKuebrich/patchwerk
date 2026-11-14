@@ -48,3 +48,5 @@ Patchwerk is GPL-3.0-only (`LICENSE`). It is built on [fm1-base](https://github.
 [felucca-bsp](https://github.com/hugelton/felucca-bsp) (`base/`), whose files stay MPL-2.0 file by file (`base/LICENSING.md`). The CZ module
 is a port of Melodee's CZ engine (GPL-3.0, Kerem Kilic) and MAME's uPD933 model (BSD-3-Clause, Devin Acker). The FM-DX module is a
 port of ymfm's OPZ (YM2414) model and tables (BSD-3-Clause, Aaron Giles; `assets/dx/LICENSE-ymfm.txt`). Credits and licenses for the sample banks are on the [samples page](https://mattkuebrich.com/patchwerk/samples.html).
+
+You can also try Patchwerk in the browser, no flashing needed, in the free community [FM-1 Emulator](https://fm1-emulator.atst.tools/).
